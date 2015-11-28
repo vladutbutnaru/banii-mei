@@ -1,0 +1,23 @@
+Users Table:
+ID - Numeric
+First name - Text
+Last name - Text
+Password - Text
+Date of Birth - Date
+Email - Text
+Phone Number - Text
+City - Text
+Country - Text
+Smoker - 0:no 1:yes
+HasDriversLicence - 0:no 1:yes (for recommandation)
+HasCar - 0:no 1:yes
+Married - 0:no 1:yes
+NumberOfKids - numeric
+Preferred Currency - ID_CURRENCY
+IsAdmin - 1:yes 0:no
+User type - 1:Student 2:Angajat 3:Familie 4:Companie 5:Personal 6:Profesional 
+AgreedWithProcessingTerms: 1:yes 0:no
+IsPremium - 0:no 1:yes
+NumberOfLogins - numeric
+LastLogin - Timestamp
+DateRegistered - TimeStamp
