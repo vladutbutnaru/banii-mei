@@ -21,3 +21,13 @@ IsPremium - 0:no 1:yes
 NumberOfLogins - numeric
 LastLogin - Timestamp
 DateRegistered - TimeStamp
+
+Accounts Table:
+ID - Numeric
+AccountName - Text
+IDUser - Numeric
+Currency - Text
+Amount - Double
+AccountType - 1:cash 2:savings 3:regular
+AccountDescription - Text
+Deleted - Numeric	

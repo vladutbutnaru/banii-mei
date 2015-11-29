@@ -23,6 +23,7 @@ public class Users {
 
 		       user.setFirstName(rs.getString("FirstName"));
 		       user.setLastName(rs.getString("LastName"));
+		       user.setId(rs.getInt("ID"));
 
 		        // etc.
 		    }

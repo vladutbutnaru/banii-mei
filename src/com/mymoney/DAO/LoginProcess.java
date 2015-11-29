@@ -1,6 +1,7 @@
 package com.mymoney.DAO;
 
 import java.sql.Connection;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -8,9 +9,14 @@ import java.sql.Statement;
 import com.mymoney.entities.DBConnection;
 import com.mymoney.entities.User;
 
+@SuppressWarnings("true")
 public class LoginProcess {
+
+
 	
 public boolean doLogin(User user){
+
+	   
 	boolean loginOk = false;
 	DBConnection connectionFactory = new DBConnection();
 	Connection conn = (Connection) connectionFactory.getConnection();

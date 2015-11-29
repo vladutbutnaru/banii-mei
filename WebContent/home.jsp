@@ -18,10 +18,10 @@ for(Cookie cookie : cookies){
     if(cookie.getName().equals("user")) userName = cookie.getValue();
 }
 }
-if(userName == null) response.sendRedirect("login.html");
+if(userName == null) response.sendRedirect("login.jsp");
 Users userDAO = new Users();
 User currentUser = userDAO.getUserByEmail(userName);
-System.out.println(userName);
+
 %>
         <title>Banii mei : Interfata de administrare | <%= currentUser.getFirstName() + " " + currentUser.getLastName() %></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -55,7 +55,10 @@ System.out.println(userName);
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
         <!-- CORE CSS TEMPLATE - END -->
 <%@ page import="com.mymoney.DAO.Users" %>
+<%@ page import="com.mymoney.DAO.Accounts" %>
 <%@ page import="com.mymoney.entities.User" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.mymoney.entities.Account" %>
     </head>
     <!-- END HEAD -->
 
@@ -580,15 +583,22 @@ System.out.println(userName);
                         <section class="box nobox">
                             <div class="content-body">
                               <div class="row">
+                              <%
+                              //get all accounts and display them first
+                              Accounts accountDAO = new Accounts();
+                              ArrayList<Account> listOfAccounts = new ArrayList<Account>();
+                              listOfAccounts = accountDAO.getAccountsForUser(currentUser);
+                              for(Account a : listOfAccounts){ %>
                                     <div class="col-md-3 col-sm-6 col-xs-6">
                                         <div class="r4_counter db_box">
                                             <i class='pull-left fa fa-dollar icon-md icon-rounded icon-primary'></i>
                                             <div class="stats">
-                                                <h4><strong>1000 RON</strong></h4>
-                                                <span>Cont principal LEI</span>
+                                                <h4><strong><%= a.getAmount() + " " + a.getCurrency() %></strong></h4>
+                                                <span><%= a.getAccountDescription()%></span>
                                             </div>
                                         </div>
                                     </div>
+                                    <%} %>
                                     <div class="col-md-3 col-sm-6 col-xs-6">
                                         <div class="r4_counter db_box">
                                             <i class='pull-left fa fa-shopping-cart icon-md icon-rounded icon-orange'></i>
