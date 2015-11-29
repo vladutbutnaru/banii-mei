@@ -7,7 +7,7 @@ private int id;
 private String firstName;
 private String lastName;
 protected String password;
-private Date dateOfBirth;
+private String dateOfBirth;
 private String email;
 private String phoneNumber;
 private String city;
@@ -50,10 +50,10 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
-public Date getDateOfBirth() {
+public String getDateOfBirth() {
 	return dateOfBirth;
 }
-public void setDateOfBirth(Date dateOfBirth) {
+public void setDateOfBirth(String dateOfBirth) {
 	this.dateOfBirth = dateOfBirth;
 }
 public String getEmail() {

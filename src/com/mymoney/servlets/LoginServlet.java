@@ -20,9 +20,7 @@ import com.mymoney.entities.User;
 @WebServlet(description = "Servlet to handle login requests", urlPatterns = { "/LoginServlet" })
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
-    private final String userID = "Vlad";
-    private final String password = "password";
+
     /**
      * @see HttpServlet#HttpServlet()
      */

@@ -272,15 +272,17 @@ $(document).ready(function() {
         });
 
         $('#pills .finish').click(function() {
-            alert('Finished!, Starting over!');
-            $('#pills').find("a[href*='tab1']").trigger('click');
+        	 var $valid = $("#commentForm").valid();
+             if (!$valid) {
+                 $validator.focusInvalid();
+                 alert('Te rog sa completezi toate campurile marcate!!');
+             }
+             else{
+            alert('Bine ai venit pe platforma Banii Mei!');
+            document.getElementById("commentForm").submit();
+            
+             }
         });
-
-
-
-
-
-
 
     }
 

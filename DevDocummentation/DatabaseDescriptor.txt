@@ -15,7 +15,7 @@ Married - 0:no 1:yes
 NumberOfKids - numeric
 Preferred Currency - ID_CURRENCY
 IsAdmin - 1:yes 0:no
-User type - 1:Student 2:Angajat 3:Familie 4:Companie 5:Personal 6:Profesional 
+User type - 1:Personal 2:Personal+ 3:Professional
 AgreedWithProcessingTerms: 1:yes 0:no
 IsPremium - 0:no 1:yes
 NumberOfLogins - numeric
