@@ -10,7 +10,7 @@
         -->
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
         <meta charset="utf-8" />
-         <%
+          <%
 String userName = null;
 Cookie[] cookies = request.getCookies();
 if(cookies !=null){
@@ -23,7 +23,7 @@ Users userDAO = new Users();
 User currentUser = userDAO.getUserByEmail(userName);
 
 %>
-        <title>Banii mei : Interfata de administrare | <%= currentUser.getFirstName() + " " + currentUser.getLastName() %></title>
+       <title>Banii mei : Conturile mele | <%= currentUser.getFirstName() + " " + currentUser.getLastName() %></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="" name="description" />
         <meta content="" name="author" />
@@ -33,8 +33,12 @@ User currentUser = userDAO.getUserByEmail(userName);
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/apple-touch-icon-114-precomposed.png">    <!-- For iPhone 4 Retina display -->
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/apple-touch-icon-72-precomposed.png">    <!-- For iPad -->
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/apple-touch-icon-144-precomposed.png">    <!-- For iPad Retina display -->
-
-
+<%@ page import="com.mymoney.DAO.Users" %>
+<%@ page import="com.mymoney.DAO.Accounts" %>
+<%@ page import="com.mymoney.entities.User" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.mymoney.entities.Account" %>
+      
 
 
         <!-- CORE CSS FRAMEWORK - START -->
@@ -47,18 +51,14 @@ User currentUser = userDAO.getUserByEmail(userName);
         <!-- CORE CSS FRAMEWORK - END -->
 
         <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START --> 
-        <link href="assets/plugins/morris-chart/css/morris.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/jquery-ui/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/rickshaw-chart/css/graph.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/rickshaw-chart/css/detail.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/rickshaw-chart/css/legend.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/rickshaw-chart/css/extensions.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/rickshaw-chart/css/rickshaw.min.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/rickshaw-chart/css/lines.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/jvectormap/jquery-jvectormap-2.0.1.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/icheck/skins/minimal/white.css" rel="stylesheet" type="text/css" media="screen"/>        <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
+        <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
 
 
         <!-- CORE CSS TEMPLATE - START -->
         <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
         <!-- CORE CSS TEMPLATE - END -->
-<%@ page import="com.mymoney.DAO.Users" %>
-<%@ page import="com.mymoney.DAO.Accounts" %>
-<%@ page import="com.mymoney.entities.User" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.mymoney.entities.Account" %>
+
     </head>
     <!-- END HEAD -->
 
@@ -401,7 +401,7 @@ User currentUser = userDAO.getUserByEmail(userName);
         <!-- START CONTAINER -->
         <div class="page-container row-fluid">
 
-            <!-- SIDEBAR - START -->
+          <!-- SIDEBAR - START -->
             <div class="page-sidebar ">
 
 
@@ -438,13 +438,13 @@ User currentUser = userDAO.getUserByEmail(userName);
                     <ul class='wraplist'>	
 
 
-                        <li class="open"> 
-                            <a href="index.html">
+                        <li class=""> 
+                            <a href="home.jsp">
                                 <i class="fa fa-dashboard"></i>
                                 <span class="title">Interfata de control</span>
                             </a>
                         </li>
-                        <li class=""> 
+                        <li class="open"> 
                             <a href="accounts.jsp">
                                 <i class="fa fa-th"></i>
                                 <span class="title">Conturile mele</span><span class="label label-orange nosubmenu">2</span>
@@ -573,500 +573,355 @@ User currentUser = userDAO.getUserByEmail(userName);
                         <div class="page-title">
 
                             <div class="pull-left">
-                                <h1 class="title">Interfata de control</h1>                            </div>
+                                <h1 class="title">Conturile mele</h1>                            </div>
 
 
                         </div>
                     </div>
                     <div class="clearfix"></div>
 
-
-                    <div class="col-lg-12">
-                        <section class="box nobox">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <section class="box ">
+                            <header class="panel_header">
+                                <h2 class="title pull-left">Informatii conturi</h2>
+                               
+                            </header>
                             <div class="content-body">
-                              <div class="row">
-                              <%
-                              //get all accounts and display them first
-                              Accounts accountDAO = new Accounts();
-                              ArrayList<Account> listOfAccounts = new ArrayList<Account>();
-                              listOfAccounts = accountDAO.getAccountsForUser(currentUser);
-                              for(Account a : listOfAccounts){ %>
-                                    <div class="col-md-3 col-sm-6 col-xs-6">
-                                        <div class="r4_counter db_box">
-                                            <i class='pull-left fa fa-dollar icon-md icon-rounded icon-primary'></i>
-                                            <div class="stats">
-                                                <h4><strong><%= a.getAmount() + " " + a.getCurrency() %></strong></h4>
-                                                <span><%= a.getAccountDescription()%></span>
-                                            </div>
+                                <div class="row">                                  
+                                
+                                    <div class="col-md-12">
+                                        <br>
+                                        <h3>Conturi de economii    <button type="button" class="btn btn-primary"><i class="fa fa-plus" data-toggle="modal" a href="#"></i></button></h3>
+                                        <br>
+                                       <%
+                                  
+                                       //get all accounts and display them first
+                                       boolean hasSavingsAccounts = false;
+                                       Accounts accountDAO = new Accounts();
+                                       ArrayList<Account> listOfAccounts = new ArrayList<Account>();
+                                       listOfAccounts = accountDAO.getAccountsForUser(currentUser);
+                                       for(Account a : listOfAccounts ){
+                                    	if(a.getAccountType()==2 && a.getDeleted() == 0){	
+                                    		hasSavingsAccounts=true;
+                                    	   
+                                    	   %>                                       
+                                       
+                                     
+                                        <div class="well primary">
+                                            <h3><%= a.getAccountName() %> - <span class="semi-bold"> <%= a.getAmount() %> <sup><%= a.getCurrency() %></sup></span></h3>
+                                           <%= a.getAccountDescription() %>
+                                            
                                         </div>
-                                    </div>
-                                    <%} %>
-                                    </div>
-                                        <div class="row">
-                                    <div class="col-md-3 col-sm-6 col-xs-6">
-                                        <div class="r4_counter db_box">
-                                            <i class='pull-left fa fa-shopping-cart icon-md icon-rounded icon-orange'></i>
-                                            <div class="stats">
-                                                <h4><strong>15</strong></h4>
-                                                <span>Produse cumparate in ultima luna</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6">
-                                        <div class="r4_counter db_box">
-                                            <i class='pull-left fa fa-dollar icon-md icon-rounded icon-purple'></i>
-                                            <div class="stats">
-                                                <h4><strong>14 RON</strong></h4>
-                                                <span>Suma cheltuita astazi</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6">
-                                        <div class="r4_counter db_box">
-                                            <i class='pull-left fa fa-retweet icon-md icon-rounded icon-warning'></i>
-                                            <div class="stats">
-                                                <h4><strong>250 RON</strong></h4>
-                                                <span>Plati recurente pana la finalul lunii</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> <!-- End .row -->
-                                <div class="row">
-
-                                    <div class="col-md-3 col-sm-5 col-xs-12">
-
-                                        <div class="r1_graph1 db_box">
-                                            <span class='bold'>98.95%</span>
-                                            <span class='pull-right'><small>SERVER UP</small></span>
-                                            <div class="clearfix"></div>
-                                            <span class="db_dynamicbar">Loading...</span>
-                                        </div>
-
-
-                                        <div class="r1_graph2 db_box">
-                                            <span class='bold'>2332</span>
-                                            <span class='pull-right'><small>USERS ONLINE</small></span>
-                                            <div class="clearfix"></div>
-                                            <span class="db_linesparkline">Loading...</span>
-                                        </div>
-
-
-                                        <div class="r1_graph3 db_box">
-                                            <span class='bold'>342/123</span>
-                                            <span class='pull-right'><small>ORDERS / SALES</small></span>
-                                            <div class="clearfix"></div>
-                                            <span class="db_compositebar">Loading...</span>
-                                        </div>
-
-                                    </div>
-
-
-
-                                    <div class="col-md-6 col-sm-7 col-xs-12">
-                                        <div class="r1_maingraph db_box">
-                                            <span class='pull-left'>
-                                                <i class='icon-purple fa fa-square icon-xs'></i>&nbsp;<small>PAGE VIEWS</small>&nbsp; &nbsp;<i class='fa fa-square icon-xs icon-primary'></i>&nbsp;<small>UNIQUE VISITORS</small>
-                                            </span>
-                                            <span class='pull-right switch'>
-                                                <i class='icon-default fa fa-line-chart icon-xs'></i>&nbsp; &nbsp;<i class='icon-secondary fa fa-bar-chart icon-xs'></i>&nbsp; &nbsp;<i class='icon-secondary fa fa-area-chart icon-xs'></i>
-                                            </span>
-
-                                            <div id="db_morris_line_graph" style="height:272px;width:95%;"></div>
-                                            <div id="db_morris_area_graph" style="height:272px;width:90%;display:none;"></div>
-                                            <div id="db_morris_bar_graph" style="height:272px;width:90%;display:none;"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3 col-sm-12 col-xs-12">
-                                        <div class="r1_graph4 db_box">
-                                            <span class=''>
-                                                <i class='icon-purple fa fa-square icon-xs icon-1'></i>&nbsp;<small>CPU USAGE</small>
-                                            </span>
-                                            <canvas width='180' height='90' id="gauge-meter"></canvas>
-                                            <h4 id='gauge-meter-text'></h4>
-                                        </div>
-                                        <div class="r1_graph5 db_box col-xs-6">
-                                            <span class=''><i class='icon-purple fa fa-square icon-xs icon-1'></i>&nbsp;<small>LONDON</small>&nbsp; &nbsp;<i class='fa fa-square icon-xs icon-2'></i>&nbsp;<small>PARIS</small></span>
-                                            <div style="width:120px;height:120px;margin: 0 auto;">
-                                                <span class="db_easypiechart1 easypiechart" data-percent="66"><span class="percent" style='line-height:120px;'></span></span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div> <!-- End .row -->
-
-
-                                <div class="row">
-                                    <div class="col-md-8 col-sm-12 col-xs-12">
-                                        <div class="wid-vectormap">
-                                            <h4>Visitor's Statistics</h4>
-                                            <div class="row">
-                                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                                    <figure>
-                                                        <div id="db-world-map-markers" style="width: 100%; height: 300px"></div>        
-                                                    </figure>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 col-xs-12 map_progress">
-                                                    <h4>Unique Visitors</h4>
-                                                    <span class='text-muted'><small>Last Week Rise by 62%</small></span>
-                                                    <div class="progress"><div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div></div>
-                                                    <br>
-                                                    <h4>Registrations</h4>
-                                                    <span class='text-muted'><small>Up by 57% last 7 days</small></span>
-                                                    <div class="progress"><div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%"></div></div>
-                                                    <br>
-                                                    <h4>Direct Sales</h4>
-                                                    <span class='text-muted'><small>Last Month Rise by 22%</small></span>
-                                                    <div class="progress"><div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100" style="width: 22%"></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>		
-
-                                    <div class="col-md-4 col-sm-12 col-xs-12">
-                                        <div class="r2_graph1 db_box">
-
-
-
-                                            <form id="rickshaw_side_panel">
-                                                <section><div id="legend"></div></section>
-                                                <section>
-                                                    <div id="renderer_form" class="toggler">
-                                                        <select name="renderer">
-                                                            <option value="area" selected>Area</option>
-                                                            <option value="bar">Bar</option>
-                                                            <option value="line">Line</option>
-                                                            <option value="scatterplot">Scatter</option>
-                                                        </select>
-                                                    </div>
-                                                </section>
-                                                <section>
-                                                    <div id="offset_form">
-                                                        <label for="stack">
-                                                            <input type="radio" name="offset" id="stack" value="zero" checked>
-                                                            <span>stack</span>
-                                                        </label>
-                                                        <label for="stream">
-                                                            <input type="radio" name="offset" id="stream" value="wiggle">
-                                                            <span>stream</span>
-                                                        </label>
-                                                        <label for="pct">
-                                                            <input type="radio" name="offset" id="pct" value="expand">
-                                                            <span>pct</span>
-                                                        </label>
-                                                        <label for="value">
-                                                            <input type="radio" name="offset" id="value" value="value">
-                                                            <span>value</span>
-                                                        </label>
-                                                    </div>
-                                                    <div id="interpolation_form">
-                                                        <label for="cardinal">
-                                                            <input type="radio" name="interpolation" id="cardinal" value="cardinal" checked>
-                                                            <span>cardinal</span>
-                                                        </label>
-                                                        <label for="linear">
-                                                            <input type="radio" name="interpolation" id="linear" value="linear">
-                                                            <span>linear</span>
-                                                        </label>
-                                                        <label for="step">
-                                                            <input type="radio" name="interpolation" id="step" value="step-after">
-                                                            <span>step</span>
-                                                        </label>
-                                                    </div>
-                                                </section>
-                                            </form>
-
-                                            <div id="chart_container" class="rickshaw_ext">
-                                                <div id="chart"></div>
-                                                <div id="timeline"></div>
-                                            </div>
-
-                                            <div id='rickshaw_side_panel' class="rickshaw_sliders">
-                                                <section>
-                                                    <h5>Smoothing</h5>
-                                                    <div id="smoother"></div>
-                                                </section>
-                                                <section>
-                                                    <h5>Preview Range</h5>
-                                                    <div id="preview" class="rickshaw_ext_preview"></div>
-                                                </section>
-                                            </div>
-
-                                        </div>
-                                        <!-- 
-                                                                        <div class="r2_counter1 db_box">
-                                                                                counter 1
-                                                                        </div>
-                                        
-                                                                        <div class="r2_counter2 db_box">
-                                                                                counter 2
-                                                                        </div> -->
-
-                                    </div>		
-
-                                </div> <!-- End .row -->
-
-
-
-
-
-                              	
-
-
-
-                                <div class="row">
-                                    <div class="col-md-5 col-sm-12 col-xs-12">
-                                        <div class="r3_notification db_box">
-                                            <h4>Notifications</h4>
-
-                                            <ul class="list-unstyled notification-widget">
-
-
-                                                <li class="unread status-available">
-                                                    <a href="javascript:;">
-                                                        <div class="user-img">
-                                                            <img src="data/profile/avatar-1.png" alt="user-image" class="img-circle img-inline">
-                                                        </div>
-                                                        <div>
-                                                            <span class="name">
-                                                                <strong>Clarine Vassar</strong>
-                                                                <span class="time small">- 15 mins ago</span>
-                                                                <span class="profile-status available pull-right"></span>
-                                                            </span>
-                                                            <span class="desc small">
-                                                                Sometimes it takes a lifetime to win a battle.
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-
-                                                <li class=" status-away">
-                                                    <a href="javascript:;">
-                                                        <div class="user-img">
-                                                            <img src="data/profile/avatar-2.png" alt="user-image" class="img-circle img-inline">
-                                                        </div>
-                                                        <div>
-                                                            <span class="name">
-                                                                <strong>Brooks Latshaw</strong>
-                                                                <span class="time small">- 45 mins ago</span>
-                                                                <span class="profile-status away pull-right"></span>
-                                                            </span>
-                                                            <span class="desc small">
-                                                                Sometimes it takes a lifetime to win a battle.
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-
-                                                <li class=" status-busy">
-                                                    <a href="javascript:;">
-                                                        <div class="user-img">
-                                                            <img src="data/profile/avatar-3.png" alt="user-image" class="img-circle img-inline">
-                                                        </div>
-                                                        <div>
-                                                            <span class="name">
-                                                                <strong>Clementina Brodeur</strong>
-                                                                <span class="time small">- 1 hour ago</span>
-                                                                <span class="profile-status busy pull-right"></span>
-                                                            </span>
-                                                            <span class="desc small">
-                                                                Sometimes it takes a lifetime to win a battle.
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-
-                                                <li class=" status-offline">
-                                                    <a href="javascript:;">
-                                                        <div class="user-img">
-                                                            <img src="data/profile/avatar-4.png" alt="user-image" class="img-circle img-inline">
-                                                        </div>
-                                                        <div>
-                                                            <span class="name">
-                                                                <strong>Carri Busey</strong>
-                                                                <span class="time small">- 5 hours ago</span>
-                                                                <span class="profile-status offline pull-right"></span>
-                                                            </span>
-                                                            <span class="desc small">
-                                                                Sometimes it takes a lifetime to win a battle.
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-
-                                                <li class=" status-offline">
-                                                    <a href="javascript:;">
-                                                        <div class="user-img">
-                                                            <img src="data/profile/avatar-5.png" alt="user-image" class="img-circle img-inline">
-                                                        </div>
-                                                        <div>
-                                                            <span class="name">
-                                                                <strong>Melissa Dock</strong>
-                                                                <span class="time small">- Yesterday</span>
-                                                                <span class="profile-status offline pull-right"></span>
-                                                            </span>
-                                                            <span class="desc small">
-                                                                Sometimes it takes a lifetime to win a battle.
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-
-                                                <li class=" status-available">
-                                                    <a href="javascript:;">
-                                                        <div class="user-img">
-                                                            <img src="data/profile/avatar-1.png" alt="user-image" class="img-circle img-inline">
-                                                        </div>
-                                                        <div>
-                                                            <span class="name">
-                                                                <strong>Verdell Rea</strong>
-                                                                <span class="time small">- 14th Mar</span>
-                                                                <span class="profile-status available pull-right"></span>
-                                                            </span>
-                                                            <span class="desc small">
-                                                                Sometimes it takes a lifetime to win a battle.
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-
-                                                <li class=" status-busy">
-                                                    <a href="javascript:;">
-                                                        <div class="user-img">
-                                                            <img src="data/profile/avatar-2.png" alt="user-image" class="img-circle img-inline">
-                                                        </div>
-                                                        <div>
-                                                            <span class="name">
-                                                                <strong>Linette Lheureux</strong>
-                                                                <span class="time small">- 16th Mar</span>
-                                                                <span class="profile-status busy pull-right"></span>
-                                                            </span>
-                                                            <span class="desc small">
-                                                                Sometimes it takes a lifetime to win a battle.
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-
-                                                <li class=" status-away">
-                                                    <a href="javascript:;">
-                                                        <div class="user-img">
-                                                            <img src="data/profile/avatar-3.png" alt="user-image" class="img-circle img-inline">
-                                                        </div>
-                                                        <div>
-                                                            <span class="name">
-                                                                <strong>Araceli Boatright</strong>
-                                                                <span class="time small">- 16th Mar</span>
-                                                                <span class="profile-status away pull-right"></span>
-                                                            </span>
-                                                            <span class="desc small">
-                                                                Sometimes it takes a lifetime to win a battle.
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-
+                                               <div class="col-md-12">
+                                            <p class="text-right">
+                                           
+                                            </p>                                         
+                                        <div class="dropdown">
+                                          
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                              Adauga tranzactie noua
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Plata</a></li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Castig</a></li>                                           
                                             </ul>
-
+                                             <button type="button" class="btn btn-info">Editeaza informatii</button>
+                                                  <button type="button" class="btn btn-info">Genereaza raport</button>
+                                            <button type="button" class="btn btn-danger">Sterge cont</button>
+                                            <button type="button" class="btn btn-success">Creaza buget</button>   
+                                          
                                         </div>
-                                    </div>		
-
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <div class="r3_weather">
-                                            <div class="wid-weather wid-weather-small">
-                                                <div class="">
-
-                                                    <div class="location">
-                                                        <h3>California, USA</h3>
-                                                        <span>Today, 12<sup>th</sup> March 2015</span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="degree">
-                                                        <i class='fa fa-cloud icon-lg text-white'></i><span>Now</span><h3>24°</h3>
-                                                        <div class="clearfix"></div>
-                                                        <h4 class="text-white text-center">Hot & Sunny</h4>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="weekdays bg-white">
-                                                        <ul class="list-unstyled">
-                                                            <li><span class='day'>Sunday</span><i class='fa fa-cloud icon-xs'></i><span class='temp'>23° - 27°</span></li>
-                                                            <li><span class='day'>Monday</span><i class='fa fa-cloud icon-xs'></i><span class='temp'>21° - 26°</span></li>
-                                                            <li><span class='day'>Tuesday</span><i class='fa fa-cloud icon-xs'></i><span class='temp'>24° - 28°</span></li>
-                                                            <li><span class='day'>Wednesday</span><i class='fa fa-cloud icon-xs'></i><span class='temp'>25° - 26°</span></li>
-                                                            <li><span class='day'>Thursday</span><i class='fa fa-cloud icon-xs'></i><span class='temp'>22° - 25°</span></li>
-                                                            <li><span class='day'>Friday</span><i class='fa fa-cloud icon-xs'></i><span class='temp'>21° - 28°</span></li>
-                                                            <li><span class='day'>Satday</span><i class='fa fa-cloud icon-xs'></i><span class='temp'>23° - 29°</span></li>
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
+                                 
+                                        
                                         </div>
-                                    </div>		
+                                        <br>
+                                        <%}}if(!hasSavingsAccounts){
+                                            
+                                            %>
+                                            <div class="well">
+                                                <h3>Nu ai adaugat niciun cont <span class="semi-bold">de economii</span>, <a href="#"><i>adauga acum!</i></a> </h3>
+                                             	Conturile de economii te ajuta sa tii evidenta economiilor tale, sa le administrezi intr-un mod facil si sa creezi un buget pentru a ajunge la comfortul financiar la care visezi. <b>80%</b> din conturile de economii create de utilizatorilor aplicatiei au cunoscut o crestere de peste <b>30%</b> in mai putin de 3 luni. Incearca si tu!
+                                             	</div>
+                                            
+                                            
+                                            
+                                           <%}                  
+                                            
+                                            %>
+                                        <br>
+                                        <br>
 
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-
-                                        <div class="ultra-widget ultra-todo-task bg-primary">
-                                            <div class="wid-task-header">
-                                                <div class="wid-icon">
-                                                    <i class="fa fa-tasks"></i>
-                                                </div>
-                                                <div class="wid-text">
-                                                    <h4>To do Tasks</h4>
-                                                    <span>Wed, <small>11<sup>th</sup> March 2015</small></span>
-                                                </div>
-                                            </div>
-                                            <div class="wid-all-tasks">
-
-                                                <ul class="list-unstyled">
-
-                                                    <li class="checked">
-                                                        <input type="checkbox" id="task-1" class="icheck-minimal-white todo-task" checked>
-                                                        <label class="icheck-label form-label" for="task-1">Office Projects</label>
-                                                    </li> 
-                                                    <li>
-                                                        <input type="checkbox" id="task-2" class="icheck-minimal-white todo-task" >
-                                                        <label class="icheck-label form-label" for="task-2">Generate Invoice</label>
-                                                    </li>  
-
-                                                    <li>
-                                                        <input type="checkbox" id="task-3" class="icheck-minimal-white todo-task" >
-                                                        <label class="icheck-label form-label" for="task-3">Ecommerce Theme</label>
-                                                    </li> 
-                                                    <li>
-                                                        <input type="checkbox" id="task-4" class="icheck-minimal-white todo-task" >
-                                                        <label class="icheck-label form-label" for="task-4">PHP and jQuery</label>
-                                                    </li> 
-                                                    <li>
-                                                        <input type="checkbox" id="task-5" class="icheck-minimal-white todo-task" >
-                                                        <label class="icheck-label form-label" for="task-5">Allocate&nbsp;Resource</label>
-                                                    </li> 
-                                                </ul>
-
-                                            </div>
-                                            <div class="wid-add-task">
-                                                <input type="text" class="form-control" placeholder="Add task" />
-                                            </div>
+                                     
+                                    </div>
+                                </div>
+   <div class="row">                                  
+                                
+                                    <div class="col-md-12">
+                                        <br>
+                                        <h3>Conturi de tip numerar    <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i></button></h3>
+                                        <br>
+                                       <%
+                                  
+                                       //get all accounts and display them first
+                                     
+                                   boolean hasCashAccounts = false;
+                                       for(Account a : listOfAccounts){
+                                    	if(a.getAccountType()==1 && a.getDeleted() == 0){	
+                                    		hasCashAccounts=true;
+                                    	   %>                                       
+                                       
+                                     
+                                        <div class="well primary">
+                                            <h3><%= a.getAccountName() %> - <span class="semi-bold"> <%= a.getAmount() %> <sup><%= a.getCurrency() %></sup></span></h3>
+                                           <%= a.getAccountDescription() %>
+                                            
                                         </div>
+                                               <div class="col-md-12">
+                                            <p class="text-right">
+                                           
+                                            </p>                                         
+                                        <div class="dropdown">
+                                          
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                              Adauga tranzactie noua
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Plata</a></li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Castig</a></li>                                           
+                                            </ul>
+                                             <button type="button" class="btn btn-info">Editeaza informatii</button>
+                                                  <button type="button" class="btn btn-info">Genereaza raport</button>
+                                            <button type="button" class="btn btn-danger">Sterge cont</button>
+                                            <button type="button" class="btn btn-success">Creaza buget</button>   
+                                          
+                                        </div>
+                                 
+                                        
+                                        </div>
+                                        <br>
+                                        <%}}
+                                        if(!hasCashAccounts){
+                                        
+                                        %>
+                                        <div class="well">
+                                            <h3>Nu ai adaugat niciun cont <span class="semi-bold">numerar</span>, <a href="#"><i>adauga acum!</i></a> </h3>
+                                         	Conturile de tip numerar te ajuta sa tii evidenta cheltuielilor de zi cu zi. Majoritatea utilizatorilor au asociat acest cont numerarului din portofel. Este cel mai bugetat cont, <b> 75%</b> din utilizatori avand asociat cel putin unul acestui cont.
+                                        </div>
+                                        
+                                        
+                                        
+                                       <%}                  
+                                        
+                                        %>
+                                     <br>
+                                        <br>
 
+                                     
+                                    </div>
+                                </div>
 
-                                    </div>		
+   <div class="row">                                  
+                                
+                                    <div class="col-md-12">
+                                        <br>
+                                        <h3>Conturi curente    <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i></button></h3>
+                                        <br>
+                                       <%
+                                  
+                                       //get all accounts and display them first
+                                     
+                                   boolean hasRegularAccounts = false;
+                                       for(Account a : listOfAccounts){
+                                    	if(a.getAccountType()==3 && a.getDeleted() == 0){	   
+                                    		hasRegularAccounts = true;
+                                    	   %>                                       
+                                       
+                                     
+                                        <div class="well primary">
+                                            <h3><%= a.getAccountName() %> - <span class="semi-bold"> <%= a.getAmount() %> <sup><%= a.getCurrency() %></sup></span></h3>
+                                           <%= a.getAccountDescription() %>
+                                            
+                                        </div>
+                                               <div class="col-md-12">
+                                            <p class="text-right">
+                                           
+                                            </p>                                         
+                                        <div class="dropdown">
+                                          
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                              Adauga tranzactie noua
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Plata</a></li>
+                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Castig</a></li>                                           
+                                            </ul>
+                                             <button type="button" class="btn btn-info">Editeaza informatii</button>
+                                                <button type="button" class="btn btn-info">Genereaza raport</button>
+                                            <button type="button" class="btn btn-danger">Sterge cont</button>
+                                            <button type="button" class="btn btn-success">Creaza buget</button>   
+                                          
+                                        </div>
+                                 
+                                        
+                                        </div>
+                                        <br>
+                                        <%}} 
+                                       if(!hasCashAccounts){
+                                        
+                                        %>
+                                        <div class="well">
+                                            <h3>Nu ai adaugat niciun cont <span class="semi-bold">curent</span>, <a href="#"><i>adauga acum!</i></a> </h3>
+                                         Conturile curente te ajuta sa tii evidenta castigurilor. Este cel mai popular dintre conturile create in aplicatie, <b>95%</b> din utilizatorii aplicatiei au creat un astfel de cont, iar <b>80%</b> dintre acestia si-au creat un castig recurent (salariu) asociat acestuia. Tu ce astepti?
+                                        </div>
+                                        
+                                        
+                                        
+                                       <%}                  
+                                        
+                                        %>
+                                        <br>
+                                        <br>
 
-                                </div> <!-- End .row -->
-
-
+                                     
+                                    </div>
+                                </div>
                             </div>
                         </section></div>
+
+
+
+
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <section class="box ">
+                            <header class="panel_header">
+                                <h2 class="title pull-left">Sfaturi legate de conturi</h2>
+                                <div class="actions panel_actions pull-right">
+                                    <i class="box_toggle fa fa-chevron-down"></i>
+                                    <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                                    <i class="box_close fa fa-times"></i>
+                                </div>
+                            </header>
+                            <div class="content-body">    <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+
+                                        <ul>
+                                            <li>
+                                               Iti recomandam sa iti creezi cel putin <b>cate un cont</b> pentru fiecare categorie.
+                                            </li>
+                                            <li>
+                                               Tine balantele actualizate zilnic.
+                                            </li>
+                                            <li>
+                                                Foloseste-te de graficele volumului monetar.
+                                            </li>
+                                            <li>
+                                                Creaza bugete pentru toate conturile.
+                                                <ul>
+                                                    <li>
+                                                        Bugete de economisire.
+                                                    </li>
+                                                    <li>
+                                                        Bugete de cheltuieli regulate.
+                                                    </li>
+                                                    <li>
+                                                        Bugete pentru vacante.
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                               Gaseste-ti motivatia sa economisesti mai mult.
+                                            </li>
+                                            <li>
+                                               Platile si castigurile vor actualiza automat balanta conturilor.
+                                            </li>
+                                            <li>
+                                                Foloseste serviciul <b>Optimum Spending</b> pentru a economisi mai mult.
+                                            </li>
+                                            <li>
+                                                Creaza rapoarte saptamanale pentru cheltuielile si castigurile tale.
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section></div>
+
+
+
+
+
+
+
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <section class="box ">
+                            <header class="panel_header">
+                                <h2 class="title pull-left">Ordered Lists</h2>
+                                <div class="actions panel_actions pull-right">
+                                    <i class="box_toggle fa fa-chevron-down"></i>
+                                    <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                                    <i class="box_close fa fa-times"></i>
+                                </div>
+                            </header>
+                            <div class="content-body">    <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+
+                                        <ol>
+                                            <li><span >Lorem ipsum dolor sit amet</span></li>
+                                            <li><span >Consectetur adipiscing elit</span></li>
+                                            <li><span >Integer molestie lorem at massa</span></li>
+                                            <li><span >Facilisis in pretium nisl aliquet</span></li>
+                                            <li><span >Nulla volutpat aliquam velit</span></li>
+                                            <li><span >Faucibus porta lacus fringilla vel</span></li>
+                                            <li><span >Aenean sit amet erat nunc</span></li>
+                                            <li><span >Eget porttitor lorem</span></li>
+                                            <li><span >Nulla volutpat aliquam velit</span></li>
+                                            <li><span >Faucibus porta lacus fringilla vel</span></li>
+                                        </ol>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section></div>
+
+
+
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <section class="box ">
+                            <header class="panel_header">
+                                <h2 class="title pull-left">Inline Lists</h2>
+                                <div class="actions panel_actions pull-right">
+                                    <i class="box_toggle fa fa-chevron-down"></i>
+                                    <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                                    <i class="box_close fa fa-times"></i>
+                                </div>
+                            </header>
+                            <div class="content-body">    <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+
+                                        <ul class="list-inline">
+                                            <li>1. Welcome</li>
+                                            <li>2. To</li>
+                                            <li>3. Ultra</li>
+                                            <li>4. Admin</li>
+                                            <li>5. Premium</li>
+                                            <li>6. Theme</li>
+                                            <li>7. Built</li>
+                                            <li>8. With</li>
+                                            <li>9. <i class='fa fa-heart'></i> Love</li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section></div>
+
+
+
+
 
 
 
@@ -1282,7 +1137,7 @@ User currentUser = userDAO.getUserByEmail(userName);
 
 
         <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START --> 
-        <script src="assets/plugins/rickshaw-chart/vendor/d3.v3.js" type="text/javascript"></script> <script src="assets/plugins/jquery-ui/smoothness/jquery-ui.min.js" type="text/javascript"></script> <script src="assets/plugins/rickshaw-chart/js/Rickshaw.All.js"></script><script src="assets/plugins/sparkline-chart/jquery.sparkline.min.js" type="text/javascript"></script><script src="assets/plugins/easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script><script src="assets/plugins/morris-chart/js/raphael-min.js" type="text/javascript"></script><script src="assets/plugins/morris-chart/js/morris.min.js" type="text/javascript"></script><script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.1.min.js" type="text/javascript"></script><script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script><script src="assets/plugins/gauge/gauge.min.js" type="text/javascript"></script><script src="assets/plugins/icheck/icheck.min.js" type="text/javascript"></script><script src="assets/js/dashboard.js" type="text/javascript"></script><!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
+        <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
 
 
         <!-- CORE TEMPLATE JS - START --> 
@@ -1332,9 +1187,3 @@ User currentUser = userDAO.getUserByEmail(userName);
 
 
 
-
-
-<script type="text/javascript">
-
-
-</script>
