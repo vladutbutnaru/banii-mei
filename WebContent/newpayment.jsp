@@ -23,7 +23,7 @@ Users userDAO = new Users();
 User currentUser = userDAO.getUserByEmail(userName);
 
 %>
-       <title>Banii mei : Conturile mele | <%= currentUser.getFirstName() + " " + currentUser.getLastName() %></title>
+       <title>Banii mei : Plata noua | <%= currentUser.getFirstName() + " " + currentUser.getLastName() %></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="" name="description" />
         <meta content="" name="author" />
@@ -53,6 +53,9 @@ User currentUser = userDAO.getUserByEmail(userName);
         <!-- CORE CSS FRAMEWORK - END -->
 
         <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START --> 
+           <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START --> 
+        <link href="assets/plugins/jquery-ui/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/daterangepicker/css/daterangepicker-bs3.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/timepicker/css/timepicker.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/datetimepicker/css/datetimepicker.min.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/ios-switch/css/switch.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/tagsinput/css/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/select2/select2.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/typeahead/css/typeahead.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/multi-select/css/multi-select.css" rel="stylesheet" type="text/css" media="screen"/>        <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
+        
         <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
 
 
@@ -575,7 +578,7 @@ User currentUser = userDAO.getUserByEmail(userName);
                         <div class="page-title">
 
                             <div class="pull-left">
-                                <h1 class="title">Conturile mele</h1>                            </div>
+                                <h1 class="title">Creaza o plata noua</h1>                            </div>
 
 
                         </div>
@@ -585,7 +588,7 @@ User currentUser = userDAO.getUserByEmail(userName);
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                         <section class="box ">
                             <header class="panel_header">
-                                <h2 class="title pull-left">Informatii conturi</h2>
+                                <h2 class="title pull-left">Detalii plata</h2>
                                
                             </header>
                             <div class="content-body">
@@ -593,215 +596,327 @@ User currentUser = userDAO.getUserByEmail(userName);
                                 
                                     <div class="col-md-12">
                                         <br>
-                                        <h3>Conturi de economii    <button type="button"  data-toggle="modal" href="#modalSavings" class="btn btn-primary"><i class="fa fa-plus"></i></button></h3>
+                                        <h3>Completeaza campurile de mai jos</h3>
                                         <br>
-                                       <%
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-1">Contul din care executi plata</label>
+                                            <span class="desc">e.g. "Cont curent"</span>
+                                            
+                                            <div class="controls">
+                                                 <select class="form-control input-lg m-bot15" id="monedaCont" form="createSavingsAccountForm" name=monedaCont">
+                                                  <%
                                   
                                        //get all accounts and display them first
-                                       boolean hasSavingsAccounts = false;
+                                       boolean hasAccounts = false;
                                        Accounts accountDAO = new Accounts();
                                        ArrayList<Account> listOfAccounts = new ArrayList<Account>();
                                        listOfAccounts = accountDAO.getAccountsForUser(currentUser);
                                        for(Account a : listOfAccounts ){
-                                    	if(a.getAccountType()==2 && a.getDeleted() == 0){	
-                                    		hasSavingsAccounts=true;
+                                    	if(a.getDeleted() != 0){	
+                                    		hasAccounts = true;
                                     	   
-                                    	   %>                                       
-                                       
-                                     
-                                        <div class="well primary">
-                                            <h3><%= a.getAccountName() %> - <span class="semi-bold"> <%= a.getAmount() %> <sup><%= a.getCurrency() %></sup></span></h3>
-                                           <%= a.getAccountDescription() %>
-                                            
-                                        </div>
-                                               <div class="col-md-12">
-                                            <p class="text-right">
-                                           
-                                            </p>                                         
-                                        <div class="dropdown">
-                                          
-                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                              Adauga tranzactie noua
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Plata</a></li>
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Castig</a></li>                                           
-                                            </ul>
-                                             <button type="button" class="btn btn-info">Editeaza informatii</button>
-                                                  <button type="button" class="btn btn-info">Genereaza raport</button>
-                                            <button type="button" class="btn btn-danger">Sterge cont</button>
-                                            <button type="button" class="btn btn-success">Creaza buget</button>   
-                                          
-                                        </div>
-                                 
-                                        
-                                        </div>
-                                        <br>
-                                            <br>
-                                                <br>
-                                                    <br>
-                                        <%}}if(!hasSavingsAccounts){
-                                            
-                                            %>
-                                            <div class="well">
-                                                <h3>Nu ai adaugat niciun cont <span class="semi-bold">de economii</span>, <a href="#"><i>adauga acum!</i></a> </h3>
-                                             	Conturile de economii te ajuta sa tii evidenta economiilor tale, sa le administrezi intr-un mod facil si sa creezi un buget pentru a ajunge la comfortul financiar la care visezi. <b>80%</b> din conturile de economii create de utilizatorilor aplicatiei au cunoscut o crestere de peste <b>30%</b> in mai putin de 3 luni. Incearca si tu!
-                                             	</div>
-                                            
-                                            
-                                            
-                                           <%}                  
-                                            
-                                            %>
-                                        <br>
-                                        <br>
-
-                                     
-                                    </div>
-                                </div>
-   <div class="row">                                  
-                                
-                                    <div class="col-md-12">
-                                        <br>
-                                        <h3>Conturi de tip numerar     <button type="button"  data-toggle="modal" href="#modalCash" class="btn btn-primary"><i class="fa fa-plus"></i></button></h3>
-                                        <br>
-                                       <%
-                                  
-                                       //get all accounts and display them first
-                                     
-                                   boolean hasCashAccounts = false;
-                                       for(Account a : listOfAccounts){
-                                    	if(a.getAccountType()==1 && a.getDeleted() == 0){	
-                                    		hasCashAccounts=true;
-                                    	   %>                                       
-                                       
-                                     
-                                        <div class="well primary">
-                                            <h3><%= a.getAccountName() %> - <span class="semi-bold"> <%= a.getAmount() %> <sup><%= a.getCurrency() %></sup></span></h3>
-                                           <%= a.getAccountDescription() %>
-                                            
-                                        </div>
-                                               <div class="col-md-12">
-                                            <p class="text-right">
-                                           
-                                            </p>                                         
-                                        <div class="dropdown">
-                                          
-                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                              Adauga tranzactie noua
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Plata</a></li>
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Castig</a></li>                                           
-                                            </ul>
-                                             <button type="button" class="btn btn-info">Editeaza informatii</button>
-                                                  <button type="button" class="btn btn-info">Genereaza raport</button>
-                                            <button type="button" class="btn btn-danger">Sterge cont</button>
-                                            <button type="button" class="btn btn-success">Creaza buget</button>   
-                                          
-                                        </div>
-                                 
-                                        
-                                        </div>
-                                      <br>
-                                            <br>
-                                                <br>
-                                                    <br>
-                                        <%}}
-                                        if(!hasCashAccounts){
-                                        
-                                        %>
-                                        <div class="well">
-                                            <h3>Nu ai adaugat niciun cont <span class="semi-bold">numerar</span>, <a href="#"><i>adauga acum!</i></a> </h3>
-                                         	Conturile de tip numerar te ajuta sa tii evidenta cheltuielilor de zi cu zi. Majoritatea utilizatorilor au asociat acest cont numerarului din portofel. Este cel mai bugetat cont, <b> 75%</b> din utilizatori avand asociat cel putin unul acestui cont.
-                                        </div>
-                                        
-                                        
-                                        
-                                       <%}                  
-                                        
-                                        %>
-                                     <br>
-                                        <br>
-
-                                     
-                                    </div>
-                                </div>
-
-   <div class="row">                                  
-                                
-                                    <div class="col-md-12">
-                                        <br>
-                                        <h3>Conturi curente     <button type="button"  data-toggle="modal" href="#modalRegular" class="btn btn-primary"><i class="fa fa-plus"></i></button></h3>
-                                        <br>
-                                       <%
-                                  
-                                       //get all accounts and display them first
-                                     
-                                   boolean hasRegularAccounts = false;
-                                       for(Account a : listOfAccounts){
-                                    	if(a.getAccountType()==3 && a.getDeleted() == 0){	   
-                                    		hasRegularAccounts = true;
-                                    	   %>                                       
-                                       
-                                     
-                                        <div class="well primary">
-                                            <h3><%= a.getAccountName() %> - <span class="semi-bold"> <%= a.getAmount() %> <sup><%= a.getCurrency() %></sup></span></h3>
-                                           <%= a.getAccountDescription() %>
-                                            
-                                        </div>
-                                               <div class="col-md-12">
-                                            <p class="text-right">
-                                           
-                                            </p>                                         
-                                        <div class="dropdown">
-                                          
-                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                              Adauga tranzactie noua
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Plata</a></li>
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Castig</a></li>                                           
-                                            </ul>
-                                             <button type="button" class="btn btn-info">Editeaza informatii</button>
-                                                <button type="button" class="btn btn-info">Genereaza raport</button>
-                                            <button type="button" class="btn btn-danger">Sterge cont</button>
-                                            <button type="button" class="btn btn-success">Creaza buget</button>   
-                                          
-                                        </div>
-                                 
-                                        
-                                        </div>
+                                    	   %>                   
+                                            <option value=<%=  "\"" + a.getAccountName() + "\""  %>><%=a.getAccountName() %></option>
+                                   
+                                          <%}} %>
+                                        </select>
+                                            </div>
+                                       	 </div>
+                                       	  <br>
                                       
-                                          <br>
-                                            <br>
-                                                <br>
-                                                    <br>
-                                        <%}} 
-                                       if(!hasRegularAccounts){
-                                        
-                                        %>
-                                        <div class="well">
-                                            <h3>Nu ai adaugat niciun cont <span class="semi-bold">curent</span>, <a href="#"><i>adauga acum!</i></a> </h3>
-                                         Conturile curente te ajuta sa tii evidenta castigurilor. Este cel mai popular dintre conturile create in aplicatie, <b>95%</b> din utilizatorii aplicatiei au creat un astfel de cont, iar <b>80%</b> dintre acestia si-au creat un castig recurent (salariu) asociat acestuia. Tu ce astepti?
-                                        </div>
-                                        
-                                        
-                                        
-                                       <%}                  
-                                        
-                                        %>
+                                    	 <div class="form-group">
+                                            <label class="form-label" for="field-1">Denumire plata</label>
+                                            <span class="desc">e.g. "iPhone 6S"</span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" id="descriereCont" name="descriereCont" >
+                                            </div>
+                                       	 </div>
                                         <br>
+                                         <div class="form-group">
+                                            <label class="form-label" for="field-1">Descriere plata</label>
+                                            <span class="desc">e.g. "Cadou ziua Stefaniei"</span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" id="descriereCont" name="descriereCont" >
+                                            </div>
+                                       	 </div>
+                                        <br>
+                                                	
+								 <div class="form-group">
+                                            <label class="form-label" for="field-1">Valoare plata</label>
+                                            <span class="desc">e.g. "2500"</span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" id="soldCont" name="soldCont" >
+                                            </div>
+                                       	 </div>
                                         <br>
 
                                      
                                     </div>
+                                    <br>
+                                        <h3>Alege produsele achizitionate</h3>
+                                        <br>
+                                         <div class="col-md-6">
+                                        <h4>Produse din Social Financing</h4>
+                                        <select name="country" class="multi-select" multiple="" id="my_multi_select3" >
+                                            <option value="AF">Afghanistan</option>
+                                            <option value="AL">Albania</option>
+                                            <option value="DZ">Algeria</option>
+                                            <option value="AS">American Samoa</option>
+                                            <option value="AD">Andorra</option>
+                                            <option value="AO">Angola</option>
+                                            <option value="AI">Anguilla</option>
+                                            <option value="AQ">Antarctica</option>
+                                            <option value="AR">Argentina</option>
+                                            <option value="AM">Armenia</option>
+                                            <option value="AW">Aruba</option>
+                                            <option value="AU">Australia</option>
+                                            <option value="AT">Austria</option>
+                                            <option value="AZ">Azerbaijan</option>
+                                            <option value="BS">Bahamas</option>
+                                            <option value="BH">Bahrain</option>
+                                            <option value="BD">Bangladesh</option>
+                                            <option value="BB">Barbados</option>
+                                            <option value="BY">Belarus</option>
+                                            <option value="BE">Belgium</option>
+                                            <option value="BZ">Belize</option>
+                                            <option value="BJ">Benin</option>
+                                            <option value="BM">Bermuda</option>
+                                            <option value="BT">Bhutan</option>
+                                            <option value="BO">Bolivia</option>
+                                            <option value="BA">Bosnia and Herzegowina</option>
+                                            <option value="BW">Botswana</option>
+                                            <option value="BV">Bouvet Island</option>
+                                            <option value="BR">Brazil</option>
+                                            <option value="IO">British Indian Ocean Territory</option>
+                                            <option value="BN">Brunei Darussalam</option>
+                                            <option value="BG">Bulgaria</option>
+                                            <option value="BF">Burkina Faso</option>
+                                            <option value="BI">Burundi</option>
+                                            <option value="KH">Cambodia</option>
+                                            <option value="CM">Cameroon</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="CV">Cape Verde</option>
+                                            <option value="KY">Cayman Islands</option>
+                                            <option value="CF">Central African Republic</option>
+                                            <option value="TD">Chad</option>
+                                            <option value="CL">Chile</option>
+                                            <option value="CN">China</option>
+                                            <option value="CX">Christmas Island</option>
+                                            <option value="CC">Cocos (Keeling) Islands</option>
+                                            <option value="CO">Colombia</option>
+                                            <option value="KM">Comoros</option>
+                                            <option value="CG">Congo</option>
+                                            <option value="CD">Congo, the Democratic Republic of the</option>
+                                            <option value="CK">Cook Islands</option>
+                                            <option value="CR">Costa Rica</option>
+                                            <option value="CI">Cote d'Ivoire</option>
+                                            <option value="HR">Croatia (Hrvatska)</option>
+                                            <option value="CU">Cuba</option>
+                                            <option value="CY">Cyprus</option>
+                                            <option value="CZ">Czech Republic</option>
+                                            <option value="DK">Denmark</option>
+                                            <option value="DJ">Djibouti</option>
+                                            <option value="DM">Dominica</option>
+                                            <option value="DO">Dominican Republic</option>
+                                            <option value="EC">Ecuador</option>
+                                            <option value="EG">Egypt</option>
+                                            <option value="SV">El Salvador</option>
+                                            <option value="GQ">Equatorial Guinea</option>
+                                            <option value="ER">Eritrea</option>
+                                            <option value="EE">Estonia</option>
+                                            <option value="ET">Ethiopia</option>
+                                            <option value="FK">Falkland Islands (Malvinas)</option>
+                                            <option value="FO">Faroe Islands</option>
+                                            <option value="FJ">Fiji</option>
+                                            <option value="FI">Finland</option>
+                                            <option value="FR">France</option>
+                                            <option value="GF">French Guiana</option>
+                                            <option value="PF">French Polynesia</option>
+                                            <option value="TF">French Southern Territories</option>
+                                            <option value="GA">Gabon</option>
+                                            <option value="GM">Gambia</option>
+                                            <option value="GE">Georgia</option>
+                                            <option value="DE">Germany</option>
+                                            <option value="GH">Ghana</option>
+                                            <option value="GI">Gibraltar</option>
+                                            <option value="GR">Greece</option>
+                                            <option value="GL">Greenland</option>
+                                            <option value="GD">Grenada</option>
+                                            <option value="GP">Guadeloupe</option>
+                                            <option value="GU">Guam</option>
+                                            <option value="GT">Guatemala</option>
+                                            <option value="GN">Guinea</option>
+                                            <option value="GW">Guinea-Bissau</option>
+                                            <option value="GY">Guyana</option>
+                                            <option value="HT">Haiti</option>
+                                            <option value="HM">Heard and Mc Donald Islands</option>
+                                            <option value="VA">Holy See (Vatican City State)</option>
+                                            <option value="HN">Honduras</option>
+                                            <option value="HK">Hong Kong</option>
+                                            <option value="HU">Hungary</option>
+                                            <option value="IS">Iceland</option>
+                                            <option value="IN">India</option>
+                                            <option value="ID">Indonesia</option>
+                                            <option value="IR">Iran (Islamic Republic of)</option>
+                                            <option value="IQ">Iraq</option>
+                                            <option value="IE">Ireland</option>
+                                            <option value="IL">Israel</option>
+                                            <option value="IT">Italy</option>
+                                            <option value="JM">Jamaica</option>
+                                            <option value="JP">Japan</option>
+                                            <option value="JO">Jordan</option>
+                                            <option value="KZ">Kazakhstan</option>
+                                            <option value="KE">Kenya</option>
+                                            <option value="KI">Kiribati</option>
+                                            <option value="KP">Korea, Democratic People's Republic of</option>
+                                            <option value="KR">Korea, Republic of</option>
+                                            <option value="KW">Kuwait</option>
+                                            <option value="KG">Kyrgyzstan</option>
+                                            <option value="LA">Lao People's Democratic Republic</option>
+                                            <option value="LV">Latvia</option>
+                                            <option value="LB">Lebanon</option>
+                                            <option value="LS">Lesotho</option>
+                                            <option value="LR">Liberia</option>
+                                            <option value="LY">Libyan Arab Jamahiriya</option>
+                                            <option value="LI">Liechtenstein</option>
+                                            <option value="LT">Lithuania</option>
+                                            <option value="LU">Luxembourg</option>
+                                            <option value="MO">Macau</option>
+                                            <option value="MK">Macedonia, The Former Yugoslav Republic of</option>
+                                            <option value="MG">Madagascar</option>
+                                            <option value="MW">Malawi</option>
+                                            <option value="MY">Malaysia</option>
+                                            <option value="MV">Maldives</option>
+                                            <option value="ML">Mali</option>
+                                            <option value="MT">Malta</option>
+                                            <option value="MH">Marshall Islands</option>
+                                            <option value="MQ">Martinique</option>
+                                            <option value="MR">Mauritania</option>
+                                            <option value="MU">Mauritius</option>
+                                            <option value="YT">Mayotte</option>
+                                            <option value="MX">Mexico</option>
+                                            <option value="FM">Micronesia, Federated States of</option>
+                                            <option value="MD">Moldova, Republic of</option>
+                                            <option value="MC">Monaco</option>
+                                            <option value="MN">Mongolia</option>
+                                            <option value="MS">Montserrat</option>
+                                            <option value="MA">Morocco</option>
+                                            <option value="MZ">Mozambique</option>
+                                            <option value="MM">Myanmar</option>
+                                            <option value="NA">Namibia</option>
+                                            <option value="NR">Nauru</option>
+                                            <option value="NP">Nepal</option>
+                                            <option value="NL">Netherlands</option>
+                                            <option value="AN">Netherlands Antilles</option>
+                                            <option value="NC">New Caledonia</option>
+                                            <option value="NZ">New Zealand</option>
+                                            <option value="NI">Nicaragua</option>
+                                            <option value="NE">Niger</option>
+                                            <option value="NG">Nigeria</option>
+                                            <option value="NU">Niue</option>
+                                            <option value="NF">Norfolk Island</option>
+                                            <option value="MP">Northern Mariana Islands</option>
+                                            <option value="NO">Norway</option>
+                                            <option value="OM">Oman</option>
+                                            <option value="PK">Pakistan</option>
+                                            <option value="PW">Palau</option>
+                                            <option value="PA">Panama</option>
+                                            <option value="PG">Papua New Guinea</option>
+                                            <option value="PY">Paraguay</option>
+                                            <option value="PE">Peru</option>
+                                            <option value="PH">Philippines</option>
+                                            <option value="PN">Pitcairn</option>
+                                            <option value="PL">Poland</option>
+                                            <option value="PT">Portugal</option>
+                                            <option value="PR">Puerto Rico</option>
+                                            <option value="QA">Qatar</option>
+                                            <option value="RE">Reunion</option>
+                                            <option value="RO">Romania</option>
+                                            <option value="RU">Russian Federation</option>
+                                            <option value="RW">Rwanda</option>
+                                            <option value="KN">Saint Kitts and Nevis</option>
+                                            <option value="LC">Saint LUCIA</option>
+                                            <option value="VC">Saint Vincent and the Grenadines</option>
+                                            <option value="WS">Samoa</option>
+                                            <option value="SM">San Marino</option>
+                                            <option value="ST">Sao Tome and Principe</option>
+                                            <option value="SA">Saudi Arabia</option>
+                                            <option value="SN">Senegal</option>
+                                            <option value="SC">Seychelles</option>
+                                            <option value="SL">Sierra Leone</option>
+                                            <option value="SG">Singapore</option>
+                                            <option value="SK">Slovakia (Slovak Republic)</option>
+                                            <option value="SI">Slovenia</option>
+                                            <option value="SB">Solomon Islands</option>
+                                            <option value="SO">Somalia</option>
+                                            <option value="ZA">South Africa</option>
+                                            <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                            <option value="ES">Spain</option>
+                                            <option value="LK">Sri Lanka</option>
+                                            <option value="SH">St. Helena</option>
+                                            <option value="PM">St. Pierre and Miquelon</option>
+                                            <option value="SD">Sudan</option>
+                                            <option value="SR">Suriname</option>
+                                            <option value="SJ">Svalbard and Jan Mayen Islands</option>
+                                            <option value="SZ">Swaziland</option>
+                                            <option value="SE">Sweden</option>
+                                            <option value="CH">Switzerland</option>
+                                            <option value="SY">Syrian Arab Republic</option>
+                                            <option value="TW">Taiwan, Province of China</option>
+                                            <option value="TJ">Tajikistan</option>
+                                            <option value="TZ">Tanzania, United Republic of</option>
+                                            <option value="TH">Thailand</option>
+                                            <option value="TG">Togo</option>
+                                            <option value="TK">Tokelau</option>
+                                            <option value="TO">Tonga</option>
+                                            <option value="TT">Trinidad and Tobago</option>
+                                            <option value="TN">Tunisia</option>
+                                            <option value="TR">Turkey</option>
+                                            <option value="TM">Turkmenistan</option>
+                                            <option value="TC">Turks and Caicos Islands</option>
+                                            <option value="TV">Tuvalu</option>
+                                            <option value="UG">Uganda</option>
+                                            <option value="UA">Ukraine</option>
+                                            <option value="AE">United Arab Emirates</option>
+                                            <option value="GB">United Kingdom</option>
+                                            <option value="US">United States</option>
+                                            <option value="UM">United States Minor Outlying Islands</option>
+                                            <option value="UY">Uruguay</option>
+                                            <option value="UZ">Uzbekistan</option>
+                                            <option value="VU">Vanuatu</option>
+                                            <option value="VE">Venezuela</option>
+                                            <option value="VN">Viet Nam</option>
+                                            <option value="VG">Virgin Islands (British)</option>
+                                            <option value="VI">Virgin Islands (U.S.)</option>
+                                            <option value="WF">Wallis and Futuna Islands</option>
+                                            <option value="EH">Western Sahara</option>
+                                            <option value="YE">Yemen</option>
+                                            <option value="ZM">Zambia</option>
+                                            <option value="ZW">Zimbabwe</option>
+                                        </select>
+
+
+                                    </div>
+                                        
+                                        
+                                </div>
+   <div class="row">                                  
+                                
+                                   
+                                </div>
+
+   <div class="row">                                  
+                                
+                                  
                                 </div>
                             </div>
-                        </section></div>
+                           
+                        </section>
+                        
+                        
+                        
+                        
+                        </div>
 
 
 
@@ -851,48 +966,6 @@ User currentUser = userDAO.getUserByEmail(userName);
                                             <li>
                                                 Creaza rapoarte saptamanale pentru cheltuielile si castigurile tale.
                                             </li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </section></div>
-
-
-
-
-
-
-
-                   
-
-
-
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <section class="box ">
-                            <header class="panel_header">
-                                <h2 class="title pull-left">Cele mai utilizat cont</h2>
-                                
-                            </header>
-                            <div class="content-body">    <div class="row">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-
-                                        <ul class="list-inline">
-                                           <%
-                                  
-                                       //get all accounts and display them first
-                                    Account mostPopularAccount = new Account();
-                                       mostPopularAccount = accountDAO.getMostPopularAccount(currentUser);                             
-                                             if(mostPopularAccount.getId()>0){
-                                    	   %>                                              
-                                            <li><%= mostPopularAccount.getAccountName() %></li>
-                                           
-                                           <%} 
-                                             else 
-                                        	   {
-                                        	   %>
-                                        	    <li>Nu ai adaugat nicio plata pana acum!</li>
-                                        	   <%} %>
                                         </ul>
 
                                     </div>
@@ -1324,6 +1397,9 @@ User currentUser = userDAO.getUserByEmail(userName);
 
 
 
+
+     <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START --> 
+        <script src="assets/plugins/jquery-ui/smoothness/jquery-ui.min.js" type="text/javascript"></script> <script src="assets/plugins/datepicker/js/datepicker.js" type="text/javascript"></script> <script src="assets/plugins/daterangepicker/js/moment.min.js" type="text/javascript"></script> <script src="assets/plugins/daterangepicker/js/daterangepicker.js" type="text/javascript"></script> <script src="assets/plugins/timepicker/js/timepicker.min.js" type="text/javascript"></script> <script src="assets/plugins/datetimepicker/js/datetimepicker.min.js" type="text/javascript"></script> <script src="assets/plugins/datetimepicker/js/locales/bootstrap-datetimepicker.fr.js" type="text/javascript"></script> <script src="assets/plugins/colorpicker/js/bootstrap-colorpicker.min.js" type="text/javascript"></script> <script src="assets/plugins/tagsinput/js/bootstrap-tagsinput.min.js" type="text/javascript"></script> <script src="assets/plugins/select2/select2.min.js" type="text/javascript"></script> <script src="assets/plugins/typeahead/typeahead.bundle.js" type="text/javascript"></script> <script src="assets/plugins/typeahead/handlebars.min.js" type="text/javascript"></script> <script src="assets/plugins/multi-select/js/jquery.multi-select.js" type="text/javascript"></script> <script src="assets/plugins/multi-select/js/jquery.quicksearch.js" type="text/javascript"></script> <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
 
 
         <!-- General section box modal start -->

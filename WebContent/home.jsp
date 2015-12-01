@@ -487,7 +487,7 @@ User currentUser = userDAO.getUserByEmail(userName);
                         </li>
                         <li class=""> 
                             <a href="javascript:;">
-                                <i class="fa fa-sliders"></i>
+                                <i class="fa fa-users"></i>
                                 <span class="title">Social Financing</span>
                                 <span class="arrow "></span>
                             </a>
@@ -506,7 +506,7 @@ User currentUser = userDAO.getUserByEmail(userName);
                         </li>
                         <li class=""> 
                             <a href="javascript:;">
-                                <i class="fa fa-gift"></i>
+                                <i class="fa fa-signal"></i>
                                 <span class="title">Optimum spending</span>
                                <span class="label label-orange">Personal+</span>
                             </a>
@@ -514,7 +514,7 @@ User currentUser = userDAO.getUserByEmail(userName);
                         </li>
                          <li class=""> 
                             <a href="javascript:;">
-                                <i class="fa fa-gift"></i>
+                                <i class="fa fa-bar-chart-o"></i>
                                 <span class="title">Smart Forecast</span>
                                <span class="label label-orange">Personal+</span>
                             </a>
@@ -522,7 +522,7 @@ User currentUser = userDAO.getUserByEmail(userName);
                         </li>
                          <li class=""> 
                             <a href="javascript:;">
-                                <i class="fa fa-gift"></i>
+                                <i class="fa fa-car"></i>
                                 <span class="title">Masina mea</span>
                                <span class="label label-orange">Personal+</span>
                             </a>
