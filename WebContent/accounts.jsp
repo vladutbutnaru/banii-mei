@@ -591,7 +591,7 @@ User currentUser = userDAO.getUserByEmail(userName);
                                 
                                     <div class="col-md-12">
                                         <br>
-                                        <h3>Conturi de economii    <button type="button" class="btn btn-primary"><i class="fa fa-plus" data-toggle="modal" a href="#"></i></button></h3>
+                                        <h3>Conturi de economii    <button type="button"  data-toggle="modal" href="#modalSavings" class="btn btn-primary"><i class="fa fa-plus"></i></button></h3>
                                         <br>
                                        <%
                                   
@@ -636,6 +636,9 @@ User currentUser = userDAO.getUserByEmail(userName);
                                         
                                         </div>
                                         <br>
+                                            <br>
+                                                <br>
+                                                    <br>
                                         <%}}if(!hasSavingsAccounts){
                                             
                                             %>
@@ -659,7 +662,7 @@ User currentUser = userDAO.getUserByEmail(userName);
                                 
                                     <div class="col-md-12">
                                         <br>
-                                        <h3>Conturi de tip numerar    <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i></button></h3>
+                                        <h3>Conturi de tip numerar     <button type="button"  data-toggle="modal" href="#modalCash" class="btn btn-primary"><i class="fa fa-plus"></i></button></h3>
                                         <br>
                                        <%
                                   
@@ -700,7 +703,10 @@ User currentUser = userDAO.getUserByEmail(userName);
                                  
                                         
                                         </div>
-                                        <br>
+                                      <br>
+                                            <br>
+                                                <br>
+                                                    <br>
                                         <%}}
                                         if(!hasCashAccounts){
                                         
@@ -726,7 +732,7 @@ User currentUser = userDAO.getUserByEmail(userName);
                                 
                                     <div class="col-md-12">
                                         <br>
-                                        <h3>Conturi curente    <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i></button></h3>
+                                        <h3>Conturi curente     <button type="button"  data-toggle="modal" href="#modalRegular" class="btn btn-primary"><i class="fa fa-plus"></i></button></h3>
                                         <br>
                                        <%
                                   
@@ -767,9 +773,13 @@ User currentUser = userDAO.getUserByEmail(userName);
                                  
                                         
                                         </div>
-                                        <br>
+                                      
+                                          <br>
+                                            <br>
+                                                <br>
+                                                    <br>
                                         <%}} 
-                                       if(!hasCashAccounts){
+                                       if(!hasRegularAccounts){
                                         
                                         %>
                                         <div class="well">
@@ -1153,6 +1163,192 @@ User currentUser = userDAO.getUserByEmail(userName);
 
 
 
+
+
+
+  <!-- modal adauga cont economii start -->
+                                        <div class="modal fade" id="modalSavings" tabindex="-1" role="dialog" aria-labelledby="ultraModal-Label" aria-hidden="true">
+                                            <div class="modal-dialog animated zoomInDown">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        <h4 class="modal-title">Adauga cont economii</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+									<form action="CreateSavingsAccountServlet" method="post" id="createSavingsAccountForm" name="createSavingsAccountForm"> 
+		 										<div class="form-group">
+                                            <label class="form-label" for="field-1">Nume</label>
+                                            <span class="desc">e.g. "Cont economii Banca Transilvania"</span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" id="numeCont" name="numeCont" >
+                                            </div>
+                                       	 </div>
+                                       	 <div class="form-group">
+                                            <label class="form-label" for="field-1">Descriere</label>
+                                            <span class="desc">e.g. "Cont pentru cuantificare si evidenta pensiei private"</span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" id="descriereCont" name="descriereCont" >
+                                            </div>
+                                       	 </div>
+									<div class="form-group">
+                                            <label class="form-label" for="field-1">Moneda</label>
+                                            <span class="desc">e.g. "RON/EUR"</span>
+                                            <div class="controls">
+                                                 <select class="form-control input-lg m-bot15" id="monedaCont" form="createSavingsAccountForm" name=monedaCont">
+                                            <option value="RON">RON</option>
+                                            <option value="EUR">EUR</option>
+                                          
+                                        </select>
+                                            </div>
+                                       	 </div>
+								 <div class="form-group">
+                                            <label class="form-label" for="field-1">Sold initial</label>
+                                            <span class="desc">e.g. "500"</span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" id="soldCont" name="soldCont" >
+                                            </div>
+                                       	 </div>
+		  <input type="submit" name="wp-submit" id="wp-submit" class="btn btn-success" value="Adauga!" /> <button data-dismiss="modal" class="btn btn-danger" type="button">Inchide</button>
+                                                        	</form>
+		 <br> 
+		
+	
+                                                     
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                      <p>Completeaza campurile de mai sus si apasa pe <b>Adauga!</b></p>
+                                                       
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- modal end -->
+
+
+
+
+  <!-- modal adauga cont numerar start -->
+                                        <div class="modal fade" id="modalCash" tabindex="-1" role="dialog" aria-labelledby="ultraModal-Label" aria-hidden="true">
+                                            <div class="modal-dialog animated zoomInDown">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        <h4 class="modal-title">Adauga cont de tip numerar</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+									<form action="CreateCashAccountServlet" method="post" id="createSavingsAccountForm" name="createSavingsAccountForm"> 
+		 										<div class="form-group">
+                                            <label class="form-label" for="field-1">Nume</label>
+                                            <span class="desc">e.g. "Portofelul meu"</span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" id="numeCont" name="numeCont" >
+                                            </div>
+                                       	 </div>
+                                       	 <div class="form-group">
+                                            <label class="form-label" for="field-1">Descriere</label>
+                                            <span class="desc">e.g. "Numerarul din portofelul meu"</span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" id="descriereCont" name="descriereCont" >
+                                            </div>
+                                       	 </div>
+									<div class="form-group">
+                                            <label class="form-label" for="field-1">Moneda</label>
+                                            <span class="desc">e.g. "RON/EUR"</span>
+                                            <div class="controls">
+                                                 <select class="form-control input-lg m-bot15" id="monedaCont" form="createSavingsAccountForm" name=monedaCont">
+                                            <option value="RON">RON</option>
+                                            <option value="EUR">EUR</option>
+                                          
+                                        </select>
+                                            </div>
+                                       	 </div>
+								 <div class="form-group">
+                                            <label class="form-label" for="field-1">Sold initial</label>
+                                            <span class="desc">e.g. "500"</span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" id="soldCont" name="soldCont" >
+                                            </div>
+                                       	 </div>
+		  <input type="submit" name="wp-submit" id="wp-submit" class="btn btn-success" value="Adauga!" /> <button data-dismiss="modal" class="btn btn-danger" type="button">Inchide</button>
+                                                        	</form>
+		<br> 
+		
+	
+                                                     
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                      <p>Completeaza campurile de mai sus si apasa pe <b>Adauga!</b></p>
+                                                       
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- modal end -->
+
+
+<!-- modal adauga cont curent start -->
+                                        <div class="modal fade" id="modalRegular" tabindex="-1" role="dialog" aria-labelledby="ultraModal-Label" aria-hidden="true">
+                                            <div class="modal-dialog animated zoomInDown">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        <h4 class="modal-title">Adauga cont curent</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+									<form action="CreateRegularAccountServlet" method="post" id="createSavingsAccountForm" name="createSavingsAccountForm"> 
+		 										<div class="form-group">
+                                            <label class="form-label" for="field-1">Nume</label>
+                                            <span class="desc">e.g. "Cont curent salariu"</span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" id="numeCont" name="numeCont" >
+                                            </div>
+                                       	 </div>
+                                       	 <div class="form-group">
+                                            <label class="form-label" for="field-1">Descriere</label>
+                                            <span class="desc">e.g. "Cont pentru salariu deschis la Unicredit Bank"</span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" id="descriereCont" name="descriereCont" >
+                                            </div>
+                                       	 </div>
+									<div class="form-group">
+                                            <label class="form-label" for="field-1">Moneda</label>
+                                            <span class="desc">e.g. "RON/EUR"</span>
+                                            <div class="controls">
+                                                 <select class="form-control input-lg m-bot15" id="monedaCont" form="createSavingsAccountForm" name=monedaCont">
+                                            <option value="RON">RON</option>
+                                            <option value="EUR">EUR</option>
+                                          
+                                        </select>
+                                            </div>
+                                       	 </div>
+								 <div class="form-group">
+                                            <label class="form-label" for="field-1">Sold initial</label>
+                                            <span class="desc">e.g. "500"</span>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" id="soldCont" name="soldCont" >
+                                            </div>
+                                       	 </div>
+		  <input type="submit" name="wp-submit" id="wp-submit" class="btn btn-success" value="Adauga!" /> <button data-dismiss="modal" class="btn btn-danger" type="button">Inchide</button>
+                                                        	</form>
+		<br> 
+		
+	
+                                                     
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                      <p>Completeaza campurile de mai sus si apasa pe <b>Adauga!</b></p>
+                                                       
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- modal end -->
 
 
 

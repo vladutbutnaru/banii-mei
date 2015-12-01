@@ -35,6 +35,7 @@ public class Accounts {
 		       account.setAccountType(rs.getInt("AccountType"));
 		       account.setAccountDescription(rs.getString("AccountDescription"));
 		       account.setDeleted(rs.getInt("Deleted"));
+		       account.setUserID(rs.getInt("IDUser"));
 		        // etc.
 		       listOfAccounts.add(account);
 		    }

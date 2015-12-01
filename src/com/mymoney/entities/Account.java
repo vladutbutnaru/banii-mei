@@ -44,11 +44,18 @@ public int getDeleted() {
 public void setDeleted(int deleted) {
 	this.deleted = deleted;
 }
+public int getUserID() {
+	return userID;
+}
+public void setUserID(int userID) {
+	this.userID = userID;
+}
 private String accountName;
 private String currency;
 private double amount;
 private int accountType;
 private String accountDescription;
 private int deleted;
+private int userID;
 
 }
