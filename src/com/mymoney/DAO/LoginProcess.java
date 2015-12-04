@@ -22,6 +22,12 @@ public boolean doLogin(User user){
 	Connection conn = (Connection) connectionFactory.getConnection();
 	Statement stmt = null;
 	ResultSet rs = null;
+	 try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	try {
 	    stmt = conn.createStatement();
 	    rs = stmt.executeQuery("SELECT * FROM users WHERE email = '" + user.getEmail() + "' AND password = '"+user.getPassword()+"';");
