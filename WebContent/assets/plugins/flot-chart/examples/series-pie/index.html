@@ -1,52 +1,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Flot Examples: Pie Charts</title>
-	<link href="../examples.css" rel="stylesheet" type="text/css">
-	<style type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Flot Examples: Pie Charts</title>
+<link href="../examples.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.demo-container {
+	position: relative;
+	height: 400px;
+}
 
-	.demo-container {
-		position: relative;
-		height: 400px;
-	}
+#flotpie {
+	width: 550px;
+}
 
-	#flotpie {
-		width: 550px;
-	}
+#flotpiemenu {
+	position: absolute;
+	top: 20px;
+	left: 625px;
+	bottom: 20px;
+	right: 20px;
+	width: 200px;
+}
 
-	#flotpiemenu {
-		position: absolute;
-		top: 20px;
-		left: 625px;
-		bottom: 20px;
-		right: 20px;
-		width: 200px;
-	}
-
-	#flotpiemenu button {
-		display: inline-block;
-		width: 200px;
-		padding: 3px 0 2px 0;
-		margin-bottom: 4px;
-		background: #eee;
-		border: 1px solid #999;
-		border-radius: 2px;
-		font-size: 16px;
-		-o-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-		-ms-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-		-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-		box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-		cursor: pointer;
-	}
-
-	</style>
-	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../../excanvas.min.js"></script><![endif]-->
-	<script language="javascript" type="text/javascript" src="../../jquery.js"></script>
-	<script language="javascript" type="text/javascript" src="../../jquery.flot.js"></script>
-	<script language="javascript" type="text/javascript" src="../../jquery.flot.pie.js"></script>
-	<script type="text/javascript">
+#flotpiemenu button {
+	display: inline-block;
+	width: 200px;
+	padding: 3px 0 2px 0;
+	margin-bottom: 4px;
+	background: #eee;
+	border: 1px solid #999;
+	border-radius: 2px;
+	font-size: 16px;
+	-o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	-ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+}
+</style>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../../excanvas.min.js"></script><![endif]-->
+<script language="javascript" type="text/javascript"
+	src="../../jquery.js"></script>
+<script language="javascript" type="text/javascript"
+	src="../../jquery.flot.js"></script>
+<script language="javascript" type="text/javascript"
+	src="../../jquery.flot.pie.js"></script>
+<script type="text/javascript">
 
 	$(function() {
 
@@ -369,24 +370,24 @@
 </head>
 <body>
 
-		<h3 id="title"></h3>
-		<div class="demo-container">
-			<div id="flotpie" class="demo-placeholder"></div>
-			<div id="flotpiemenu">
-				<button id="pieexample-1">Default Options</button>
-				<button id="pieexample-2">Without Legend</button>
-				<button id="pieexample-3">Label Formatter</button>
-				<button id="pieexample-4">Label Radius</button>
-				<button id="pieexample-5">Label Styles #1</button>
-				<button id="pieexample-6">Label Styles #2</button>
-				<button id="pieexample-7">Hidden Labels</button>
-				<button id="pieexample-8">Combined Slice</button>
-				<button id="pieexample-9">Rectangular Pie</button>
-				<button id="pieexample-10">Tilted Pie</button>
-				<button id="pieexample-11">Donut Hole</button>
-				<button id="pieexample-12">Interactivity</button>
-			</div>
+	<h3 id="title"></h3>
+	<div class="demo-container">
+		<div id="flotpie" class="demo-placeholder"></div>
+		<div id="flotpiemenu">
+			<button id="pieexample-1">Default Options</button>
+			<button id="pieexample-2">Without Legend</button>
+			<button id="pieexample-3">Label Formatter</button>
+			<button id="pieexample-4">Label Radius</button>
+			<button id="pieexample-5">Label Styles #1</button>
+			<button id="pieexample-6">Label Styles #2</button>
+			<button id="pieexample-7">Hidden Labels</button>
+			<button id="pieexample-8">Combined Slice</button>
+			<button id="pieexample-9">Rectangular Pie</button>
+			<button id="pieexample-10">Tilted Pie</button>
+			<button id="pieexample-11">Donut Hole</button>
+			<button id="pieexample-12">Interactivity</button>
 		</div>
+	</div>
 
 </body>
 </html>

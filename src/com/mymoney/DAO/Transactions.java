@@ -15,7 +15,7 @@ public ArrayList<Transaction> getTransactionsForAccount(Account account){
 	ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 	try {
 	    stmt = conn.createStatement();
-	    System.out.println(("SELECT * FROM transactions WHERE IDAccount = " + account.getId() +";"));
+	
 	    rs = stmt.executeQuery("SELECT * FROM transactions WHERE IDAccount = " + account.getId() +";");
 	    while(rs.next()) {
 	    	Transaction transaction = new Transaction();

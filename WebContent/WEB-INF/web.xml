@@ -8,7 +8,6 @@
     <servlet-name>LogoutServlet</servlet-name>
     <servlet-class>com.mymoney.servlets.LogoutServlet</servlet-class>
   </servlet>
- 
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/MyMoney/*</url-pattern>

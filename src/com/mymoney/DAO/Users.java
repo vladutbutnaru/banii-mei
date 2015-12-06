@@ -23,12 +23,12 @@ public class Users {
 
 		       user.setFirstName(rs.getString("FirstName"));
 		       user.setLastName(rs.getString("LastName"));
+		       user.setCity(rs.getString("City"));
 		       user.setId(rs.getInt("ID"));
 
 		        // etc.
 		    }
-		    System.out.println("SELECT * FROM users WHERE email = '" + user.getEmail() +"';");
-System.out.println(user.getFirstName());
+
 		  
 		}
 		catch (SQLException ex){

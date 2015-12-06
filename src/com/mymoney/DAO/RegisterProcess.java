@@ -37,9 +37,9 @@ public class RegisterProcess {
 			query+=user.getPremium()+ ",";
 			query+=user.getNumberOfLogins()+ "";			
 			query+=");";
-			System.out.println(query);
+			
 			stmt.executeUpdate(query);
-			System.out.println("New user registration - " + user.getEmail());
+			
 
 		} catch (SQLException ex) {
 			// handle any errors
