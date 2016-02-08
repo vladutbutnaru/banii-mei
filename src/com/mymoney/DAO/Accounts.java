@@ -93,5 +93,33 @@ public class Accounts {
 		return mostPopularAccount;
 
 	}
+public Account getAccountForTransaction(Transaction transaction){
+	Account account = new Account();
+	try {
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("SELECT * FROM accounts WHERE ID = " + transaction.getAccountID() + ";");
+		while (rs.next()) {
+			account = new Account();
+			account.setId(rs.getInt("ID"));
+			account.setAccountName(rs.getString("AccountName"));
+			account.setCurrency(rs.getString("Currency"));
+			account.setAmount(rs.getDouble("Amount"));
+			account.setAccountType(rs.getInt("AccountType"));
+			account.setAccountDescription(rs.getString("AccountDescription"));
+			account.setDeleted(rs.getInt("Deleted"));
+			account.setUserID(rs.getInt("IDUser"));
+			// etc.
+			
+		}
 
+	} catch (SQLException ex) {
+		// handle any errors
+		System.out.println("SQLException: " + ex.getMessage());
+		System.out.println("SQLState: " + ex.getSQLState());
+		System.out.println("VendorError: " + ex.getErrorCode());
+	}
+	return account;
+	
+	
+}
 }

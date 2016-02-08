@@ -363,7 +363,7 @@
 			<div class='pull-right'>
 				<ul class="info-menu right-links list-inline list-unstyled">
 					<li class="profile"><a href="#" data-toggle="dropdown"
-						class="toggle"> <img src="data/profile/profile.png"
+						class="toggle"> <img src="data/profile/<%=currentUser.getProfileImagePath() %>"
 							alt="user-image" class="img-circle img-inline"> <span><%="Salut, " + currentUser.getFirstName() + " " + currentUser.getLastName()%>
 								<i class="fa fa-angle-down"></i></span>
 					</a>
@@ -403,7 +403,7 @@
 				<div class="profile-info row">
 
 					<div class="profile-image col-md-4 col-sm-4 col-xs-4">
-						<a href="ui-profile.html"> <img src="data/profile/profile.png"
+						<a href="ui-profile.html"> <img src="data/profile/<%=currentUser.getProfileImagePath() %>"
 							class="img-responsive img-circle">
 						</a>
 					</div>
@@ -433,17 +433,18 @@
 							class="fa fa-dashboard"></i> <span class="title">Interfata
 								de control</span>
 					</a></li>
-					<li class="open"><a href="accounts.jsp"> <i
+					<li><a href="accounts.jsp"> <i
 							class="fa fa-th"></i> <span class="title">Conturile mele</span><span
 							class="label label-orange nosubmenu">2</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i
-							class="fa fa-suitcase"></i> <span class="title">Plati</span> <span
+					<li class="open"><a href="javascript:;"> <i
+							class="fa fa-suitcase"></i> <span class="title">Plati & Castiguri</span> <span
 							class="arrow "></span>
 					</a>
 						<ul class="sub-menu">
-							<li><a class="" href="ui-typography.html">Plata noua</a></li>
-							<li><a class="" href="ui-accordion.html">Istoric plati</a></li>
+							<li><a class="" href="newpayment.jsp">Plata noua</a></li>
+								<li><a class="" href="newincome.jsp">Castig nou</a></li>
+							<li><a class="" href="viewhistory.jsp">Istoricul tranzactiilor</a></li>
 							<li><a class="" href="ui-progress.html">Plati recurente</a>
 							</li>
 							<li><a class="" href="ui-icons.html">Sabloane</a></li>
@@ -546,14 +547,15 @@
 									<br>
 									<h3>Completeaza campurile de mai jos</h3>
 									<br>
+									<form id="plataNoua" action="NewPaymentServlet" method="post">
 									<div class="form-group">
 										<label class="form-label" for="field-1">Contul din
 											care executi plata</label> <span class="desc">e.g. "Cont
 											curent"</span>
 
 										<div class="controls">
-											<select class="form-control input-lg m-bot15" id="monedaCont"
-												form="createSavingsAccountForm" name=monedaCont">
+											<select class="form-control input-lg m-bot15" id="contPlata"
+												form="plataNoua" name="contPlata"">
 												<%
 													//get all accounts and display them first
 													boolean hasAccounts = false;
@@ -561,10 +563,10 @@
 													ArrayList<Account> listOfAccounts = new ArrayList<Account>();
 													listOfAccounts = accountDAO.getAccountsForUser(currentUser);
 													for (Account a : listOfAccounts) {
-														if (a.getDeleted() != 0) {
+														if (a.getDeleted() == 0) {
 															hasAccounts = true;
 												%>
-												<option value=<%="\"" + a.getAccountName() + "\""%>><%=a.getAccountName()%></option>
+												<option value=<%="\"" + a.getId() + "\""%>><%=a.getAccountName()%></option>
 
 												<%
 													}
@@ -579,8 +581,8 @@
 										<label class="form-label" for="field-1">Denumire plata</label>
 										<span class="desc">e.g. "iPhone 6S"</span>
 										<div class="controls">
-											<input type="text" class="form-control" id="descriereCont"
-												name="descriereCont">
+											<input type="text" class="form-control" id="numePlata"
+												name="numePlata">
 										</div>
 									</div>
 									<br>
@@ -588,8 +590,8 @@
 										<label class="form-label" for="field-1">Descriere
 											plata</label> <span class="desc">e.g. "Cadou ziua Stefaniei"</span>
 										<div class="controls">
-											<input type="text" class="form-control" id="descriereCont"
-												name="descriereCont">
+											<input type="text" class="form-control" id="descrierePlata"
+												name="descrierePlata">
 										</div>
 									</div>
 									<br>
@@ -598,8 +600,8 @@
 										<label class="form-label" for="field-1">Valoare plata</label>
 										<span class="desc">e.g. "2500"</span>
 										<div class="controls">
-											<input type="text" class="form-control" id="soldCont"
-												name="soldCont">
+											<input type="text" class="form-control" id="valoarePlata"
+												name="valoarePlata">
 										</div>
 									</div>
 									<br>
@@ -613,7 +615,7 @@
 									<br>
 									<div class="col-md-12">
 										<h4>Produse din Social Financing</h4>
-										<select name="country" class="multi-select" multiple="1"
+										<select name="produsePlata" class="multi-select" multiple="multiple"
 											id="my_multi_select3">
 											<%
 												Products productDAO = new Products();
@@ -629,6 +631,7 @@
 
 
 									</div>
+									
 									<button type="button" data-toggle="modal"
 										href="#modalProdusNou" class="btn btn-primary">
 										<i class="fa fa-plus"> Adauga produs nou</i>
@@ -647,30 +650,40 @@
 											"Kaufland Pacurari"</span>
 
 										<div class="controls">
-											<select class="form-control input-lg m-bot15" id="monedaCont"
-												form="createSavingsAccountForm" name=monedaCont">
+											<select class="form-control input-lg m-bot15" id="locatiePlata"
+												form="plataNoua" name="locatiePlata">
 												<%
-													
-ArrayList<Location> listOfLocations = new ArrayList<Location>();
-												Locations locationDAO = new Locations();
+													ArrayList<Location> listOfLocations = new ArrayList<Location>();
+													Locations locationDAO = new Locations();
 													listOfLocations = locationDAO.getLocations(currentUser);
 													for (Location a : listOfLocations) {
-														
-													
 												%>
 												<option value=<%="\"" + a.getID() + "\""%>><%=a.getLocationName() + " - " + a.getLocationCity()%></option>
 
 												<%
-													
 													}
 												%>
 											</select>
+											
 										</div>
+								
+										
 									</div>
+									<button type="button" data-toggle="modal"
+												href="#modalLocatieNoua" class="btn btn-primary">
+												<i class="fa fa-plus"> Adauga locatie noua</i>
+											</button>
 								</div>
 							</div>
 
-							<div class="row"></div>
+							<div class="row">
+							<br><br><br>
+								<button type="button" onclick="document.getElementById('plataNoua').submit();"
+									class="btn btn-success">
+									<i class="fa fa-check-circle"> Salveaza plata</i>
+								</button>
+								</form>
+							</div>
 						</div>
 
 					</section>
@@ -686,7 +699,7 @@ ArrayList<Location> listOfLocations = new ArrayList<Location>();
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<section class="box ">
 						<header class="panel_header">
-							<h2 class="title pull-left">Sfaturi legate de conturi</h2>
+							<h2 class="title pull-left">Sfaturi legate de plati</h2>
 
 						</header>
 						<div class="content-body">
@@ -737,218 +750,7 @@ ArrayList<Location> listOfLocations = new ArrayList<Location>();
 				<input type="text" placeholder="Search" class="form-control">
 			</div>
 
-			<div class="chat-wrapper">
-				<h4 class="group-head">Groups</h4>
-				<ul class="group-list list-unstyled">
-					<li class="group-row">
-						<div class="group-status available">
-							<i class="fa fa-circle"></i>
-						</div>
-						<div class="group-info">
-							<h4>
-								<a href="#">Work</a>
-							</h4>
-						</div>
-					</li>
-					<li class="group-row">
-						<div class="group-status away">
-							<i class="fa fa-circle"></i>
-						</div>
-						<div class="group-info">
-							<h4>
-								<a href="#">Friends</a>
-							</h4>
-						</div>
-					</li>
 
-				</ul>
-
-
-				<h4 class="group-head">Favourites</h4>
-				<ul class="contact-list">
-
-					<li class="user-row" id='chat_user_1' data-user-id='1'>
-						<div class="user-img">
-							<a href="#"><img src="data/profile/avatar-1.png" alt=""></a>
-						</div>
-						<div class="user-info">
-							<h4>
-								<a href="#">Clarine Vassar</a>
-							</h4>
-							<span class="status available" data-status="available">
-								Available</span>
-						</div>
-						<div class="user-status available">
-							<i class="fa fa-circle"></i>
-						</div>
-					</li>
-					<li class="user-row" id='chat_user_2' data-user-id='2'>
-						<div class="user-img">
-							<a href="#"><img src="data/profile/avatar-2.png" alt=""></a>
-						</div>
-						<div class="user-info">
-							<h4>
-								<a href="#">Brooks Latshaw</a>
-							</h4>
-							<span class="status away" data-status="away"> Away</span>
-						</div>
-						<div class="user-status away">
-							<i class="fa fa-circle"></i>
-						</div>
-					</li>
-					<li class="user-row" id='chat_user_3' data-user-id='3'>
-						<div class="user-img">
-							<a href="#"><img src="data/profile/avatar-3.png" alt=""></a>
-						</div>
-						<div class="user-info">
-							<h4>
-								<a href="#">Clementina Brodeur</a>
-							</h4>
-							<span class="status busy" data-status="busy"> Busy</span>
-						</div>
-						<div class="user-status busy">
-							<i class="fa fa-circle"></i>
-						</div>
-					</li>
-
-				</ul>
-
-
-				<h4 class="group-head">More Contacts</h4>
-				<ul class="contact-list">
-
-					<li class="user-row" id='chat_user_4' data-user-id='4'>
-						<div class="user-img">
-							<a href="#"><img src="data/profile/avatar-4.png" alt=""></a>
-						</div>
-						<div class="user-info">
-							<h4>
-								<a href="#">Carri Busey</a>
-							</h4>
-							<span class="status offline" data-status="offline">
-								Offline</span>
-						</div>
-						<div class="user-status offline">
-							<i class="fa fa-circle"></i>
-						</div>
-					</li>
-					<li class="user-row" id='chat_user_5' data-user-id='5'>
-						<div class="user-img">
-							<a href="#"><img src="data/profile/avatar-5.png" alt=""></a>
-						</div>
-						<div class="user-info">
-							<h4>
-								<a href="#">Melissa Dock</a>
-							</h4>
-							<span class="status offline" data-status="offline">
-								Offline</span>
-						</div>
-						<div class="user-status offline">
-							<i class="fa fa-circle"></i>
-						</div>
-					</li>
-					<li class="user-row" id='chat_user_6' data-user-id='6'>
-						<div class="user-img">
-							<a href="#"><img src="data/profile/avatar-1.png" alt=""></a>
-						</div>
-						<div class="user-info">
-							<h4>
-								<a href="#">Verdell Rea</a>
-							</h4>
-							<span class="status available" data-status="available">
-								Available</span>
-						</div>
-						<div class="user-status available">
-							<i class="fa fa-circle"></i>
-						</div>
-					</li>
-					<li class="user-row" id='chat_user_7' data-user-id='7'>
-						<div class="user-img">
-							<a href="#"><img src="data/profile/avatar-2.png" alt=""></a>
-						</div>
-						<div class="user-info">
-							<h4>
-								<a href="#">Linette Lheureux</a>
-							</h4>
-							<span class="status busy" data-status="busy"> Busy</span>
-						</div>
-						<div class="user-status busy">
-							<i class="fa fa-circle"></i>
-						</div>
-					</li>
-					<li class="user-row" id='chat_user_8' data-user-id='8'>
-						<div class="user-img">
-							<a href="#"><img src="data/profile/avatar-3.png" alt=""></a>
-						</div>
-						<div class="user-info">
-							<h4>
-								<a href="#">Araceli Boatright</a>
-							</h4>
-							<span class="status away" data-status="away"> Away</span>
-						</div>
-						<div class="user-status away">
-							<i class="fa fa-circle"></i>
-						</div>
-					</li>
-					<li class="user-row" id='chat_user_9' data-user-id='9'>
-						<div class="user-img">
-							<a href="#"><img src="data/profile/avatar-4.png" alt=""></a>
-						</div>
-						<div class="user-info">
-							<h4>
-								<a href="#">Clay Peskin</a>
-							</h4>
-							<span class="status busy" data-status="busy"> Busy</span>
-						</div>
-						<div class="user-status busy">
-							<i class="fa fa-circle"></i>
-						</div>
-					</li>
-					<li class="user-row" id='chat_user_10' data-user-id='10'>
-						<div class="user-img">
-							<a href="#"><img src="data/profile/avatar-5.png" alt=""></a>
-						</div>
-						<div class="user-info">
-							<h4>
-								<a href="#">Loni Tindall</a>
-							</h4>
-							<span class="status away" data-status="away"> Away</span>
-						</div>
-						<div class="user-status away">
-							<i class="fa fa-circle"></i>
-						</div>
-					</li>
-					<li class="user-row" id='chat_user_11' data-user-id='11'>
-						<div class="user-img">
-							<a href="#"><img src="data/profile/avatar-1.png" alt=""></a>
-						</div>
-						<div class="user-info">
-							<h4>
-								<a href="#">Tanisha Kimbro</a>
-							</h4>
-							<span class="status idle" data-status="idle"> Idle</span>
-						</div>
-						<div class="user-status idle">
-							<i class="fa fa-circle"></i>
-						</div>
-					</li>
-					<li class="user-row" id='chat_user_12' data-user-id='12'>
-						<div class="user-img">
-							<a href="#"><img src="data/profile/avatar-2.png" alt=""></a>
-						</div>
-						<div class="user-info">
-							<h4>
-								<a href="#">Jovita Tisdale</a>
-							</h4>
-							<span class="status idle" data-status="idle"> Idle</span>
-						</div>
-						<div class="user-status idle">
-							<i class="fa fa-circle"></i>
-						</div>
-					</li>
-
-				</ul>
-			</div>
 
 		</div>
 
@@ -1064,7 +866,65 @@ ArrayList<Location> listOfLocations = new ArrayList<Location>();
 		</div>
 	</div>
 	<!-- modal end -->
+<!-- modal adauga locatie noua start -->
+	<div class="modal fade" id="modalLocatieNoua" tabindex="-1" role="dialog"
+		aria-labelledby="ultraModal-Label" aria-hidden="true">
+		<div class="modal-dialog animated zoomInDown">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Adauga locatie noua</h4>
+				</div>
+				<div class="modal-body">
+					<form action="CreateLocationServlet" method="post"
+						id="createLocationForm" name="createLocationForm">
+						<div class="form-group">
+							<label class="form-label" for="field-1">Nume locatie</label> <span
+								class="desc">e.g. "Mega Image Unirii"</span>
+							<div class="controls">
+								<input type="text" class="form-control" id="numeLocatie"
+									name="numeLocatie">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="form-label" for="field-1">Descriere locatie</label> <span
+								class="desc">e.g. "Magazin Mega Image pe Unirii"</span>
+							<div class="controls">
+								<input type="text" class="form-control" id="descriereLocatie"
+									name="descriereLocatie">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="form-label" for="field-1">Oras</label> <span
+								class="desc">e.g. "Bucuresti"</span>
+							<div class="controls">
+								<input type="text" class="form-control" id="orasLocatie"
+									name="orasLocatie">
+							</div>
+						</div>
+						<input type="submit" name="wp-submit" id="wp-submit"
+							class="btn btn-success" value="Adauga!" />
+						<button data-dismiss="modal" class="btn btn-danger" type="button">Inchide</button>
+					</form>
+					<br>
 
+
+
+
+				</div>
+				<div class="modal-footer">
+					<p>
+						Completeaza campurile de mai sus si apasa pe <b>Adauga!</b>
+					</p>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- modal end -->
 
 
 
@@ -1212,7 +1072,7 @@ ArrayList<Location> listOfLocations = new ArrayList<Location>();
 	</div>
 	<!-- modal end -->
 
-<!-- modal adauga produs start -->
+	<!-- modal adauga produs start -->
 	<div class="modal fade" id="modalProdusNou" tabindex="-1" role="dialog"
 		aria-labelledby="ultraModal-Label" aria-hidden="true">
 		<div class="modal-dialog animated zoomInDown">
@@ -1235,7 +1095,8 @@ ArrayList<Location> listOfLocations = new ArrayList<Location>();
 						</div>
 						<div class="form-group">
 							<label class="form-label" for="field-1">Descriere</label> <span
-								class="desc">e.g. "Pachet de tigari Dunhill Albastru 6 mg nicotina"</span>
+								class="desc">e.g. "Pachet de tigari Dunhill Albastru 6 mg
+								nicotina"</span>
 							<div class="controls">
 								<input type="text" class="form-control" id="descriereProdus"
 									name="descriereProdus">
@@ -1245,22 +1106,23 @@ ArrayList<Location> listOfLocations = new ArrayList<Location>();
 							<label class="form-label" for="field-1">Categorie</label> <span
 								class="desc">e.g. "Produse din tutun"</span>
 							<div class="controls">
-								<select class="form-control input-lg m-bot15" id="productCategory"
-									form="createProductForm" name="productCategory">
-								<%
-								Categories categoryDAO = new Categories();
-								ArrayList<Category> categories = categoryDAO.getAllCategoriesAlphabetically();
-								for(Category c : categories){
-								%>
-									<option value="<%=c.getID()%>"><%=c.getCategoryName() %></option>
+								<select class="form-control input-lg m-bot15"
+									id="productCategory" form="createProductForm"
+									name="productCategory">
 									<%
-								}
+										Categories categoryDAO = new Categories();
+										ArrayList<Category> categories = categoryDAO.getAllCategoriesAlphabetically();
+										for (Category c : categories) {
+									%>
+									<option value="<%=c.getID()%>"><%=c.getCategoryName()%></option>
+									<%
+										}
 									%>
 
 								</select>
 							</div>
 						</div>
-					
+
 						<input type="submit" name="wp-submit" id="wp-submit"
 							class="btn btn-success" value="Adauga!" />
 						<button data-dismiss="modal" class="btn btn-danger" type="button">Inchide</button>

@@ -350,7 +350,7 @@ User currentUser = userDAO.getUserByEmail(userName);
 			<div class='pull-right'>
 				<ul class="info-menu right-links list-inline list-unstyled">
 					<li class="profile"><a href="#" data-toggle="dropdown"
-						class="toggle"> <img src="data/profile/profile.png"
+						class="toggle"> <img src="data/profile/<%=currentUser.getProfileImagePath() %>"
 							alt="user-image" class="img-circle img-inline"> <span><%= "Salut, " + currentUser.getFirstName() + " " + currentUser.getLastName() %>
 								<i class="fa fa-angle-down"></i></span>
 					</a>
@@ -390,7 +390,7 @@ User currentUser = userDAO.getUserByEmail(userName);
 				<div class="profile-info row">
 
 					<div class="profile-image col-md-4 col-sm-4 col-xs-4">
-						<a href="ui-profile.html"> <img src="data/profile/profile.png"
+						<a href="ui-profile.html"> <img src="data/profile/<%=currentUser.getProfileImagePath() %>"
 							class="img-responsive img-circle">
 						</a>
 					</div>
@@ -425,12 +425,13 @@ User currentUser = userDAO.getUserByEmail(userName);
 							class="label label-orange nosubmenu">2</span>
 					</a></li>
 					<li class=""><a href="javascript:;"> <i
-							class="fa fa-suitcase"></i> <span class="title">Plati</span> <span
+							class="fa fa-suitcase"></i> <span class="title">Plati & Castiguri</span> <span
 							class="arrow "></span>
 					</a>
 						<ul class="sub-menu">
 							<li><a class="" href="newpayment.jsp">Plata noua</a></li>
-							<li><a class="" href="ui-accordion.html">Istoric plati</a></li>
+							<li><a class="" href="newincome.jsp">Castig nou</a></li>
+						<li><a class="" href="viewhistory.jsp">Istoricul tranzactiilor</a></li>
 							<li><a class="" href="ui-progress.html">Plati recurente</a>
 							</li>
 							<li><a class="" href="ui-icons.html">Sabloane</a></li>

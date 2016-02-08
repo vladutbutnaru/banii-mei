@@ -68,4 +68,48 @@ public void insertProduct(Product product){
 		}
 		
 	}
+public ArrayList<Product> getProductsForProductIDs(String produse){
+	ArrayList<Product> products = new ArrayList<Product>();
+	String produseDinLista[] = produse.split(",");
+	for(int i = 1 ; i<produseDinLista.length; i++){
+		Product product = new Product();
+		product = getProductById(Integer.parseInt(produseDinLista[i]));
+		products.add(product);
+		
+		
+	}
+	
+	return products;
+	
+	
 }
+public Product getProductById(int id){
+	Product product = new Product();
+	try {
+		stmt = conn.createStatement();
+
+		rs = stmt.executeQuery("SELECT * FROM products WHERE id = " + id);
+		while (rs.next()) {
+		 product = new Product();
+			product.setID(rs.getInt("ID"));
+			product.setProductName(rs.getString("ProductName"));
+			product.setProductDescription(rs.getString("ProductDescription"));
+			product.setCategoryID(rs.getInt("ProductCategoryID"));
+
+			// etc.
+			
+		}
+
+	} catch (SQLException ex) {
+		// handle any errors
+		System.out.println("SQLException: " + ex.getMessage());
+		System.out.println("SQLState: " + ex.getSQLState());
+		System.out.println("VendorError: " + ex.getErrorCode());
+	}
+
+	return product;
+	
+	
+}
+}
+

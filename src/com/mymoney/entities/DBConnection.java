@@ -19,7 +19,7 @@ public class DBConnection {
 			try {
 		    conn =
 		        DriverManager.getConnection("jdbc:mysql://localhost:3306/BaniiMei?" +
-		                                   "user=root&password=password");
+		                                   "user=root&password=budopas$");
 		 
 		} catch (SQLException ex) {
 		    // handle any errors

@@ -82,11 +82,11 @@ if(userName != null) response.sendRedirect("home.jsp");
 				<p>
 					<label for="user_login">Email<br /> <input type="text"
 						name="user" id="user_login" class="input"
-						value="vlad2me@gmail.com" size="20" /></label>
+						value="" size="20" /></label>
 				</p>
 				<p>
 					<label for="user_pass">Parola<br /> <input type="password"
-						name="pwd" id="user_pass" class="input" value="dev2015" size="20" /></label>
+						name="pwd" id="user_pass" class="input" value="" size="20" /></label>
 				</p>
 				<p class="forgetmenot">
 					<label class="icheck-label form-label" for="rememberme"><input

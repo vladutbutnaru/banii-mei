@@ -25,6 +25,7 @@ private int premium;
 private int numberOfLogins;
 private Date lastLogin;
 private Date dateRegistered;
+private String profileImagePath;
 //getters and setters
 public int getId() {
 	return id;
@@ -159,4 +160,10 @@ public void setDateRegistered(Date dateRegistered) {
 	this.dateRegistered = dateRegistered;
 }
 //end getters and setters
+public String getProfileImagePath() {
+	return profileImagePath;
+}
+public void setProfileImagePath(String profileImagePath) {
+	this.profileImagePath = profileImagePath;
+}
 }

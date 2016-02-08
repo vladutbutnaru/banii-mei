@@ -9,11 +9,12 @@ private String transactionDescription;
 private double amount;
 private int transactionType;
 private int accountID;
-private int productID;
+private String productID;
 private int isRecurrent;
 private String currency;
 private Date transactionTime;
 private int deleted;
+private int locationID;
 public int getID() {
 	return ID;
 }
@@ -50,10 +51,10 @@ public int getAccountID() {
 public void setAccountID(int accountID) {
 	this.accountID = accountID;
 }
-public int getProductID() {
+public String getProductID() {
 	return productID;
 }
-public void setProductID(int productID) {
+public void setProductID(String productID) {
 	this.productID = productID;
 }
 public int getIsRecurrent() {
@@ -79,6 +80,12 @@ public int getDeleted() {
 }
 public void setDeleted(int deleted) {
 	this.deleted = deleted;
+}
+public int getLocationID() {
+	return locationID;
+}
+public void setLocationID(int locationID) {
+	this.locationID = locationID;
 }
 
 }

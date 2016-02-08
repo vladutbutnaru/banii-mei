@@ -25,6 +25,7 @@ public class Users {
 		       user.setLastName(rs.getString("LastName"));
 		       user.setCity(rs.getString("City"));
 		       user.setId(rs.getInt("ID"));
+		       user.setProfileImagePath(rs.getString("ProfileImagePath"));
 
 		        // etc.
 		    }
