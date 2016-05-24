@@ -69,8 +69,10 @@ public class NewPaymentServlet extends HttpServlet {
 		request.setAttribute("products", produse);
 		request.setAttribute("transactionID", transaction.getID());
 		request.setAttribute("LocationID", transaction.getLocationID());
+		if(!produse.equals(""))
 		request.getRequestDispatcher("transactionAdded.jsp").forward(request, response);
-	
+		else
+		response.sendRedirect("viewhistory.jsp");
 	}
 
 }

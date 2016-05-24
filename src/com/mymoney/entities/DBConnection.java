@@ -17,9 +17,11 @@ public class DBConnection {
 			e.printStackTrace();
 		}
 			try {
+			    System.out.println("SALUT");
 		    conn =
 		        DriverManager.getConnection("jdbc:mysql://localhost:3306/BaniiMei?" +
-		                                   "user=root&password=budopas$");
+		                                   "user=root&password=admin");
+		
 		 
 		} catch (SQLException ex) {
 		    // handle any errors

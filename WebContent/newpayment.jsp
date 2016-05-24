@@ -678,7 +678,7 @@
 
 							<div class="row">
 							<br><br><br>
-								<button type="button" onclick="document.getElementById('plataNoua').submit();"
+								<button type="button" onclick="checkFields();"
 									class="btn btn-success">
 									<i class="fa fa-check-circle"> Salveaza plata</i>
 								</button>
@@ -1145,7 +1145,27 @@
 	</div>
 	<!-- modal end -->
 
+<script type="text/javascript">
+function checkFields(){
+	if(document.getElementById('numePlata').value =="" || document.getElementById('descrierePlata').value =="" || document.getElementById('valoarePlata').value=="" || document.getElementById('contPlata').value == ""){
+	alert("Te rugam sa completezi toate campurile inainte sa salvezi");
+		return false;
+	}
+	
+	if(isNaN(document.getElementById('valoarePlata').value)){
+		alert("Valoarea platii trebuie sa fie un numar");
+	}
+	else{
+		document.getElementById('plataNoua').submit();
+		
+	}
+	
+	
+	
+}
 
+
+</script>
 
 
 	<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
