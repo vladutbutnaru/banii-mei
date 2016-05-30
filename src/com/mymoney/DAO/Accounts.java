@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import com.mymoney.entities.Account;
 import com.mymoney.entities.DBConnection;
@@ -20,6 +21,7 @@ public class Accounts {
 	Statement stmt = null;
 	ResultSet rs = null;
 	ArrayList<Account> listOfAccounts = new ArrayList<Account>();
+	Logger l = Logger.getLogger(Accounts.class.getName());
 
 	public ArrayList<Account> getAccountsForUser(User user) {
 		listOfAccounts = new ArrayList<Account>();
@@ -40,12 +42,14 @@ public class Accounts {
 				// etc.
 				listOfAccounts.add(account);
 			}
+		l.info("Found " + listOfAccounts.size() + " accounts for user with id " + user.getId());
 
 		} catch (SQLException ex) {
 			// handle any errors
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe("Error while getting accounts for user with id: " + user.getId());
 		}
 
 		return listOfAccounts;
@@ -70,12 +74,13 @@ public class Accounts {
 				// etc.
 				listOfAccounts.add(account);
 			}
-
+			l.info("Found most popular account for user with id " + user.getId());
 		} catch (SQLException ex) {
 			// handle any errors
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe("Error while getting most popular account for user with id: " + user.getId() + " " + ex.getMessage());
 		}
 		int max = 0;
 		Account mostPopularAccount = new Account();
@@ -111,12 +116,14 @@ public Account getAccountForTransaction(Transaction transaction){
 			// etc.
 			
 		}
-
+		l.info("Found account details for account with id " + transaction.getAccountID());
 	} catch (SQLException ex) {
 		// handle any errors
 		System.out.println("SQLException: " + ex.getMessage());
 		System.out.println("SQLState: " + ex.getSQLState());
 		System.out.println("VendorError: " + ex.getErrorCode());
+		l.severe("Error while getting most popular account for user with id: " + user.getId() + ex.getMessage());
+		
 	}
 	return account;
 	

@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import com.mymoney.entities.*;
 public class EarningSources {
@@ -13,6 +14,7 @@ public class EarningSources {
 	Statement stmt = null;
 	ResultSet rs = null;
 	EarningSource earningSource;
+	Logger l = Logger.getLogger(EarningSources.class.getName());
 	public ArrayList<EarningSource> getUserEarningSources(User user){
 		ArrayList<EarningSource> earningSources = new ArrayList<EarningSource>();
 		try {
@@ -27,12 +29,13 @@ public class EarningSources {
 				// etc.
 				earningSources.add(earningSource);
 			}
-
+			l.info("Found " + earningSources.size());
 		} catch (SQLException ex) {
 			// handle any errors
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe(ex.getMessage());
 		}
 		
 		
@@ -60,12 +63,13 @@ public class EarningSources {
 				// etc.
 				
 			}
-
+			l.info(earningSource.getEarningName());
 		} catch (SQLException ex) {
 			// handle any errors
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe(ex.getMessage());
 		}
 		
 		
@@ -90,13 +94,14 @@ public class EarningSources {
 			query+=");";
 		
 			stmt.executeUpdate(query);
-			
+			l.info(query);
 
 		} catch (SQLException ex) {
 			// handle any errors
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe(ex.getMessage());
 		}
 		
 		

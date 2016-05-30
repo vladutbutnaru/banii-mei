@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 import com.mymoney.entities.DBConnection;
 
 public class Subscriptions {
+	Logger l = Logger.getLogger(Categories.class.getName());
 	DBConnection connectionFactory = new DBConnection();
 	Connection conn = (Connection) connectionFactory.getConnection();
 	Statement stmt = null;

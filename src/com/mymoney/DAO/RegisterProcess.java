@@ -3,11 +3,13 @@ package com.mymoney.DAO;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 import com.mymoney.entities.DBConnection;
 import com.mymoney.entities.User;
 
 public class RegisterProcess {
+	Logger l = Logger.getLogger(RegisterProcess.class.getName());
 	public void registerUser(User user) {
 		DBConnection connectionFactory = new DBConnection();
 		Connection conn = (Connection) connectionFactory.getConnection();
@@ -39,13 +41,14 @@ public class RegisterProcess {
 			query+=");";
 			
 			stmt.executeUpdate(query);
-			
+			l.info(query);
 
 		} catch (SQLException ex) {
 			// handle any errors
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe(ex.getMessage());
 		}
 
 	}

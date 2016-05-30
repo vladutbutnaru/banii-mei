@@ -3,12 +3,12 @@ package com.mymoney.entities;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import java.util.logging.*;
 
 
 public class DBConnection {
 	Connection conn = null;
-	
+	Logger l = Logger.getLogger(DBConnection.class.getName());
 	public Connection getConnection(){
 		  try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -17,10 +17,12 @@ public class DBConnection {
 			e.printStackTrace();
 		}
 			try {
-			    System.out.println("SALUT");
+		
+			l.info("New Database Connection Created");
+			  
 		    conn =
 		        DriverManager.getConnection("jdbc:mysql://localhost:3306/BaniiMei?" +
-		                                   "user=root&password=admin");
+		                                   "user=root&password=baniimeidev");
 		
 		 
 		} catch (SQLException ex) {
@@ -28,6 +30,8 @@ public class DBConnection {
 		    System.out.println("SQLException: " + ex.getMessage());
 		    System.out.println("SQLState: " + ex.getSQLState());
 		    System.out.println("VendorError: " + ex.getErrorCode());
+		    l.severe("Error while creating Database Connection");
+		  
 		}
 		return conn;		
 	}

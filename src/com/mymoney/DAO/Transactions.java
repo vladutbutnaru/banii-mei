@@ -5,10 +5,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import com.mymoney.entities.*;
 
 public class Transactions {
+	Logger l = Logger.getLogger(Transactions.class.getName());
 	DBConnection connectionFactory = new DBConnection();
 	Connection conn = (Connection) connectionFactory.getConnection();
 	Statement stmt = null;
@@ -37,12 +39,13 @@ public class Transactions {
 				// etc.
 				transactions.add(transaction);
 			}
-
+			l.info("Found " + transactions.size() + " transactions");
 		} catch (SQLException ex) {
 			// handle any errors
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe(ex.getMessage());
 		}
 
 		return transactions;
@@ -76,12 +79,13 @@ query = "UPDATE accounts SET Amount = Amount - " + transaction.getAmount() + " W
 			 else
 				 query = "UPDATE accounts SET Amount = Amount + " + transaction.getAmount() + " WHERE ID = " + transaction.getAccountID(); 
 stmt.executeUpdate(query);
-
+l.info(query);
 		} catch (SQLException ex) {
 			// handle any errors
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe(ex.getMessage());
 		}
 return newID;
 	}
@@ -101,7 +105,7 @@ return newID;
 			
 			
 		}
-		
+		l.info("Found " + transactions.size() + " transactions");
 		
 		return transactions;
 	}

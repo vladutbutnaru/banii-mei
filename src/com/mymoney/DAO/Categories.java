@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import com.mymoney.entities.DBConnection;
 import com.mymoney.entities.Category;
@@ -15,6 +16,7 @@ public class Categories {
 	Statement stmt = null;
 	ResultSet rs = null;
 	Category category;
+	Logger l = Logger.getLogger(Categories.class.getName());
 	public ArrayList<Category> getAllCategoriesAlphabetically(){
 		ArrayList<Category> categories = new ArrayList<Category>();
 		try {
@@ -29,12 +31,13 @@ public class Categories {
 				// etc.
 				categories.add(category);
 			}
-
+			l.info("Found " + categories.size() + " categories");
 		} catch (SQLException ex) {
 			// handle any errors
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe("Error while getting categories " + ex.getMessage());
 		}
 		
 		return categories;
@@ -55,13 +58,14 @@ public class Categories {
 			query+=");";
 		
 			stmt.executeUpdate(query);
-			
+			l.info("Category with name " + category.getCategoryName());
 
 		} catch (SQLException ex) {
 			// handle any errors
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe("Error while inserting categories " + ex.getMessage());
 		}
 		
 	}

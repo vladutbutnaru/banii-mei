@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 import com.mymoney.entities.DBConnection;
 import com.mymoney.entities.User;
 
 public class Users {
 	User user = new User();
+	Logger l = Logger.getLogger(Users.class.getName());
 	DBConnection connectionFactory = new DBConnection();
 	Connection conn = (Connection) connectionFactory.getConnection();
 	Statement stmt = null;
@@ -29,7 +31,7 @@ public class Users {
 
 		        // etc.
 		    }
-
+		    l.info("FOund user with name " + user.getFirstName() + " " + user.getLastName());
 		  
 		}
 		catch (SQLException ex){
@@ -37,6 +39,7 @@ public class Users {
 		    System.out.println("SQLException: " + ex.getMessage());
 		    System.out.println("SQLState: " + ex.getSQLState());
 		    System.out.println("VendorError: " + ex.getErrorCode());
+		    l.severe(ex.getMessage());
 		}
 		
 		return user;

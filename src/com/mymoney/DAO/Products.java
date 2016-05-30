@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import com.mymoney.entities.Category;
 import com.mymoney.entities.DBConnection;
@@ -15,7 +16,7 @@ public class Products {
 	Connection conn = (Connection) connectionFactory.getConnection();
 	Statement stmt = null;
 	ResultSet rs = null;
-
+	Logger l = Logger.getLogger(Products.class.getName());
 	public ArrayList<Product> getAllProducts() {
 		ArrayList<Product> products = new ArrayList<Product>();
 		try {
@@ -32,12 +33,13 @@ public class Products {
 				// etc.
 				products.add(product);
 			}
-
+			l.info("Found " + products.size() + " products");
 		} catch (SQLException ex) {
 			// handle any errors
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe(ex.getMessage());
 		}
 
 		return products;
@@ -58,13 +60,14 @@ public void insertProduct(Product product){
 			query+=");";
 		
 			stmt.executeUpdate(query);
-			
+			l.info("insertProduct");
 
 		} catch (SQLException ex) {
 			// handle any errors
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe(ex.getMessage());
 		}
 		
 	}
@@ -78,6 +81,7 @@ public ArrayList<Product> getProductsForProductIDs(String produse){
 		
 		
 	}
+	l.info("Products: " + products.size());
 	
 	return products;
 	
@@ -99,12 +103,14 @@ public Product getProductById(int id){
 			// etc.
 			
 		}
+		l.info(product.getProductName());
 
 	} catch (SQLException ex) {
 		// handle any errors
 		System.out.println("SQLException: " + ex.getMessage());
 		System.out.println("SQLState: " + ex.getSQLState());
 		System.out.println("VendorError: " + ex.getErrorCode());
+		l.severe(ex.getMessage());
 	}
 
 	return product;

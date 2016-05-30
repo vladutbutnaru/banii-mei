@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import com.mymoney.entities.DBConnection;
 import com.mymoney.entities.ProductPrice;
@@ -15,7 +16,7 @@ public class ProductPrices {
 	Statement stmt = null;
 	ResultSet rs = null;
 	ArrayList<ProductPrice> productPrices = new ArrayList<ProductPrice>();
-	
+	Logger l = Logger.getLogger(ProductPrices.class.getName());
 	public void insertProductPrices(ArrayList<ProductPrice> prices){
 		for(ProductPrice productPrice : prices){
 		try {
