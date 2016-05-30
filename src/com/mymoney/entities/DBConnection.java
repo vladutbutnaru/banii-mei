@@ -19,11 +19,11 @@ public class DBConnection {
 			try {
 		
 			l.info("New Database Connection Created");
-			  
+			  if(conn==null){
 		    conn =
 		        DriverManager.getConnection("jdbc:mysql://localhost:3306/BaniiMei?" +
 		                                   "user=root&password=baniimeidev");
-		
+			  }
 		 
 		} catch (SQLException ex) {
 		    // handle any errors
