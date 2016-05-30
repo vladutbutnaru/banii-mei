@@ -7,7 +7,7 @@ import java.util.logging.*;
 
 
 public class DBConnection {
-	Connection conn = null;
+	static Connection conn = null;
 	Logger l = Logger.getLogger(DBConnection.class.getName());
 	public Connection getConnection(){
 		  try {
@@ -15,14 +15,16 @@ public class DBConnection {
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			l.severe(e.getMessage());
 		}
 			try {
 		
-			l.info("New Database Connection Created");
+			
 			  if(conn==null){
 		    conn =
 		        DriverManager.getConnection("jdbc:mysql://localhost:3306/BaniiMei?" +
 		                                   "user=root&password=baniimeidev");
+		    l.info("Created new DB Connection");
 			  }
 		 
 		} catch (SQLException ex) {

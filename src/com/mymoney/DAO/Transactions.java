@@ -4,10 +4,16 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Logger;
 
-import com.mymoney.entities.*;
+import com.mymoney.entities.Account;
+import com.mymoney.entities.DBConnection;
+import com.mymoney.entities.Transaction;
+import com.mymoney.entities.User;
 
 public class Transactions {
 	Logger l = Logger.getLogger(Transactions.class.getName());
@@ -109,5 +115,172 @@ return newID;
 		
 		return transactions;
 	}
+	public double getNewPayments(User user){
+		double amount =0 ;
+		
+		Accounts accountDAO = new Accounts();
+		
+		ArrayList<Account> accounts = accountDAO.getAccountsForUser(user);
+		for(Account a : accounts){
+			if(a.getDeleted()==0){
+		ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+		try {
+			stmt = conn.createStatement();
 
+			rs = stmt.executeQuery("SELECT * FROM transactions WHERE IDAccount = " + a.getId() + " ORDER BY TransactionTime DESC;");
+			while (rs.next()) {
+				Transaction transaction = new Transaction();
+				transaction.setID(rs.getInt("ID"));
+				transaction.setTransactionName(rs.getString("TransactionName"));
+				transaction.setTransactionDescription(rs.getString("TransactionDescription"));
+				transaction.setCurrency(rs.getString("Currency"));
+				transaction.setAmount(rs.getDouble("Amount"));
+				transaction.setDeleted(rs.getInt("Deleted"));
+				transaction.setTransactionType(rs.getInt("TransactionType"));
+			
+				transaction.setProductID(rs.getString("IDProduct"));
+				transaction.setIsRecurrent(rs.getInt("ISRecurrent"));
+				transaction.setLocationID(rs.getInt("IDLocation"));
+				transaction.setTransactionTime(rs.getDate("TransactionTime"));
+				// etc.
+				Date date = new Date();
+				SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
+				date = dateFormatter.parse(dateFormatter.format(new Date() ));
+				if(transaction.getTransactionType() == 1 && transaction.getTransactionTime().getMonth()>(date.getMonth()-1) && transaction.getTransactionTime().getYear() == date.getYear())
+					amount+=transaction.getAmount();
+					
+				
+				}
+		
+			
+			}
+
+	 catch (SQLException ex) {
+			// handle any errors
+			System.out.println("SQLException: " + ex.getMessage());
+			System.out.println("SQLState: " + ex.getSQLState());
+			System.out.println("VendorError: " + ex.getErrorCode());
+			l.severe(ex.getMessage());
+		} catch (ParseException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		l.severe(e.getMessage());
+	}
+			}
+		}
+
+		
+		
+		
+		
+		
+		
+		
+		return amount;
+	}
+	
+
+public double getAmountSpentToday(User user){
+	double sum =0 ;
+	Accounts accountDAO = new Accounts();
+	
+	ArrayList<Account> accounts = accountDAO.getAccountsForUser(user);
+	for(Account a : accounts){
+		if(a.getDeleted()==0){
+	ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+	try {
+		stmt = conn.createStatement();
+
+		rs = stmt.executeQuery("SELECT * FROM transactions WHERE IDAccount = " + a.getId() + " ORDER BY TransactionTime DESC;");
+		while (rs.next()) {
+			Transaction transaction = new Transaction();
+			transaction.setID(rs.getInt("ID"));
+			transaction.setTransactionName(rs.getString("TransactionName"));
+			transaction.setTransactionDescription(rs.getString("TransactionDescription"));
+			transaction.setCurrency(rs.getString("Currency"));
+			transaction.setAmount(rs.getDouble("Amount"));
+			transaction.setDeleted(rs.getInt("Deleted"));
+			transaction.setTransactionType(rs.getInt("TransactionType"));
+		
+			transaction.setProductID(rs.getString("IDProduct"));
+			transaction.setIsRecurrent(rs.getInt("ISRecurrent"));
+			transaction.setLocationID(rs.getInt("IDLocation"));
+			transaction.setTransactionTime(rs.getDate("TransactionTime"));
+			// etc.
+			Date date = new Date();
+			SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
+			date = dateFormatter.parse(dateFormatter.format(new Date() ));
+			if(transaction.getTransactionType() == 1 && transaction.getTransactionTime().compareTo(date) == 0)
+				sum+=transaction.getAmount();
+				
+			
+			}
+	
+		
+		}
+
+ catch (SQLException ex) {
+		// handle any errors
+		System.out.println("SQLException: " + ex.getMessage());
+		System.out.println("SQLState: " + ex.getSQLState());
+		System.out.println("VendorError: " + ex.getErrorCode());
+	} catch (ParseException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+		}
+	}
+
+	return sum;
+}
+
+
+
+public int getNumberOfTransactionsForAccount(Account account){
+	int numberOfTransactions = 0;
+	ArrayList<Transaction> listOfTransactions = getTransactionsForAccount(account);
+	numberOfTransactions = listOfTransactions.size();
+	return numberOfTransactions;
+	 
+	
+}
+
+
+
+public String getLastTransactionDate(Account a){
+	ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+	try {
+		stmt = conn.createStatement();
+
+		rs = stmt.executeQuery("SELECT * FROM transactions WHERE IDAccount = " + a.getId() + " ORDER BY TransactionTime DESC;");
+		while (rs.next()) {
+			Transaction transaction = new Transaction();
+			transaction.setID(rs.getInt("ID"));
+			transaction.setTransactionName(rs.getString("TransactionName"));
+			transaction.setTransactionDescription(rs.getString("TransactionDescription"));
+			transaction.setCurrency(rs.getString("Currency"));
+			transaction.setAmount(rs.getDouble("Amount"));
+			transaction.setDeleted(rs.getInt("Deleted"));
+			transaction.setTransactionType(rs.getInt("TransactionType"));
+			transaction.setAccountID(a.getId());
+			transaction.setProductID(rs.getString("IDProduct"));
+			transaction.setIsRecurrent(rs.getInt("ISRecurrent"));
+			transaction.setLocationID(rs.getInt("IDLocation"));
+			transaction.setTransactionTime(rs.getDate("TransactionTime"));
+			// etc.
+			transactions.add(transaction);
+		}
+
+	} catch (SQLException ex) {
+		// handle any errors
+		System.out.println("SQLException: " + ex.getMessage());
+		System.out.println("SQLState: " + ex.getSQLState());
+		System.out.println("VendorError: " + ex.getErrorCode());
+	}
+
+	return transactions.get(0).getTransactionTime().toString();
+	
+	
+	
+}
 }
