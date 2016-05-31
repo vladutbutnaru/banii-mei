@@ -92,9 +92,12 @@ User currentUser = userDAO.getUserByEmail(userName);
 <!-- CORE CSS TEMPLATE - END -->
 <%@ page import="com.mymoney.DAO.Users"%>
 <%@ page import="com.mymoney.DAO.Accounts"%>
+<%@ page import="com.mymoney.DAO.Transactions"%>
 <%@ page import="com.mymoney.entities.User"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="com.mymoney.entities.Account"%>
+<%@ page import="com.mymoney.entities.Transaction"%>
+
 </head>
 <!-- END HEAD -->
 
@@ -479,7 +482,10 @@ User currentUser = userDAO.getUserByEmail(userName);
 
 
 			<div class="project-info">
-
+<%
+Transactions transactionDAO = new Transactions();
+double newPayments = transactionDAO.getAmountSpentToday(currentUser);
+%>
 				<div class="block1">
 					<div class="data">
 						<span class='title'>Castiguri&nbsp;Noi</span> <span class='total'>1,440</span>
@@ -491,7 +497,7 @@ User currentUser = userDAO.getUserByEmail(userName);
 
 				<div class="block2">
 					<div class="data">
-						<span class='title'>Plati&nbsp;Noi</span> <span class='total'>345</span>
+						<span class='title'>Plati&nbsp;Noi</span> <span class='total'><%=newPayments %></span>
 					</div>
 					<div class="graph">
 						<span class="sidebar_visitors">...</span>
@@ -565,7 +571,8 @@ User currentUser = userDAO.getUserByEmail(userName);
 											class='pull-left fa fa-dollar icon-md icon-rounded icon-purple'></i>
 										<div class="stats">
 											<h4>
-												<strong>14 RON</strong>
+											<%double amountSpentToday = transactionDAO.getAmountSpentToday(currentUser); %>
+												<strong><%=amountSpentToday %> RON</strong>
 											</h4>
 											<span>Suma cheltuita astazi</span>
 										</div>
