@@ -18,13 +18,23 @@ public class DBConnection {
 			l.severe(e.getMessage());
 		}
 			try {
-		
+				
+					
 			
 			  if(conn==null){
+				 
 		    conn =
 		        DriverManager.getConnection("jdbc:mysql://localhost:3306/BaniiMei?" +
 		                                   "user=root&password=baniimeidev");
+				
 		    l.info("Created new DB Connection");
+			  }
+			  if(conn.isClosed()){
+				  conn =
+					        DriverManager.getConnection("jdbc:mysql://localhost:3306/BaniiMei?" +
+					                                   "user=root&password=baniimeidev");
+				  
+				  
 			  }
 		 
 		} catch (SQLException ex) {

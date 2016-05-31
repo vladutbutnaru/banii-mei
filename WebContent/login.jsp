@@ -110,7 +110,9 @@ if(userName != null) response.sendRedirect("home.jsp");
 
 
 		</div>
+	
 	</div>
+	
 
 
 	<!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
