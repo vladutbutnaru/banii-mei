@@ -19,6 +19,7 @@ public class Users {
 
 	public User getUserByEmail(String email) {
 		try {
+			
 		    stmt = conn.createStatement();
 		    rs = stmt.executeQuery("SELECT * FROM users WHERE email = '" + email +"';");
 		    while(rs.next()) {
@@ -43,5 +44,30 @@ public class Users {
 		}
 		
 		return user;
+	}
+	public boolean checkIfUserExists(String email){
+try {
+			
+		    stmt = conn.createStatement();
+		    rs = stmt.executeQuery("SELECT * FROM users WHERE email = '" + email +"';");
+		    if(rs.next()) {
+return true;
+
+		        // etc.
+		    }
+		    l.info("FOund user with name " + user.getFirstName() + " " + user.getLastName());
+		  
+		}
+		catch (SQLException ex){
+		    // handle any errors
+		    System.out.println("SQLException: " + ex.getMessage());
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		    l.severe(ex.getMessage());
+		}
+return false;
+		
+		
+		
 	}
 }

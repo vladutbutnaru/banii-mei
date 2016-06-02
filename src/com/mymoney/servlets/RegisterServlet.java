@@ -98,8 +98,10 @@ public class RegisterServlet extends HttpServlet {
 		else
 			user.setPremium(0);
 		RegisterProcess registerProcessor = new RegisterProcess();
-		registerProcessor.registerUser(user);
+		if(registerProcessor.registerUser(user))
 		response.sendRedirect("login.jsp");
+		
+		
 	}
 
 }

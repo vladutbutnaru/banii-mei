@@ -54,7 +54,7 @@
 <link href="assets/plugins/icheck/skins/all.css" rel="stylesheet"
 	type="text/css" media="screen" />
 <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
-
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <!-- CORE CSS TEMPLATE - START -->
 <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
@@ -67,9 +67,29 @@
 <!-- BEGIN BODY -->
 <body class=" ">
 	<!-- START TOPBAR -->
+<script>
+function checkIfExists(emailAddress){
+	if(emailAddress!= undefined && emailAddress!="" && emailAddress.indexOf('@') > 0){
+	var params = {
+		    email: emailAddress
+		   
+		};
 
-	<!-- END TOPBAR -->
-	<!-- START CONTAINER -->
+	
+	 $.get("/MyMoney/CheckUserExistsServlet", $.param(params), function(responseText) {   // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
+        if(responseText=="true")
+        	document.getElementById("emailExistsError").style.display = ""; 
+        else
+        	document.getElementById("emailExistsError").style.display = "none"; 
+     });
+	}
+	
+	
+}
+
+
+
+</script>
 
 	<div class="page-container row-fluid">
 
@@ -146,7 +166,13 @@
 														<div class="controls">
 															<input type="text"
 																placeholder="eg. popescu.andrei@gmail.com"
-																class="form-control" name="Email" id="Email">
+																class="form-control" name="Email" id="Email" onblur="checkIfExists(this.value)">
+														</div>
+														<div id="emailExistsError"  class="controls" style="display:none">
+														<label class ="form-label" for="field-1">
+														Acest email exista deja in baza de date
+														</label>
+														
 														</div>
 													</div>
 
