@@ -24,14 +24,14 @@ public class DBConnection {
 			  if(conn==null){
 				 
 		    conn =
-		        DriverManager.getConnection("jdbc:mysql://localhost:3306/BaniiMei?" +
+		        DriverManager.getConnection("jdbc:mysql://rocademy.net:3306/BaniiMei?" +
 		                                   "user=root&password=baniimeidev");
 				
 		    l.info("Created new DB Connection");
 			  }
 			  if(conn.isClosed()){
 				  conn =
-					        DriverManager.getConnection("jdbc:mysql://localhost:3306/BaniiMei?" +
+					        DriverManager.getConnection("jdbc:mysql://rocademy.net:3306/BaniiMei?" +
 					                                   "user=root&password=baniimeidev");
 				  
 				  
