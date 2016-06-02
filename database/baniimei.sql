@@ -314,10 +314,13 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   `IDAccount` int(11) NOT NULL,
   `IDProduct` text NOT NULL,
   `ISRecurrent` int(11) NOT NULL,
+  `RecurrentInterval` int(11) DEFAULT NULL,
+  `RecurrentInterval` int(11) DEFAULT NULL,
   `Currency` text NOT NULL,
   `TransactionTime` datetime DEFAULT CURRENT_TIMESTAMP,
   `Deleted` int(11) NOT NULL,
   `IDLocation` int(11) DEFAULT NULL,
+  
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID_2` (`ID`),
   KEY `ID` (`ID`)
