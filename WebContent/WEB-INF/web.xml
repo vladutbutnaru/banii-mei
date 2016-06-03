@@ -7,20 +7,25 @@
   <servlet>
     <servlet-name>LogoutServlet</servlet-name>
     <servlet-class>com.mymoney.servlets.LogoutServlet</servlet-class>
-    
   </servlet>
-    <servlet>
+  <servlet>
     <servlet-name>CheckUserExistsServlet</servlet-name>
     <servlet-class>com.mymoney.servlets.CheckUserExistsServer</servlet-class>
-    
+  </servlet>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.mymoney.servlets.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
-    <url-pattern>/MyMoney/*</url-pattern>
-    
+    <url-pattern>/MyMoney/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/MyMoney/LoginServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>CheckUserExistsServlet</servlet-name>
     <url-pattern>/CheckUserExistsServlet/*</url-pattern>
-</servlet-mapping>
+  </servlet-mapping>
 </web-app>

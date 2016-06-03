@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class=" ">
 <head>
-<!-- 
+<!--
          * @Package: Ultra Admin - Responsive Theme
          * @Subpackage: Bootstrap
          * @Version: 1.0
@@ -12,8 +12,8 @@
 <title>Banii mei : Inregistrare cont nou</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<meta content="" name="description" />
-<meta content="" name="author" />
+<meta content="Banii Mei - Redefinim economiile" name="description" />
+<meta content="The Code Boutique" name="author" />
 
 <link rel="shortcut icon" href="assets/images/favicon.png"
 	type="image/x-icon" />
@@ -31,23 +31,14 @@
 	href="assets/images/apple-touch-icon-144-precomposed.png">
 <!-- For iPad Retina display -->
 
-<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
-
-<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
-
 
 <!-- CORE CSS FRAMEWORK - START -->
-<link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet"
-	type="text/css" media="screen" />
-<link href="assets/plugins/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/plugins/bootstrap/css/bootstrap-theme.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/fonts/font-awesome/css/font-awesome.css"
-	rel="stylesheet" type="text/css" />
-<link href="assets/css/animate.min.css" rel="stylesheet" type="text/css" />
-<link href="assets/plugins/perfect-scrollbar/perfect-scrollbar.css"
-	rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/animate.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" type="text/css"/>
 <!-- CORE CSS FRAMEWORK - END -->
 
 <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
@@ -55,7 +46,10 @@
 	type="text/css" media="screen" />
 <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+	<script src="assets/js/register.js" type="text/javascript"></script>
+	<script src="assets/js/messenger.js" type="text/javascript"></script>
+	   <link href="assets/plugins/messenger/css/messenger.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/messenger/css/messenger-theme-future.css" rel="stylesheet" type="text/css" media="screen"/><link href="assets/plugins/messenger/css/messenger-theme-flat.css" rel="stylesheet" type="text/css" media="screen"/>        <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
+	
 <!-- CORE CSS TEMPLATE - START -->
 <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
@@ -63,39 +57,27 @@
 
 </head>
 <!-- END HEAD -->
-
-<!-- BEGIN BODY -->
-<body class=" ">
-	<!-- START TOPBAR -->
 <script>
-function checkIfExists(emailAddress){
-	if(emailAddress!= undefined && emailAddress!="" && emailAddress.indexOf('@') > 0){
-	var params = {
-		    email: emailAddress
-		   
-		};
+var ok = 0;
+var names = ["Andrei","Stefan","Alina","Georgiana"];
 
+window.setInterval(function(){
 	
-	 $.get("/MyMoney/CheckUserExistsServlet", $.param(params), function(responseText) {   // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
-        if(responseText=="true")
-        	document.getElementById("emailExistsError").style.display = ""; 
-        else
-        	document.getElementById("emailExistsError").style.display = "none"; 
-     });
-	}
-	
-	
-}
-
+	if(ok<4) 
+	 showSuccess(names[ok] + " din Bucuresti tocmai s-a inregistrat!");
+	ok=ok+1;
+	  }, 15000);
 
 
 </script>
+<!-- BEGIN BODY -->
+<body class=" ">
+	<!-- START TOPBAR -->
+
 
 	<div class="page-container row-fluid">
 
-		<!-- SIDEBAR - START -->
 
-		<!--  SIDEBAR - END -->
 		<!-- START CONTENT -->
 		<section id="main-content" class=" ">
 			<section class="wrapper"
@@ -128,11 +110,11 @@ function checkIfExists(emailAddress){
 
 										<div id="pills" class='wizardpills'>
 											<ul class="form-wizard">
-												<li><a href="#pills-tab1" data-toggle="tab"><span>1</span></a></li>
-												<li><a href="#pills-tab2" data-toggle="tab"><span>2</span></a></li>
-												<li><a href="#pills-tab3" data-toggle="tab"><span>3</span></a></li>
-												<li><a href="#pills-tab4" data-toggle="tab"><span>4</span></a></li>
-												<li><a href="#pills-tab5" data-toggle="tab"><span>5</span></a></li>
+												<li><a href="#pills-tab1" data-toggle="tab"></a></li>
+												<li><a href="#pills-tab2" data-toggle="tab"></a></li>
+												<li><a href="#pills-tab3" data-toggle="tab"></a></li>
+												<li><a href="#pills-tab4" data-toggle="tab"></a></li>
+												<li><a href="#pills-tab5" data-toggle="tab"></a></li>
 											</ul>
 											<div id="bar" class="progress active">
 												<div class="progress-bar progress-bar-primary "
@@ -145,44 +127,55 @@ function checkIfExists(emailAddress){
 													<h4>Informatii de baza</h4>
 													<br>
 													<div class="form-group">
-														<label class="form-label" for="field-1">Numele de
-															familie</label>
+														<label class="form-label" for="field-1">Numele de familie</label>
 														<div class="controls">
 															<input type="text" placeholder="eg. Popescu"
-																class="form-control" name="LastName" id="LastName">
+																class="form-control" onblur="lastNameValidate(this.value)" name="LastName" id="LastName">
 														</div>
+														<span id="salutLastname" style="display:none">
+														<label class = "form-label" for="field-1" style="color:#008CA5 !important"  id="salutLastnameLabel">Onoarea este de partea noastra!</label>
+
+														</span>
 													</div>
 													<div class="form-group">
 														<label class="form-label" for="field-1">Prenumele</label>
 														<div class="controls">
 															<input type="text" placeholder="eg. Andrei"
-																class="form-control" name="FirstName" id="FirstName">
+																class="form-control" name="FirstName" onblur="firstNameValidate(this.value)" id="FirstName">
 														</div>
+														<span id="salutFirstname" style="display:none">
+														<label class = "form-label" for="field-1" style="color:#008CA5 !important" id="salutFirstnameLabel">Ce nume frumos!</label>
+
+														</span>
 													</div>
 
 													<div class="form-group">
-														<label class="form-label" for="field-1">Adresa de
-															email</label>
+														<label class="form-label" for="field-1">Adresa de email</label>
 														<div class="controls">
 															<input type="text"
 																placeholder="eg. popescu.andrei@gmail.com"
 																class="form-control" name="Email" id="Email" onblur="checkIfExists(this.value)">
 														</div>
-														<div id="emailExistsError"  class="controls" style="display:none">
-														<label class ="form-label" for="field-1">
-														Acest email exista deja in baza de date
+														<span id="emailExistsError"  class="error" style="display:none">
+														<label class ="form-label" for="field-1" style="color:	#8b0000">
+														Acest email este asociat deja unui cont!
 														</label>
-														
-														</div>
+
+														</span>
 													</div>
 
 													<div class="form-group">
-														<label class="form-label" for="field-1">Numarul de
-															telefon</label>
+														<label class="form-label" for="field-1">Numarul de telefon</label>
 														<div class="controls">
 															<input type="text" placeholder="0744 444 444"
-																class="form-control" name="PhoneNumber" id="PhoneNumber">
+																class="form-control" name="PhoneNumber" onblur="validatePhone(this.value)" id="PhoneNumber">
 														</div>
+														<span id="phoneNumberSpan"  style="display:none">
+														<label class ="form-label" for="field-1" style="color:#008CA5 !important">
+													Nu te vom contacta inutil.
+														</label>
+
+														</span>
 													</div>
 													<div class="form-group">
 														<label class="form-label" for="field-1">Parola</label>
@@ -197,27 +190,25 @@ function checkIfExists(emailAddress){
 													<h4>Informatiile tale</h4>
 													<br>
 													<div class="form-group">
-														<label class="form-label" for="field-1">Data
-															nasterii</label>
+														<label class="form-label" for="field-1">Data nasterii</label>
 														<div class="controls">
 															<input type="text" placeholder="eg. 03-11-1987"
 																class="form-control" name="DateOfBirth" id="DateOfBirth">
 														</div>
+
 													</div>
 													<div class="form-group">
-														<label class="form-label" for="field-1">Orasul in
-															care locuiesti</label>
+														<label class="form-label" for="field-1">Orasul in care locuiesti</label>
 														<div class="controls">
 															<input type="text" placeholder="eg. Constanta"
 																class="form-control" name="City" id="City">
 														</div>
 													</div>
 													<div class="form-group">
-														<label class="form-label" for="field-1">Tara in
-															care locuiesti</label>
+														<label class="form-label" for="field-1">Tara in	care locuiesti</label>
 														<div class="controls">
 															<input type="text" placeholder="eg. Romania"
-																class="form-control" name="Country" id="Coutnry">
+																class="form-control" name="Country" id="Country">
 														</div>
 													</div>
 												</div>
@@ -226,11 +217,11 @@ function checkIfExists(emailAddress){
 													<br>
 													<div class="form-group">
 														<label class="form-label" for="field-1">Esti
-															fumator?</label>
+															fumator? </label>
 														<div class="controls">
 															<input tabindex="5" type="checkbox" name="smoker"
 																id="smoker" class="icheck-minimal-purple"> <label
-																class="icheck-label form-label" for="minimal-checkbox-9">Da</label>
+																class="icheck-label form-label" for="minimal-checkbox-9"><img src="assets/images/cigarette-icon.png" style="width:20px"></label>
 														</div>
 													</div>
 													<div class="form-group">
@@ -240,7 +231,7 @@ function checkIfExists(emailAddress){
 															<input tabindex="5" type="checkbox"
 																name="carnetDeConducere" id="carnetDeConducere"
 																class="icheck-minimal-purple"> <label
-																class="icheck-label form-label" for="minimal-checkbox-9">Da</label>
+																class="icheck-label form-label" for="minimal-checkbox-9"><img src="assets/images/wheel-icon.png" style="width:20px"></label>
 														</div>
 													</div>
 													<div class="form-group">
@@ -250,7 +241,7 @@ function checkIfExists(emailAddress){
 															<input tabindex="5" type="checkbox"
 																name="masinaPersonala" id="masinaPersonala"
 																class="icheck-minimal-purple"> <label
-																class="icheck-label form-label" for="minimal-checkbox-9">Da</label>
+																class="icheck-label form-label" for="minimal-checkbox-9"><img src="assets/images/car-icon.png" style="width:20px"></label>
 														</div>
 													</div>
 													<div class="form-group">
@@ -259,7 +250,7 @@ function checkIfExists(emailAddress){
 														<div class="controls">
 															<input tabindex="5" type="checkbox" name="casatorit"
 																id="casatorit" class="icheck-minimal-purple"> <label
-																class="icheck-label form-label" for="minimal-checkbox-9">Da</label>
+																class="icheck-label form-label" for="minimal-checkbox-9"><img src="assets/images/wedding-icon.png" style="width:20px"></label>
 														</div>
 													</div>
 												</div>
@@ -458,7 +449,7 @@ function checkIfExists(emailAddress){
 														href="javascript:;">Ultima</a></li>
 													<li class="next"><a href="javascript:;">Mai
 															departe</a></li>
-													<li class="finish"><a href="javascript:;">Finalizeaza</a></li>
+													<li class="finish" id="finishButton"><a href="javascript:;">Finalizeaza</a></li>
 												</ul>
 											</div>
 										</div>
@@ -482,21 +473,18 @@ function checkIfExists(emailAddress){
 
 
 	<!-- CORE JS FRAMEWORK - START -->
-	<script src="assets/js/jquery-1.11.2.min.js" type="text/javascript"></script>
-	<script src="assets/js/jquery.easing.min.js" type="text/javascript"></script>
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"
-		type="text/javascript"></script>
-	<script src="assets/plugins/pace/pace.min.js" type="text/javascript"></script>
-	<script src="assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"
-		type="text/javascript"></script>
-	<script src="assets/plugins/viewport/viewportchecker.js"
-		type="text/javascript"></script>
+	  <script src="assets/js/jquery-1.11.2.min.js" type="text/javascript"></script> 
+        <script src="assets/js/jquery.easing.min.js" type="text/javascript"></script> 
+        <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
+        <script src="assets/plugins/pace/pace.min.js" type="text/javascript"></script>  
+        <script src="assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js" type="text/javascript"></script> 
+        <script src="assets/plugins/viewport/viewportchecker.js" type="text/javascript"></script>  
 	<!-- CORE JS FRAMEWORK - END -->
 
 
 	<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
 	<script
-		src="assets/plugins/jquery-validation/js/jquery.validate.min.js"
+		src="assets/plugins/jquery-validation/js/jquery.validate.js"
 		type="text/javascript"></script>
 	<script
 		src="assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"
@@ -504,6 +492,7 @@ function checkIfExists(emailAddress){
 	<script src="assets/js/form-validation.js" type="text/javascript"></script>
 	<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
+    <script src="assets/plugins/messenger/js/messenger.min.js" type="text/javascript"></script><script src="assets/plugins/messenger/js/messenger-theme-future.js" type="text/javascript"></script><script src="assets/plugins/messenger/js/messenger-theme-flat.js" type="text/javascript"></script><script src="assets/js/messenger.js" type="text/javascript"></script><!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
 
 	<!-- CORE TEMPLATE JS - START -->
 	<script src="assets/js/scripts.js" type="text/javascript"></script>
@@ -548,6 +537,3 @@ function checkIfExists(emailAddress){
 	<!-- modal end -->
 </body>
 </html>
-
-
-

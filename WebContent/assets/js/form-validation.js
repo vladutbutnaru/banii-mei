@@ -275,7 +275,7 @@ $(document).ready(function() {
         	 var $valid = $("#commentForm").valid();
              if (!$valid) {
                  $validator.focusInvalid();
-                 alert('Te rog sa completezi toate campurile marcate!!');
+                 alert('Te rugam sa completezi toate campurile marcate!');
              }
              else{
             alert('Bine ai venit pe platforma Banii Mei!');

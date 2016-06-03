@@ -23,14 +23,14 @@ public class RegisterProcess {
 					+ "Smoker,HasDriversLicence,HasCar,Married,IsAdmin,UserType,AgreedWithProcessingTerms,"
 					+ "IsPremium,NumberOfLogins) VALUES ( ";
 			
-			query+="'"+user.getFirstName()+"',";
-			query+="'"+user.getLastName()+"',";
-			query+="'"+user.getPassword()+"',";
-			query+="'"+user.getDateOfBirth()+"',";
-			query+="'"+user.getEmail()+"',";
-			query+="'"+user.getPhoneNumber()+"',";
-			query+="'"+user.getCity()+"',";
-			query+="'"+user.getCountry()+"',";
+			query+="'"+user.getFirstName().trim().replace("'", "\'")+"',";
+			query+="'"+user.getLastName().trim().replace("'", "\'")+"',";
+			query+="'"+user.getPassword().trim().replace("'", "\'")+"',";
+			query+="'"+user.getDateOfBirth().trim().replace("'", "\'")+"',";
+			query+="'"+user.getEmail().trim().replace("'", "\'")+"',";
+			query+="'"+user.getPhoneNumber().trim().replace("'", "\'")+"',";
+			query+="'"+user.getCity().trim().replace("'", "\'")+"',";
+			query+="'"+user.getCountry().trim().replace("'", "\'")+"',";
 			query+=user.getSmoker() + ",";
 			query+=user.getHasDriversLicence() + ",";
 			query+=user.getHasCar() + ",";

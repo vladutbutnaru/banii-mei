@@ -212,9 +212,7 @@ public double getAmountSpentToday(User user){
 			date = dateFormatter.parse(dateFormatter.format(new Date() ));
 			if(transaction.getTransactionType() == 1 && transaction.getTransactionTime().compareTo(date) == 0)
 				sum+=transaction.getAmount();
-				
-			
-			}
+		}
 	
 		
 		}
