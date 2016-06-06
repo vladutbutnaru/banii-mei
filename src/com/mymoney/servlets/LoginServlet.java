@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
         if(loginProcessor.doLogin(userReceived)){
         
 
-        	       Cookie loginCookie = new Cookie("user",user);
+             Cookie loginCookie = new Cookie("user",user);
             //setting cookie to expiry in 30 mins
             loginCookie.setMaxAge(30*60);
             response.addCookie(loginCookie);

@@ -472,6 +472,31 @@ User currentUser = userDAO.getUserByEmail(userName);
 							<span class="title">Masina mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
+					<li class=""><a href="javascript:;"> <i class="fa fa-users"></i>
+							<span class="title">Familia mea</span> <span
+							class="label label-orange">Personal+</span>
+					</a></li>
+					<li class=""><a href="javascript:;"> <i class="fa fa-play-circle"></i>
+							<span class="title">Hobby-urile mele</span> <span
+							class="label label-orange">Personal+</span>
+					</a></li>
+						<li class=""><a href="javascript:;"> <i class="fa fa-ambulance"></i>
+							<span class="title">Sanatatea mea</span> <span
+							class="label label-orange">Personal+</span>
+					</a></li>
+						<li class=""><a href="javascript:;"> <i class="fa fa-home"></i>
+							<span class="title">Casa mea</span> <span
+							class="label label-orange">Personal+</span>
+					</a></li>
+					<li class=""><a href="javascript:;"> <i class="fa fa-graduation-cap"></i>
+							<span class="title">Educatia mea</span> <span
+							class="label label-orange">Personal+</span>
+					</a></li>
+					
+					<li class=""><a href="javascript:;"> <i class="fa fa-plane"></i>
+							<span class="title">Planificator vacanta</span> <span
+							class="label label-orange">Personal+</span>
+					</a></li>
 
 
 				</ul>

@@ -10,7 +10,7 @@
   </servlet>
   <servlet>
     <servlet-name>CheckUserExistsServlet</servlet-name>
-    <servlet-class>com.mymoney.servlets.CheckUserExistsServer</servlet-class>
+    <servlet-class>com.mymoney.servlets.CheckUserExistsServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
