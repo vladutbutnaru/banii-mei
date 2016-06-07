@@ -3,7 +3,7 @@ function getLast5DaysTransactions(emailAddress){
 		    email: emailAddress
 
 		};
-	console.log(emailAddress);
+
 	var values = [];
 	var values2 = [];
 	$.get("/MyMoney/GetLast5DaysSpendingsServlet", $.param(params), function(responseJson) {    // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response JSON...

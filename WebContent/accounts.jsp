@@ -501,7 +501,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 						<span class='title'>Castiguri&nbsp;Noi</span> <span class='total'><%=newEarnings %></span>
 					</div>
 					<div class="graph">
-						<span class="sidebar_orders">...</span>
+						<span class="sidebar_orders" id="sidebar_orders">...</span>
 					</div>
 				</div>
 
@@ -510,7 +510,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 						<span class='title'>Plati&nbsp;Noi</span> <span class='total'><%=newPayments %></span>
 					</div>
 					<div class="graph">
-						<span class="sidebar_visitors">...</span>
+						<span class="sidebar_visitors" id="sidebar_visitors">...</span>
 					</div>
 				</div>
 
@@ -613,7 +613,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 									<div class="well">
 										<h3>
 											Nu ai adaugat niciun cont <span class="semi-bold">de
-												economii</span>, <a href="#"><i>adauga acum!</i></a>
+												economii</span>, <a data-toggle="modal" href="#modalSavings"><i>adauga acum!</i></a>
 										</h3>
 										Conturile de economii te ajuta sa tii evidenta economiilor
 										tale, sa le administrezi intr-un mod facil si sa creezi un
@@ -700,7 +700,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 									<div class="well">
 										<h3>
 											Nu ai adaugat niciun cont <span class="semi-bold">numerar</span>,
-											<a href="#"><i>adauga acum!</i></a>
+											<a data-toggle="modal" href="#modalCash"><i>adauga acum!</i></a>
 										</h3>
 										Conturile de tip numerar te ajuta sa tii evidenta
 										cheltuielilor de zi cu zi. Majoritatea utilizatorilor au
@@ -788,7 +788,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 									<div class="well">
 										<h3>
 											Nu ai adaugat niciun cont <span class="semi-bold">curent</span>,
-											<a href="#"><i>adauga acum!</i></a>
+											<a data-toggle="modal" href="#modalRegular"><i>adauga acum!</i></a>
 										</h3>
 										Conturile curente te ajuta sa tii evidenta castigurilor. Este
 										cel mai popular dintre conturile create in aplicatie, <b>95%</b>
@@ -1159,6 +1159,10 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 	<script src="assets/plugins/sparkline-chart/jquery.sparkline.min.js"
 		type="text/javascript"></script>
 	<script src="assets/js/chart-sparkline.js" type="text/javascript"></script>
+	<script src="assets/js/BottomCharts.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	getLast5DaysTransactions('<%=currentUser.getEmail()%>');
+    </script>
 	<!-- Sidebar Graph - END -->
 
 

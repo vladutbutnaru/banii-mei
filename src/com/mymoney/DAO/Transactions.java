@@ -340,23 +340,20 @@ public double getAmountSpentOnDate(Date date,User user){
 	double sum =0 ;
 	Accounts accountDAO = new Accounts();
 	Users userDAO = new Users();
-	System.out.println(user.getEmail());
-	System.out.println(user.getId());
+	
 	ArrayList<Account> accounts = accountDAO.getAccountsForUser(user);
 	for(Account a : accounts){
 		if(a.getDeleted()==0){
-			System.out.println("NUNU");
+			
 	try {
 		stmt = conn.createStatement();
-		System.out.println(a.getId());
-		System.out.println("DADADA");
+	
 		rs = stmt.executeQuery("SELECT * FROM transactions WHERE IDAccount = " + a.getId() + " ORDER BY TransactionTime DESC;");
 		while (rs.next()) {
 			Transaction transaction = new Transaction();
 			transaction.setID(rs.getInt("ID"));
 			transaction.setTransactionName(rs.getString("TransactionName"));
-			System.out.println(transaction.getTransactionName());
-			System.out.println("new trans");
+		
 			transaction.setTransactionDescription(rs.getString("TransactionDescription"));
 			transaction.setCurrency(rs.getString("Currency"));
 			transaction.setAmount(rs.getDouble("Amount"));
@@ -399,23 +396,20 @@ public double getAmountEarnedOnDate(Date date,User user){
 	double sum =0 ;
 	Accounts accountDAO = new Accounts();
 	Users userDAO = new Users();
-	System.out.println(user.getEmail());
-	System.out.println(user.getId());
+	
 	ArrayList<Account> accounts = accountDAO.getAccountsForUser(user);
 	for(Account a : accounts){
 		if(a.getDeleted()==0){
-			System.out.println("NUNU");
+			
 	try {
 		stmt = conn.createStatement();
-		System.out.println(a.getId());
-		System.out.println("DADADA");
+	
 		rs = stmt.executeQuery("SELECT * FROM transactions WHERE IDAccount = " + a.getId() + " ORDER BY TransactionTime DESC;");
 		while (rs.next()) {
 			Transaction transaction = new Transaction();
 			transaction.setID(rs.getInt("ID"));
 			transaction.setTransactionName(rs.getString("TransactionName"));
-			System.out.println(transaction.getTransactionName());
-			System.out.println("new trans");
+			
 			transaction.setTransactionDescription(rs.getString("TransactionDescription"));
 			transaction.setCurrency(rs.getString("Currency"));
 			transaction.setAmount(rs.getDouble("Amount"));
@@ -456,7 +450,7 @@ public double getAmountEarnedOnDate(Date date,User user){
 
 public ArrayList<String> getAmountSpentLast5Days(User user){
 	ArrayList<String> sums = new ArrayList<String>();
-	System.out.println(user.getEmail());
+	
 	double todaySum = getAmountSpentOnDate(new Date(), user);
 	sums.add(todaySum + "");
 	Date yesterday = new Date();
@@ -479,7 +473,7 @@ public ArrayList<String> getAmountSpentLast5Days(User user){
 
 public ArrayList<String> getAmountEarnedLast5Days(User user){
 	ArrayList<String> sums = new ArrayList<String>();
-	System.out.println(user.getEmail());
+	
 	double todaySum = getAmountEarnedOnDate(new Date(), user);
 	sums.add(todaySum + "");
 	Date yesterday = new Date();

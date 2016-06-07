@@ -36,13 +36,13 @@ public class GetLast5DaysSpendingsServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String email = request.getParameter("email");
 		Users userDAO = new Users();
-		System.out.println("IN SERVLET" + email);
+	
 		User currentUser = userDAO.getUserByEmail(email);
 		Transactions transactionDAO = new Transactions();
 		ArrayList<String> sums = new ArrayList<String>();
 		sums = transactionDAO.getAmountSpentLast5Days(currentUser);
 		 String json = new Gson().toJson(sums);
-		 System.out.println(json);
+		
 		 response.setContentType("application/json");
 		    response.setCharacterEncoding("UTF-8");
 		    response.getWriter().write(json);

@@ -528,7 +528,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 						<span class='title'>Castiguri&nbsp;Noi</span> <span class='total'><%=newEarnings %></span>
 					</div>
 					<div class="graph">
-						<span class="sidebar_orders">...</span>
+						<span class="sidebar_orders" id="sidebar_orders">...</span>
 					</div>
 				</div>
 
@@ -537,7 +537,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 						<span class='title'>Plati&nbsp;Noi</span> <span class='total'><%=newPayments %></span>
 					</div>
 					<div class="graph">
-						<span class="sidebar_visitors">...</span>
+						<span class="sidebar_visitors" id="sidebar_visitors">...</span>
 					</div>
 				</div>
 
@@ -816,6 +816,10 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 	<script src="assets/plugins/sparkline-chart/jquery.sparkline.min.js"
 		type="text/javascript"></script>
 	<script src="assets/js/chart-sparkline.js" type="text/javascript"></script>
+	<script src="assets/js/BottomCharts.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	getLast5DaysTransactions('<%=currentUser.getEmail()%>');
+    </script>
 	<!-- Sidebar Graph - END -->
 
 

@@ -93,6 +93,7 @@ User currentUser = userDAO.getUserByEmail(userName);
 <!-- CORE CSS TEMPLATE - END -->
 <%@ page import="com.mymoney.DAO.Users"%>
 <%@ page import="com.mymoney.DAO.Accounts"%>
+<%@ page import="com.mymoney.DAO.Products"%>
 <%@ page import="com.mymoney.DAO.Transactions"%>
 <%@ page import="com.mymoney.entities.User"%>
 <%@ page import="java.util.ArrayList"%>
@@ -589,7 +590,11 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 											class='pull-left fa fa-shopping-cart icon-md icon-rounded icon-orange'></i>
 										<div class="stats">
 											<h4>
-												<strong>15</strong>
+											<%Products productDAO = new Products();
+											int numberOfProducts = productDAO.getNumOfProductsInLastMonth(currentUser);
+											
+											%>
+												<strong><%=numberOfProducts %></strong>
 											</h4>
 											<span>Produse cumparate in ultima luna</span>
 										</div>
