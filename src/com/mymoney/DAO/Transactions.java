@@ -233,6 +233,59 @@ public double getAmountSpentToday(User user){
 }
 
 
+public double getAmountEarnedToday(User user){
+	double sum =0 ;
+	Accounts accountDAO = new Accounts();
+	
+	ArrayList<Account> accounts = accountDAO.getAccountsForUser(user);
+	for(Account a : accounts){
+		if(a.getDeleted()==0){
+	ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+	try {
+		stmt = conn.createStatement();
+
+		rs = stmt.executeQuery("SELECT * FROM transactions WHERE IDAccount = " + a.getId() + " ORDER BY TransactionTime DESC;");
+		while (rs.next()) {
+			Transaction transaction = new Transaction();
+			transaction.setID(rs.getInt("ID"));
+			transaction.setTransactionName(rs.getString("TransactionName"));
+			transaction.setTransactionDescription(rs.getString("TransactionDescription"));
+			transaction.setCurrency(rs.getString("Currency"));
+			transaction.setAmount(rs.getDouble("Amount"));
+			transaction.setDeleted(rs.getInt("Deleted"));
+			transaction.setTransactionType(rs.getInt("TransactionType"));
+		
+			transaction.setProductID(rs.getString("IDProduct"));
+			transaction.setIsRecurrent(rs.getInt("ISRecurrent"));
+			transaction.setLocationID(rs.getInt("IDLocation"));
+			transaction.setTransactionTime(rs.getDate("TransactionTime"));
+			// etc.
+			Date date = new Date();
+			SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
+			date = dateFormatter.parse(dateFormatter.format(new Date() ));
+			if(transaction.getTransactionType() == 2 && transaction.getTransactionTime().compareTo(date) == 0)
+				sum+=transaction.getAmount();
+		}
+	
+		
+		}
+
+ catch (SQLException ex) {
+		// handle any errors
+		System.out.println("SQLException: " + ex.getMessage());
+		System.out.println("SQLState: " + ex.getSQLState());
+		System.out.println("VendorError: " + ex.getErrorCode());
+	} catch (ParseException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+		}
+	}
+
+	return sum;
+}
+
+
 
 public int getNumberOfTransactionsForAccount(Account account){
 	int numberOfTransactions = 0;

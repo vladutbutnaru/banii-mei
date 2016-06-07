@@ -129,4 +129,35 @@ public Account getAccountForTransaction(Transaction transaction){
 	
 	
 }
+public int getNumberOfAccountsForUser(User user){
+	
+	Account account = new Account();
+	listOfAccounts.clear();
+	try {
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("SELECT * FROM accounts WHERE IDUser = " + user.getId() + " AND Deleted=0;");
+		while (rs.next()) {
+			account = new Account();
+			account.setId(rs.getInt("ID"));
+			account.setAccountName(rs.getString("AccountName"));
+			account.setCurrency(rs.getString("Currency"));
+			account.setAmount(rs.getDouble("Amount"));
+			account.setAccountType(rs.getInt("AccountType"));
+			account.setAccountDescription(rs.getString("AccountDescription"));
+			account.setDeleted(rs.getInt("Deleted"));
+			account.setUserID(rs.getInt("IDUser"));
+			// etc.
+			listOfAccounts.add(account);
+		}
+		l.info("Found most popular account for user with id " + user.getId());
+	} catch (SQLException ex) {
+		// handle any errors
+		System.out.println("SQLException: " + ex.getMessage());
+		System.out.println("SQLState: " + ex.getSQLState());
+		System.out.println("VendorError: " + ex.getErrorCode());
+		l.severe("Error while getting most popular account for user with id: " + user.getId() + " " + ex.getMessage());
+	}
+	
+	return listOfAccounts.size();
+}
 }

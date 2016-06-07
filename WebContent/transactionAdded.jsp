@@ -423,21 +423,24 @@
 
 				</div>
 				<!-- USER INFO - END -->
+<%Accounts accountDAO = new Accounts();
+	int numberOfAccounts = accountDAO.getNumberOfAccountsForUser(currentUser);
+
+%>
 
 
+						<ul class='wraplist'>
 
-				<ul class='wraplist'>
 
-
-					<li class=""><a href="home.jsp"> <i
+					<li><a href="home.jsp"> <i
 							class="fa fa-dashboard"></i> <span class="title">Interfata
 								de control</span>
 					</a></li>
-					<li class=""><a href="accounts.jsp"> <i
-							class="fa fa-th"></i> <span class="title">Conturile mele</span><span
-							class="label label-orange nosubmenu">2</span>
+					<li><a href="accounts.jsp"> <i class="fa fa-th"></i>
+							<span class="title">Conturile mele</span><span
+							class="label label-orange nosubmenu"><%=numberOfAccounts %></span>
 					</a></li>
-					<li class="open"><a href="javascript:;"> <i
+					<li class=""><a href="javascript:;"> <i
 							class="fa fa-suitcase"></i> <span class="title">Plati & Castiguri</span> <span
 							class="arrow "></span>
 					</a>
@@ -445,16 +448,16 @@
 							<li><a class="" href="newpayment.jsp">Plata noua</a></li>
 							<li><a class="" href="newincome.jsp">Castig nou</a></li>
 						<li><a class="" href="viewhistory.jsp">Istoricul tranzactiilor</a></li>
-							<li><a class="" href="ui-progress.html">Plati recurente</a>
+							<li><a class="" href="">Plati recurente</a>
 							</li>
-							<li><a class="" href="ui-icons.html">Sabloane</a></li>
-							<li><a class="" href="ui-buttons.html">Rapoarte</a></li>
-							<li><a class="" href="ui-buttons.html">Intelligent
+							<li><a class="" href="">Sabloane</a></li>
+							<li><a class="" href="">Rapoarte</a></li>
+							<li><a class="" href="">Intelligent
 									Reports <span class="label label-orange">Personal+</span>
 							</a></li>
 
-							<li><a class="" href="ui-modals.html">Beneficiari</a></li>
-							<li><a class="" href="ui-modals.html">Bugete</a></li>
+							<li><a class="" href="">Beneficiari</a></li>
+							<li><a class="" href="">Bugete</a></li>
 
 						</ul></li>
 					<li class=""><a href="javascript:;"> <i
@@ -462,11 +465,11 @@
 								Financing</span> <span class="arrow "></span>
 					</a>
 						<ul class="sub-menu">
-							<li><a class="" href="form-elements.html">Verifica pret</a>
+							<li><a class="" href="">Verifica pret</a>
 							</li>
-							<li><a class="" href="form-components.html">Adauga un
+							<li><a class="" href="">Adauga un
 									pret</a></li>
-							<li><a class="" href="form-wizard.html">Cele mai
+							<li><a class="" href="">Cele mai
 									cumparate produse</a></li>
 
 						</ul></li>
@@ -482,6 +485,31 @@
 							<span class="title">Masina mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
+					<li class=""><a href="javascript:;"> <i class="fa fa-users"></i>
+							<span class="title">Familia mea</span> <span
+							class="label label-orange">Personal+</span>
+					</a></li>
+					<li class=""><a href="javascript:;"> <i class="fa fa-play-circle"></i>
+							<span class="title">Hobby-urile mele</span> <span
+							class="label label-orange">Personal+</span>
+					</a></li>
+						<li class=""><a href="javascript:;"> <i class="fa fa-ambulance"></i>
+							<span class="title">Sanatatea mea</span> <span
+							class="label label-orange">Personal+</span>
+					</a></li>
+						<li class=""><a href="javascript:;"> <i class="fa fa-home"></i>
+							<span class="title">Casa mea</span> <span
+							class="label label-orange">Personal+</span>
+					</a></li>
+					<li class=""><a href="javascript:;"> <i class="fa fa-graduation-cap"></i>
+							<span class="title">Educatia mea</span> <span
+							class="label label-orange">Personal+</span>
+					</a></li>
+					
+					<li class=""><a href="javascript:;"> <i class="fa fa-plane"></i>
+							<span class="title">Planificator vacanta</span> <span
+							class="label label-orange">Personal+</span>
+					</a></li>
 
 
 				</ul>
@@ -491,11 +519,15 @@
 
 
 
-			<div class="project-info">
-
+				<div class="project-info">
+<%
+Transactions transactionDAO = new Transactions();
+double newPayments = transactionDAO.getAmountSpentToday(currentUser);
+double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
+%>
 				<div class="block1">
 					<div class="data">
-						<span class='title'>Castiguri&nbsp;Noi</span> <span class='total'>1,440</span>
+						<span class='title'>Castiguri&nbsp;Noi</span> <span class='total'><%=newEarnings %></span>
 					</div>
 					<div class="graph">
 						<span class="sidebar_orders">...</span>
@@ -504,7 +536,7 @@
 
 				<div class="block2">
 					<div class="data">
-						<span class='title'>Plati&nbsp;Noi</span> <span class='total'>345</span>
+						<span class='title'>Plati&nbsp;Noi</span> <span class='total'><%=newPayments %></span>
 					</div>
 					<div class="graph">
 						<span class="sidebar_visitors">...</span>

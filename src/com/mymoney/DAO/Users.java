@@ -95,7 +95,6 @@ return false;
 				return user;
 				
 			}
-		        // etc.
 		    }
 		    l.info("Found user with name " + user.getFirstName() + " " + user.getLastName());
 		  
