@@ -85,21 +85,21 @@ jQuery(function($) {
                 stackedBarColor: ['#9972b5', '#1fb5ac', '#fa8564'],
             });
 
-            // sidebar bottom graphs
-            $('.sidebar_orders').sparkline(sidebargraph1, {
-                type: 'bar',
-                barColor: '#1fb5ac',
-                height: '20',
-                barWidth: '4',
-                barSpacing: 1,
-            });
-            $('.sidebar_visitors').sparkline(sidebargraph2, {
-                type: 'bar',
-                barColor: '#fa8564',
-                height: '20',
-                barWidth: '4',
-                barSpacing: 1,
-            });
+             //sidebar bottom graphs
+//            $('.sidebar_orders').sparkline(sidebargraph1, {
+//                type: 'bar',
+//                barColor: '#1fb5ac',
+//                height: '20',
+//                barWidth: '4',
+//                barSpacing: 1,
+//            });
+//            $('.sidebar_visitors').sparkline(sidebargraph2, {
+//                type: 'bar',
+//                barColor: '#fa8564',
+//                height: '20',
+//                barWidth: '4',
+//                barSpacing: 1,
+//            });
 
 
             // Bar + line composite charts

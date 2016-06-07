@@ -83,6 +83,7 @@ User currentUser = userDAO.getUserByEmail(userName);
 	rel="stylesheet" type="text/css" media="screen" />
 <link href="assets/plugins/icheck/skins/minimal/white.css"
 	rel="stylesheet" type="text/css" media="screen" />
+	
 <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
 
@@ -520,7 +521,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 						<span class='title'>Castiguri&nbsp;Noi</span> <span class='total'><%=newEarnings %></span>
 					</div>
 					<div class="graph">
-						<span class="sidebar_orders">...</span>
+						<span class="sidebar_orders" id="sidebar_orders">...</span>
 					</div>
 				</div>
 
@@ -529,7 +530,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 						<span class='title'>Plati&nbsp;Noi</span> <span class='total'><%=newPayments %></span>
 					</div>
 					<div class="graph">
-						<span class="sidebar_visitors">...</span>
+						<span class="sidebar_visitors" id="sidebar_visitors">...</span>
 					</div>
 				</div>
 
@@ -1326,7 +1327,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 		type="text/javascript"></script>
 	<script src="assets/plugins/morris-chart/js/raphael-min.js"
 		type="text/javascript"></script>
-	<script src="assets/plugins/morris-chart/js/morris.min.js"
+	<script src="assets/plugins/morris-chart/js/morris.min.js" 
 		type="text/javascript"></script>
 	<script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.1.min.js"
 		type="text/javascript"></script>
@@ -1348,6 +1349,10 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 	<script src="assets/plugins/sparkline-chart/jquery.sparkline.min.js"
 		type="text/javascript"></script>
 	<script src="assets/js/chart-sparkline.js" type="text/javascript"></script>
+	<script src="assets/js/BottomCharts.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	getLast5DaysTransactions('<%=currentUser.getEmail()%>');
+    </script>
 	<!-- Sidebar Graph - END -->
 
 

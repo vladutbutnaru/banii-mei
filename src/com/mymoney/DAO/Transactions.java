@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.logging.Logger;
 
@@ -334,4 +335,175 @@ public String getLastTransactionDate(Account a){
 	
 	
 }
+
+public double getAmountSpentOnDate(Date date,User user){
+	double sum =0 ;
+	Accounts accountDAO = new Accounts();
+	Users userDAO = new Users();
+	System.out.println(user.getEmail());
+	System.out.println(user.getId());
+	ArrayList<Account> accounts = accountDAO.getAccountsForUser(user);
+	for(Account a : accounts){
+		if(a.getDeleted()==0){
+			System.out.println("NUNU");
+	try {
+		stmt = conn.createStatement();
+		System.out.println(a.getId());
+		System.out.println("DADADA");
+		rs = stmt.executeQuery("SELECT * FROM transactions WHERE IDAccount = " + a.getId() + " ORDER BY TransactionTime DESC;");
+		while (rs.next()) {
+			Transaction transaction = new Transaction();
+			transaction.setID(rs.getInt("ID"));
+			transaction.setTransactionName(rs.getString("TransactionName"));
+			System.out.println(transaction.getTransactionName());
+			System.out.println("new trans");
+			transaction.setTransactionDescription(rs.getString("TransactionDescription"));
+			transaction.setCurrency(rs.getString("Currency"));
+			transaction.setAmount(rs.getDouble("Amount"));
+			transaction.setDeleted(rs.getInt("Deleted"));
+			transaction.setTransactionType(rs.getInt("TransactionType"));
+		
+			transaction.setProductID(rs.getString("IDProduct"));
+			transaction.setIsRecurrent(rs.getInt("ISRecurrent"));
+			transaction.setLocationID(rs.getInt("IDLocation"));
+			transaction.setTransactionTime(rs.getDate("TransactionTime"));
+			// etc.
+			
+			SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
+			date = dateFormatter.parse(dateFormatter.format(date ));
+			if(transaction.getTransactionType() == 1 && transaction.getTransactionTime().compareTo(date) == 0)
+				sum+=transaction.getAmount();
+		}
+	
+		
+		}
+
+ catch (SQLException ex) {
+		// handle any errors
+		System.out.println("SQLException: " + ex.getMessage());
+		System.out.println("SQLState: " + ex.getSQLState());
+		System.out.println("VendorError: " + ex.getErrorCode());
+	} catch (ParseException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+		}
+	}
+
+	return sum;
+	
+	
+}
+
+public double getAmountEarnedOnDate(Date date,User user){
+	double sum =0 ;
+	Accounts accountDAO = new Accounts();
+	Users userDAO = new Users();
+	System.out.println(user.getEmail());
+	System.out.println(user.getId());
+	ArrayList<Account> accounts = accountDAO.getAccountsForUser(user);
+	for(Account a : accounts){
+		if(a.getDeleted()==0){
+			System.out.println("NUNU");
+	try {
+		stmt = conn.createStatement();
+		System.out.println(a.getId());
+		System.out.println("DADADA");
+		rs = stmt.executeQuery("SELECT * FROM transactions WHERE IDAccount = " + a.getId() + " ORDER BY TransactionTime DESC;");
+		while (rs.next()) {
+			Transaction transaction = new Transaction();
+			transaction.setID(rs.getInt("ID"));
+			transaction.setTransactionName(rs.getString("TransactionName"));
+			System.out.println(transaction.getTransactionName());
+			System.out.println("new trans");
+			transaction.setTransactionDescription(rs.getString("TransactionDescription"));
+			transaction.setCurrency(rs.getString("Currency"));
+			transaction.setAmount(rs.getDouble("Amount"));
+			transaction.setDeleted(rs.getInt("Deleted"));
+			transaction.setTransactionType(rs.getInt("TransactionType"));
+		
+			transaction.setProductID(rs.getString("IDProduct"));
+			transaction.setIsRecurrent(rs.getInt("ISRecurrent"));
+			transaction.setLocationID(rs.getInt("IDLocation"));
+			transaction.setTransactionTime(rs.getDate("TransactionTime"));
+			// etc.
+			
+			SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
+			date = dateFormatter.parse(dateFormatter.format(date ));
+			if(transaction.getTransactionType() == 2 && transaction.getTransactionTime().compareTo(date) == 0)
+				sum+=transaction.getAmount();
+		}
+	
+		
+		}
+
+ catch (SQLException ex) {
+		// handle any errors
+		System.out.println("SQLException: " + ex.getMessage());
+		System.out.println("SQLState: " + ex.getSQLState());
+		System.out.println("VendorError: " + ex.getErrorCode());
+	} catch (ParseException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+		}
+	}
+
+	return sum;
+	
+	
+}
+
+public ArrayList<String> getAmountSpentLast5Days(User user){
+	ArrayList<String> sums = new ArrayList<String>();
+	System.out.println(user.getEmail());
+	double todaySum = getAmountSpentOnDate(new Date(), user);
+	sums.add(todaySum + "");
+	Date yesterday = new Date();
+	yesterday.setDate(yesterday.getDate()-1);
+	todaySum = getAmountSpentOnDate(yesterday, user);
+	sums.add(todaySum + "");
+	yesterday.setDate(yesterday.getDate()-1);
+	todaySum = getAmountSpentOnDate(yesterday, user);
+	sums.add(todaySum + "");
+	yesterday.setDate(yesterday.getDate()-1);
+	todaySum = getAmountSpentOnDate(yesterday, user);
+	sums.add(todaySum + "");
+	yesterday.setDate(yesterday.getDate()-1);
+	todaySum = getAmountSpentOnDate(yesterday, user);
+	sums.add(todaySum + "");
+	Collections.reverse(sums);
+	return sums;
+	
+}
+
+public ArrayList<String> getAmountEarnedLast5Days(User user){
+	ArrayList<String> sums = new ArrayList<String>();
+	System.out.println(user.getEmail());
+	double todaySum = getAmountEarnedOnDate(new Date(), user);
+	sums.add(todaySum + "");
+	Date yesterday = new Date();
+	yesterday.setDate(yesterday.getDate()-1);
+	todaySum = getAmountEarnedOnDate(yesterday, user);
+	sums.add(todaySum + "");
+	yesterday.setDate(yesterday.getDate()-1);
+	todaySum = getAmountEarnedOnDate(yesterday, user);
+	sums.add(todaySum + "");
+	yesterday.setDate(yesterday.getDate()-1);
+	todaySum = getAmountEarnedOnDate(yesterday, user);
+	sums.add(todaySum + "");
+	yesterday.setDate(yesterday.getDate()-1);
+	todaySum = getAmountEarnedOnDate(yesterday, user);
+	sums.add(todaySum + "");
+	Collections.reverse(sums);
+	return sums;
+	
+	
+	
+	
+}
+	
+	
+	
+
 }
