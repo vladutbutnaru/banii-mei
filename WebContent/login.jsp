@@ -67,7 +67,9 @@ if(userName != null) response.sendRedirect("home.jsp");
 
 %>
 <!-- BEGIN BODY -->
-<body class=" login_page">
+
+  
+<body class="login_page" id="body-main">
 
 
 	<div class="login-wrapper">
@@ -156,7 +158,24 @@ if(userName != null) response.sendRedirect("home.jsp");
 	<script src="assets/js/form-validation.js" type="text/javascript"></script>
 	<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function() {
+
+	var bgArray = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg', 'image6.jpg', 'image7.jpg', 'image8.jpg', 'image9.jpg', 'image10.jpg'];
+	
+    var bg = bgArray[Math.floor(Math.random() * bgArray.length)];
+
+
+    // If you have defined a path for the images
+    var path = 'assets/images/';
+
+    // then you can put it right before the variable 'bg'
+ document.getElementById("body-main").style = "background-image: url('assets/images/"+bg+"');"
+
+}); 
+</script> 
 
 
 
