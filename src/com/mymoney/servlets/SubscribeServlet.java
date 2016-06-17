@@ -40,7 +40,7 @@ public class SubscribeServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		Subscriptions subscriptionDAO = new Subscriptions();
 		subscriptionDAO.addSubscription(email);
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("coming_soon.jsp");
 	}
 
 }
