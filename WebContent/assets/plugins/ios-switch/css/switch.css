@@ -166,24 +166,32 @@ keyframes slide-on { 0% {
 60%
 {
 padding-left
+
+
 :
+
  
+
 16
 px
-;
 
-  
+
+;
 }
 100%
 {
 padding-left
+
+
 :
+
  
+
 16
 px
-;
 
-  
+
+;
 }
 }
 @
@@ -195,35 +203,51 @@ keyframes slide-off { 0% {
 60%
 {
 padding-left
+
+
 :
+
  
+
 0
 px
-;
 
-    
+
+;
 text-indent
+
+
 :
+
  
+
 0
 px
-;
 
-  
+
+;
 }
 100%
 {
 padding-left
+
+
 :
+
  
+
 0
 px
-;
 
-    
+
+;
 text-indent
+
+
 :
+
  
+
 0;
 }
 }
@@ -386,24 +410,32 @@ keyframes slide-on { 0% {
 60%
 {
 padding-left
+
+
 :
+
  
+
 22
 px
-;
 
-  
+
+;
 }
 100%
 {
 padding-left
+
+
 :
+
  
+
 22
 px
-;
 
-  
+
+;
 }
 }
 @
@@ -415,35 +447,51 @@ keyframes slide-off { 0% {
 60%
 {
 padding-left
+
+
 :
+
  
+
 0
 px
-;
 
-    
+
+;
 text-indent
+
+
 :
+
  
+
 0
 px
-;
 
-  
+
+;
 }
 100%
 {
 padding-left
+
+
 :
+
  
+
 0
 px
-;
 
-    
+
+;
 text-indent
+
+
 :
+
  
+
 0;
 }
 }
@@ -608,24 +656,32 @@ keyframes slide-on { 0% {
 60%
 {
 padding-left
+
+
 :
+
  
+
 47
 px
-;
 
-  
+
+;
 }
 100%
 {
 padding-left
+
+
 :
+
  
+
 47
 px
-;
 
-  
+
+;
 }
 }
 @
@@ -636,35 +692,51 @@ keyframes slide-off { 0% {
 60%
 {
 padding-left
+
+
 :
+
  
+
 0
 px
-;
 
-    
+
+;
 text-indent
+
+
 :
+
  
+
 0
 px
-;
 
-  
+
+;
 }
 100%
 {
 padding-left
+
+
 :
+
  
+
 0
 px
-;
 
-    
+
+;
 text-indent
+
+
 :
+
  
+
 0;
 }
 }

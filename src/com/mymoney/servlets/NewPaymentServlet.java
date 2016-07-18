@@ -60,7 +60,7 @@ public class NewPaymentServlet extends HttpServlet {
 		transaction.setProductID(produse);
 		transaction.setIsRecurrent(0);
 		transaction.setDeleted(0);
-		transaction.setCurrency("RON");
+		transaction.setCurrency(1);
 		transaction.setLocationID(Integer.parseInt(request.getParameter("locatiePlata")));
 		transaction.setTransactionType(1);
 		

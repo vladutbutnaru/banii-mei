@@ -81,8 +81,7 @@ if(userName != null) response.sendRedirect("home.jsp");
 				method="post" novalidate="novalidate">
 				<p>
 					<label for="user_login">Email<br /> <input type="text"
-						name="user" id="user_login" class="input"
-						value="" size="20" /></label>
+						name="user" id="user_login" class="input" value="" size="20" /></label>
 				</p>
 				<p>
 					<label for="user_pass">Parola<br /> <input type="password"
@@ -110,9 +109,9 @@ if(userName != null) response.sendRedirect("home.jsp");
 
 
 		</div>
-	
+
 	</div>
-	
+
 
 
 	<!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->

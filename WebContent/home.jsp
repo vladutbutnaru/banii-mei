@@ -83,7 +83,7 @@ User currentUser = userDAO.getUserByEmail(userName);
 	rel="stylesheet" type="text/css" media="screen" />
 <link href="assets/plugins/icheck/skins/minimal/white.css"
 	rel="stylesheet" type="text/css" media="screen" />
-	
+
 <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
 
@@ -355,7 +355,8 @@ User currentUser = userDAO.getUserByEmail(userName);
 			<div class='pull-right'>
 				<ul class="info-menu right-links list-inline list-unstyled">
 					<li class="profile"><a href="#" data-toggle="dropdown"
-						class="toggle"> <img src="data/profile/<%=currentUser.getProfileImagePath() %>"
+						class="toggle"> <img
+							src="data/profile/<%=currentUser.getProfileImagePath() %>"
 							alt="user-image" class="img-circle img-inline"> <span><%= "Salut, " + currentUser.getFirstName() + " " + currentUser.getLastName() %>
 								<i class="fa fa-angle-down"></i></span>
 					</a>
@@ -395,7 +396,8 @@ User currentUser = userDAO.getUserByEmail(userName);
 				<div class="profile-info row">
 
 					<div class="profile-image col-md-4 col-sm-4 col-xs-4">
-						<a href="ui-profile.html"> <img src="data/profile/<%=currentUser.getProfileImagePath() %>"
+						<a href="ui-profile.html"> <img
+							src="data/profile/<%=currentUser.getProfileImagePath() %>"
 							class="img-responsive img-circle">
 						</a>
 					</div>
@@ -415,7 +417,7 @@ User currentUser = userDAO.getUserByEmail(userName);
 
 				</div>
 				<!-- USER INFO - END -->
-<%Accounts accountDAO = new Accounts();
+				<%Accounts accountDAO = new Accounts();
 	int numberOfAccounts = accountDAO.getNumberOfAccountsForUser(currentUser);
 
 %>
@@ -433,19 +435,19 @@ User currentUser = userDAO.getUserByEmail(userName);
 							class="label label-orange nosubmenu"><%=numberOfAccounts %></span>
 					</a></li>
 					<li class=""><a href="javascript:;"> <i
-							class="fa fa-suitcase"></i> <span class="title">Plati & Castiguri</span> <span
-							class="arrow "></span>
+							class="fa fa-suitcase"></i> <span class="title">Plati &
+								Castiguri</span> <span class="arrow "></span>
 					</a>
 						<ul class="sub-menu">
 							<li><a class="" href="newpayment.jsp">Plata noua</a></li>
 							<li><a class="" href="newincome.jsp">Castig nou</a></li>
-						<li><a class="" href="viewhistory.jsp">Istoricul tranzactiilor</a></li>
-							<li><a class="" href="">Plati recurente</a>
-							</li>
+							<li><a class="" href="viewhistory.jsp">Istoricul
+									tranzactiilor</a></li>
+							<li><a class="" href="">Plati recurente</a></li>
 							<li><a class="" href="">Sabloane</a></li>
 							<li><a class="" href="">Rapoarte</a></li>
-							<li><a class="" href="">Intelligent
-									Reports <span class="label label-orange">Personal+</span>
+							<li><a class="" href="">Intelligent Reports <span
+									class="label label-orange">Personal+</span>
 							</a></li>
 
 							<li><a class="" href="">Beneficiari</a></li>
@@ -457,12 +459,9 @@ User currentUser = userDAO.getUserByEmail(userName);
 								Financing</span> <span class="arrow "></span>
 					</a>
 						<ul class="sub-menu">
-							<li><a class="" href="">Verifica pret</a>
-							</li>
-							<li><a class="" href="">Adauga un
-									pret</a></li>
-							<li><a class="" href="">Cele mai
-									cumparate produse</a></li>
+							<li><a class="" href="">Verifica pret</a></li>
+							<li><a class="" href="">Adauga un pret</a></li>
+							<li><a class="" href="">Cele mai cumparate produse</a></li>
 
 						</ul></li>
 					<li class=""><a href="javascript:;"> <i
@@ -477,30 +476,30 @@ User currentUser = userDAO.getUserByEmail(userName);
 							<span class="title">Masina mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i class="fa fa-users"></i>
-							<span class="title">Familia mea</span> <span
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-users"></i> <span class="title">Familia mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i class="fa fa-play-circle"></i>
-							<span class="title">Hobby-urile mele</span> <span
-							class="label label-orange">Personal+</span>
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-play-circle"></i> <span class="title">Hobby-urile
+								mele</span> <span class="label label-orange">Personal+</span>
 					</a></li>
-						<li class=""><a href="javascript:;"> <i class="fa fa-ambulance"></i>
-							<span class="title">Sanatatea mea</span> <span
-							class="label label-orange">Personal+</span>
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-ambulance"></i> <span class="title">Sanatatea
+								mea</span> <span class="label label-orange">Personal+</span>
 					</a></li>
-						<li class=""><a href="javascript:;"> <i class="fa fa-home"></i>
+					<li class=""><a href="javascript:;"> <i class="fa fa-home"></i>
 							<span class="title">Casa mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i class="fa fa-graduation-cap"></i>
-							<span class="title">Educatia mea</span> <span
-							class="label label-orange">Personal+</span>
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-graduation-cap"></i> <span class="title">Educatia
+								mea</span> <span class="label label-orange">Personal+</span>
 					</a></li>
-					
-					<li class=""><a href="javascript:;"> <i class="fa fa-plane"></i>
-							<span class="title">Planificator vacanta</span> <span
-							class="label label-orange">Personal+</span>
+
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-plane"></i> <span class="title">Planificator
+								vacanta</span> <span class="label label-orange">Personal+</span>
 					</a></li>
 
 
@@ -512,7 +511,7 @@ User currentUser = userDAO.getUserByEmail(userName);
 
 
 			<div class="project-info">
-<%
+				<%
 Transactions transactionDAO = new Transactions();
 double newPayments = transactionDAO.getAmountSpentToday(currentUser);
 double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
@@ -590,7 +589,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 											class='pull-left fa fa-shopping-cart icon-md icon-rounded icon-orange'></i>
 										<div class="stats">
 											<h4>
-											<%Products productDAO = new Products();
+												<%Products productDAO = new Products();
 											int numberOfProducts = productDAO.getNumOfProductsInLastMonth(currentUser);
 											
 											%>
@@ -606,7 +605,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 											class='pull-left fa fa-dollar icon-md icon-rounded icon-purple'></i>
 										<div class="stats">
 											<h4>
-											<%double amountSpentToday = transactionDAO.getAmountSpentToday(currentUser); %>
+												<%double amountSpentToday = transactionDAO.getAmountSpentToday(currentUser); %>
 												<strong><%=amountSpentToday %> RON</strong>
 											</h4>
 											<span>Suma cheltuita astazi</span>
@@ -1332,7 +1331,7 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 		type="text/javascript"></script>
 	<script src="assets/plugins/morris-chart/js/raphael-min.js"
 		type="text/javascript"></script>
-	<script src="assets/plugins/morris-chart/js/morris.min.js" 
+	<script src="assets/plugins/morris-chart/js/morris.min.js"
 		type="text/javascript"></script>
 	<script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.1.min.js"
 		type="text/javascript"></script>

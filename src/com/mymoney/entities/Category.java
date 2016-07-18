@@ -1,9 +1,11 @@
 package com.mymoney.entities;
 
 public class Category {
+	
 private int ID;
 private String categoryName;
 private String categoryDescription;
+
 public int getID() {
 	return ID;
 }

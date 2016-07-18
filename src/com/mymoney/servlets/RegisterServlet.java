@@ -61,35 +61,34 @@ public class RegisterServlet extends HttpServlet {
 		user.setPassword(request.getParameter("pwd"));
 		DateFormat format = new SimpleDateFormat("MM-DD-YYYY", Locale.ENGLISH);
 		Date date = new Date();
-		
-		user.setDateOfBirth(request.getParameter("DateOfBirth"));
 
-		user.setCity(request.getParameter("City"));
-		user.setCountry(request.getParameter("Country"));
-		if(request.getParameter("smoker") == null)
+		user.setDateOfBirth(request.getParameter("DateOfBirth"));
+		// TO FIX
+		// user.setCity(request.getParameter("City"));
+		// user.setCountry(request.getParameter("Country"));
+		if (request.getParameter("smoker") == null)
 			user.setSmoker(0);
 		else
-		user.setSmoker(1);
-		if(request.getParameter("carnetDeConducere") == null)			
-		user.setHasDriversLicence(0);
+			user.setSmoker(1);
+		if (request.getParameter("carnetDeConducere") == null)
+			user.setHasDriversLicence(0);
 		else
-			user.setHasDriversLicence(1);	
-		if(request.getParameter("masinaPersonala") == null)
-		user.setHasCar(0);
+			user.setHasDriversLicence(1);
+		if (request.getParameter("masinaPersonala") == null)
+			user.setHasCar(0);
 		else
 			user.setHasCar(1);
-		if(request.getParameter("casatorit") == null)
+		if (request.getParameter("casatorit") == null)
 			user.setMarried(0);
-			else
-				user.setMarried(1);
-		
+		else
+			user.setMarried(1);
+
 		user.setUserType(Integer.parseInt(request.getParameter("tipCont")));
-		if(request.getParameter("deAcord") == null)
+		if (request.getParameter("deAcord") == null)
 			user.setAgreedWithProcessingTerms(0);
-			else
-				user.setAgreedWithProcessingTerms(1);
-		
-		
+		else
+			user.setAgreedWithProcessingTerms(1);
+
 		user.setDateRegistered(new Date());
 		user.setNumberOfLogins(0);
 		user.setAdmin(0);
@@ -98,10 +97,9 @@ public class RegisterServlet extends HttpServlet {
 		else
 			user.setPremium(0);
 		RegisterProcess registerProcessor = new RegisterProcess();
-		if(registerProcessor.registerUser(user))
-		response.sendRedirect("login.jsp");
-		
-		
+		if (registerProcessor.registerUser(user))
+			response.sendRedirect("login.jsp");
+
 	}
 
 }

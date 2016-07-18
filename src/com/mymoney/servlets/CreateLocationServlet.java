@@ -39,7 +39,8 @@ public class CreateLocationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Location location = new Location();
 		Locations locationDAO = new Locations();
-		location.setLocationCity(request.getParameter("orasLocatie"));
+		//TO FIX
+		//location.setLocationCity(request.getParameter("orasLocatie"));
 		location.setLocationName(request.getParameter("numeLocatie"));
 		location.setLocationDescription(request.getParameter("descriereLocatie"));
 		locationDAO.insertLocation(location);

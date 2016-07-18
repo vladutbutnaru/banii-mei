@@ -29,8 +29,8 @@ public class RegisterProcess {
 			query+="'"+user.getDateOfBirth().trim().replace("'", "\'")+"',";
 			query+="'"+user.getEmail().trim().replace("'", "\'")+"',";
 			query+="'"+user.getPhoneNumber().trim().replace("'", "\'")+"',";
-			query+="'"+user.getCity().trim().replace("'", "\'")+"',";
-			query+="'"+user.getCountry().trim().replace("'", "\'")+"',";
+			query+=""+user.getCity()+",";
+			query+=""+user.getCountry()+",";
 			query+=user.getSmoker() + ",";
 			query+=user.getHasDriversLicence() + ",";
 			query+=user.getHasCar() + ",";

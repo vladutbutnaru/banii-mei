@@ -33,7 +33,7 @@ public class Accounts {
 				account = new Account();
 				account.setId(rs.getInt("ID"));
 				account.setAccountName(rs.getString("AccountName"));
-				account.setCurrency(rs.getString("Currency"));
+				account.setCurrency(rs.getInt("Currency"));
 				account.setAmount(rs.getDouble("Amount"));
 				account.setAccountType(rs.getInt("AccountType"));
 				account.setAccountDescription(rs.getString("AccountDescription"));
@@ -65,7 +65,7 @@ public class Accounts {
 				account = new Account();
 				account.setId(rs.getInt("ID"));
 				account.setAccountName(rs.getString("AccountName"));
-				account.setCurrency(rs.getString("Currency"));
+				account.setCurrency(rs.getInt("Currency"));
 				account.setAmount(rs.getDouble("Amount"));
 				account.setAccountType(rs.getInt("AccountType"));
 				account.setAccountDescription(rs.getString("AccountDescription"));
@@ -107,7 +107,7 @@ public Account getAccountForTransaction(Transaction transaction){
 			account = new Account();
 			account.setId(rs.getInt("ID"));
 			account.setAccountName(rs.getString("AccountName"));
-			account.setCurrency(rs.getString("Currency"));
+			account.setCurrency(rs.getInt("Currency"));
 			account.setAmount(rs.getDouble("Amount"));
 			account.setAccountType(rs.getInt("AccountType"));
 			account.setAccountDescription(rs.getString("AccountDescription"));
@@ -140,7 +140,7 @@ public int getNumberOfAccountsForUser(User user){
 			account = new Account();
 			account.setId(rs.getInt("ID"));
 			account.setAccountName(rs.getString("AccountName"));
-			account.setCurrency(rs.getString("Currency"));
+			account.setCurrency(rs.getInt("Currency"));
 			account.setAmount(rs.getDouble("Amount"));
 			account.setAccountType(rs.getInt("AccountType"));
 			account.setAccountDescription(rs.getString("AccountDescription"));

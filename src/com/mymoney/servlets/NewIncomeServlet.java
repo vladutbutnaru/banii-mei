@@ -39,7 +39,7 @@ public class NewIncomeServlet extends HttpServlet {
 		Transaction transaction = new Transaction();
 		transaction.setAccountID(Integer.parseInt(request.getParameter("contCastig")));
 		transaction.setAmount(Double.parseDouble(request.getParameter("valoareCastig")));
-		transaction.setCurrency("RON");
+		transaction.setCurrency(1);
 		transaction.setDeleted(0);
 		transaction.setIsRecurrent(0);
 		transaction.setLocationID(0);

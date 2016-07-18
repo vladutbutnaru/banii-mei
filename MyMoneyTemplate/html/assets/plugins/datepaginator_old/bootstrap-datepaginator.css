@@ -1,6 +1,4 @@
-
 /* Timesheet pagination */
-
 .datepaginator {
 	font-size: 12px;
 	height: 60px;
@@ -42,8 +40,9 @@
 	height: 60px;
 	padding: 13px 0px !important;
 	width: 35px;
-	margin: 0px !important;  				/* Override boostrap .pagination -1px, */
-	border-left-style: hidden !important;	/* so we must hide left border instead */
+	margin: 0px !important; /* Override boostrap .pagination -1px, */
+	border-left-style: hidden !important;
+	/* so we must hide left border instead */
 	text-align: center;
 }
 
@@ -67,7 +66,7 @@
 	padding: 33px 0px !important;
 }
 
-a.dp-nav-right { 
+a.dp-nav-right {
 	border-left-style: hidden !important;
 }
 
@@ -76,18 +75,18 @@ a.dp-nav-right {
 }
 
 .dp-off {
-	background-color: #F0F0F0 !important; 
+	background-color: #F0F0F0 !important;
 }
 
 .dp-today {
 	background-color: #88B5DB !important;
-	color: #ffffff !important;	
+	color: #ffffff !important;
 }
 
 .dp-selected {
 	background-color: #428bca !important;
 	color: #ffffff !important;
-	width: 140px; 
+	width: 140px;
 }
 
 #dp-calendar {

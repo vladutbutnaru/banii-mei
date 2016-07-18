@@ -363,7 +363,8 @@
 			<div class='pull-right'>
 				<ul class="info-menu right-links list-inline list-unstyled">
 					<li class="profile"><a href="#" data-toggle="dropdown"
-						class="toggle"> <img src="data/profile/<%=currentUser.getProfileImagePath() %>"
+						class="toggle"> <img
+							src="data/profile/<%=currentUser.getProfileImagePath() %>"
 							alt="user-image" class="img-circle img-inline"> <span><%="Salut, " + currentUser.getFirstName() + " " + currentUser.getLastName()%>
 								<i class="fa fa-angle-down"></i></span>
 					</a>
@@ -403,7 +404,8 @@
 				<div class="profile-info row">
 
 					<div class="profile-image col-md-4 col-sm-4 col-xs-4">
-						<a href="ui-profile.html"> <img src="data/profile/<%=currentUser.getProfileImagePath() %>"
+						<a href="ui-profile.html"> <img
+							src="data/profile/<%=currentUser.getProfileImagePath() %>"
 							class="img-responsive img-circle">
 						</a>
 					</div>
@@ -423,37 +425,36 @@
 
 				</div>
 				<!-- USER INFO - END -->
-<%Accounts accountDAO = new Accounts();
+				<%Accounts accountDAO = new Accounts();
 	int numberOfAccounts = accountDAO.getNumberOfAccountsForUser(currentUser);
 
 %>
 
 
-						<ul class='wraplist'>
+				<ul class='wraplist'>
 
 
-					<li><a href="home.jsp"> <i
-							class="fa fa-dashboard"></i> <span class="title">Interfata
-								de control</span>
+					<li><a href="home.jsp"> <i class="fa fa-dashboard"></i> <span
+							class="title">Interfata de control</span>
 					</a></li>
-					<li><a href="accounts.jsp"> <i class="fa fa-th"></i>
-							<span class="title">Conturile mele</span><span
+					<li><a href="accounts.jsp"> <i class="fa fa-th"></i> <span
+							class="title">Conturile mele</span><span
 							class="label label-orange nosubmenu"><%=numberOfAccounts %></span>
 					</a></li>
 					<li class=""><a href="javascript:;"> <i
-							class="fa fa-suitcase"></i> <span class="title">Plati & Castiguri</span> <span
-							class="arrow "></span>
+							class="fa fa-suitcase"></i> <span class="title">Plati &
+								Castiguri</span> <span class="arrow "></span>
 					</a>
 						<ul class="sub-menu">
 							<li><a class="" href="newpayment.jsp">Plata noua</a></li>
 							<li><a class="" href="newincome.jsp">Castig nou</a></li>
-						<li><a class="" href="viewhistory.jsp">Istoricul tranzactiilor</a></li>
-							<li><a class="" href="">Plati recurente</a>
-							</li>
+							<li><a class="" href="viewhistory.jsp">Istoricul
+									tranzactiilor</a></li>
+							<li><a class="" href="">Plati recurente</a></li>
 							<li><a class="" href="">Sabloane</a></li>
 							<li><a class="" href="">Rapoarte</a></li>
-							<li><a class="" href="">Intelligent
-									Reports <span class="label label-orange">Personal+</span>
+							<li><a class="" href="">Intelligent Reports <span
+									class="label label-orange">Personal+</span>
 							</a></li>
 
 							<li><a class="" href="">Beneficiari</a></li>
@@ -465,12 +466,9 @@
 								Financing</span> <span class="arrow "></span>
 					</a>
 						<ul class="sub-menu">
-							<li><a class="" href="">Verifica pret</a>
-							</li>
-							<li><a class="" href="">Adauga un
-									pret</a></li>
-							<li><a class="" href="">Cele mai
-									cumparate produse</a></li>
+							<li><a class="" href="">Verifica pret</a></li>
+							<li><a class="" href="">Adauga un pret</a></li>
+							<li><a class="" href="">Cele mai cumparate produse</a></li>
 
 						</ul></li>
 					<li class=""><a href="javascript:;"> <i
@@ -485,30 +483,30 @@
 							<span class="title">Masina mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i class="fa fa-users"></i>
-							<span class="title">Familia mea</span> <span
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-users"></i> <span class="title">Familia mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i class="fa fa-play-circle"></i>
-							<span class="title">Hobby-urile mele</span> <span
-							class="label label-orange">Personal+</span>
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-play-circle"></i> <span class="title">Hobby-urile
+								mele</span> <span class="label label-orange">Personal+</span>
 					</a></li>
-						<li class=""><a href="javascript:;"> <i class="fa fa-ambulance"></i>
-							<span class="title">Sanatatea mea</span> <span
-							class="label label-orange">Personal+</span>
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-ambulance"></i> <span class="title">Sanatatea
+								mea</span> <span class="label label-orange">Personal+</span>
 					</a></li>
-						<li class=""><a href="javascript:;"> <i class="fa fa-home"></i>
+					<li class=""><a href="javascript:;"> <i class="fa fa-home"></i>
 							<span class="title">Casa mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i class="fa fa-graduation-cap"></i>
-							<span class="title">Educatia mea</span> <span
-							class="label label-orange">Personal+</span>
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-graduation-cap"></i> <span class="title">Educatia
+								mea</span> <span class="label label-orange">Personal+</span>
 					</a></li>
-					
-					<li class=""><a href="javascript:;"> <i class="fa fa-plane"></i>
-							<span class="title">Planificator vacanta</span> <span
-							class="label label-orange">Personal+</span>
+
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-plane"></i> <span class="title">Planificator
+								vacanta</span> <span class="label label-orange">Personal+</span>
 					</a></li>
 
 
@@ -519,8 +517,8 @@
 
 
 
-				<div class="project-info">
-<%
+			<div class="project-info">
+				<%
 Transactions transactionDAO = new Transactions();
 double newPayments = transactionDAO.getAmountSpentToday(currentUser);
 double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
@@ -558,7 +556,9 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 					<div class="page-title">
 
 						<div class="pull-left">
-							<h1 class="title">Social Financing<sup>tm</sup></h1>
+							<h1 class="title">
+								Social Financing<sup>tm</sup>
+							</h1>
 						</div>
 
 
@@ -569,7 +569,8 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 					<section class="box ">
 						<header class="panel_header">
-							<h2 class="title pull-left">Adauga preturile produselor in serviciul Social Financing</h2>
+							<h2 class="title pull-left">Adauga preturile produselor in
+								serviciul Social Financing</h2>
 
 						</header>
 						<div class="content-body">
@@ -579,12 +580,13 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 									<br>
 									<h3>Produsele achizitionate</h3>
 									<br>
-									<form id="socialFinancing" action="AddProductPricesServlet" method="post">
-									<div class="form-group">
-										
+									<form id="socialFinancing" action="AddProductPricesServlet"
+										method="post">
+										<div class="form-group">
 
-										<div class="controls">
-											<%
+
+											<div class="controls">
+												<%
 											String produse = request.getAttribute("products").toString();
 											String transactionID = request.getAttribute("transactionID").toString();
 											String locationID = request.getAttribute("LocationID").toString();
@@ -595,45 +597,44 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 											for(Product p : listOfProducts){
 												i++;
 											%>
-											<label class="form-label" for="field-1"><%= p.getProductName() %></label> <span class="desc"><%= p.getProductDescription() %>
-											curent"</span> <br>
-													<div class="form-group">
-										<label class="form-label" for="field-1">Pret produs</label>
-										<span class="desc">e.g. "15"</span>
-										<div class="controls">
-											<input type="text" class="form-control" id="valoarePlata<%=i %>"
-												name="valoarePlata<%=i %>">
+												<label class="form-label" for="field-1"><%= p.getProductName() %></label>
+												<span class="desc"><%= p.getProductDescription() %>
+													curent"</span> <br>
+												<div class="form-group">
+													<label class="form-label" for="field-1">Pret produs</label>
+													<span class="desc">e.g. "15"</span>
+													<div class="controls">
+														<input type="text" class="form-control"
+															id="valoarePlata<%=i %>" name="valoarePlata<%=i %>">
+													</div>
+													<input type="hidden" id="productID<%=i %>"
+														name="productID<%=i %>" value="<%=p.getID() %>">
+												</div>
+												<%} %>
+												<input type="hidden" name="numOfProducts" id="numOfProducts"
+													value="<%=listOfProducts.size() %>"> <input
+													type="hidden" name="transactionID" id="transactionID"
+													value="<%= transactionID %>"> <input type="hidden"
+													name="locationID" id="locationID" value=<%=locationID %>>
+											</div>
 										</div>
-										<input type="hidden" id = "productID<%=i %>" name = "productID<%=i %>" value = "<%=p.getID() %>">
-									</div>
-											<%} %>
-											<input type="hidden" name="numOfProducts" id = "numOfProducts" value = "<%=listOfProducts.size() %>">
-											<input type="hidden" name = "transactionID" id = "transactionID" value = "<%= transactionID %>">
-											<input type = "hidden" name = "locationID" id = "locationID" value = <%=locationID %>>
-										</div>
-									</div>
-									<br>
-
-								
-									<br>
-
-
+										<br> <br>
 								</div>
 								<br>
 								<div class="row"></div>
-								
+
 
 
 							</div>
 
 							<div class="row">
-								<button type="button" onclick="document.getElementById('socialFinancing').submit();"
+								<button type="button"
+									onclick="document.getElementById('socialFinancing').submit();"
 									class="btn btn-success">
 									<i class="fa fa-check-circle"> Salveaza preturi</i>
 								</button>
 								</form>
-								<br>
-								<br>
+								<br> <br>
 								<button type="button" onclick="location.href='home.jsp"
 									class="btn btn-success">
 									<i class="fa fa-check-circle"> Salveaza preturi</i>
@@ -654,7 +655,8 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<section class="box ">
 						<header class="panel_header">
-							<h2 class="title pull-left">Sfaturi legate de Social Financing</h2>
+							<h2 class="title pull-left">Sfaturi legate de Social
+								Financing</h2>
 
 						</header>
 						<div class="content-body">

@@ -1,67 +1,74 @@
 ﻿<!doctype html>
 <html lang="en-au">
-    <head>
-        <title>jQuery.Gantt - Test Suite 01</title>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" >
-        <link rel="stylesheet" href="../css/style.css" />
-        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="http://taitems.github.com/UX-Lab/core/css/prettify.css" />
-		<style type="text/css">
-			body {
-				font-family: Helvetica, Arial, sans-serif;
-				font-size: 13px;
-				padding: 0 0 50px 0;
-			}
-			.contain {
-				width: 800px;
-				margin: 0 auto;
-			}
-			h1 {
-				margin: 40px 0 20px 0;
-			}
-			h2 {
-				font-size: 1.5em;
-				padding-bottom: 3px;
-				border-bottom: 1px solid #DDD;
-				margin-top: 50px;
-				margin-bottom: 25px;
-			}
-			table th:first-child {
-				width: 150px;
-			}
-		</style>
-    </head>
-    <body>
+<head>
+<title>jQuery.Gantt - Test Suite 01</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+<link rel="stylesheet" href="../css/style.css" />
+<link
+	href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="http://taitems.github.com/UX-Lab/core/css/prettify.css" />
+<style type="text/css">
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	padding: 0 0 50px 0;
+}
 
-		<div class="contain">
+.contain {
+	width: 800px;
+	margin: 0 auto;
+}
 
-			<h1>
-				jQuery.Gantt
-				<small>&mdash; Test Suite 01</small>
-			</h1>
+h1 {
+	margin: 40px 0 20px 0;
+}
 
-			<p>
-				<strong>Expected behaviour:</strong> Gantt bar should run from "now" until 2 hours from now. It fails when all the bars are docked left at the hour view.
-			</p>
+h2 {
+	font-size: 1.5em;
+	padding-bottom: 3px;
+	border-bottom: 1px solid #DDD;
+	margin-top: 50px;
+	margin-bottom: 25px;
+}
 
-			<p>
-				<strong>Manual validation:</strong>
-				<ul>
-					<li>Passing</li>
-				</ul>
-			</p>
-				
-			<div class="gantt"></div>
+table th:first-child {
+	width: 150px;
+}
+</style>
+</head>
+<body>
 
+	<div class="contain">
 
-    </body>
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/jquery.fn.gantt.js"></script>
-	<script src="moment.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-	<script src="http://taitems.github.com/UX-Lab/core/js/prettify.js"></script>
-    <script>
+		<h1>
+			jQuery.Gantt <small>&mdash; Test Suite 01</small>
+		</h1>
+
+		<p>
+			<strong>Expected behaviour:</strong> Gantt bar should run from "now"
+			until 2 hours from now. It fails when all the bars are docked left at
+			the hour view.
+		</p>
+
+		<p>
+			<strong>Manual validation:</strong>
+		<ul>
+			<li>Passing</li>
+		</ul>
+		</p>
+
+		<div class="gantt"></div>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.fn.gantt.js"></script>
+<script src="moment.min.js"></script>
+<script
+	src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="http://taitems.github.com/UX-Lab/core/js/prettify.js"></script>
+<script>
 
 		$(function() {
 

@@ -8,6 +8,7 @@ private String productName;
 private String productDescription;
 private int categoryID;
 private Date creationDate;
+private int deleted;
 public int getID() {
 	return ID;
 }
@@ -37,6 +38,12 @@ public Date getCreationDate() {
 }
 public void setCreationDate(Date creationDate) {
 	this.creationDate = creationDate;
+}
+public int getDeleted() {
+	return deleted;
+}
+public void setDeleted(int deleted) {
+	this.deleted = deleted;
 }
 
 

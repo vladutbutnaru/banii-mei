@@ -30,7 +30,7 @@ public class Users {
 
 		       user.setFirstName(rs.getString("FirstName"));
 		       user.setLastName(rs.getString("LastName"));
-		       user.setCity(rs.getString("City"));
+		       user.setCity(rs.getInt("City"));
 		       user.setId(rs.getInt("ID"));
 		       user.setEmail(email);
 		       user.setProfileImagePath(rs.getString("ProfileImagePath"));
@@ -86,7 +86,7 @@ return false;
 		    	
 		       user.setFirstName(rs.getString("FirstName"));
 		       user.setLastName(rs.getString("LastName"));
-		       user.setCity(rs.getString("City"));
+		       user.setCity(rs.getInt("City"));
 		       user.setDateRegistered(rs.getDate("DateRegistered"));
 		   	Date date = new Date();
 		

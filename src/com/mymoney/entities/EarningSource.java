@@ -1,10 +1,13 @@
 package com.mymoney.entities;
 
 public class EarningSource {
+	
 private int id;
 private String earningName;
 private String earningDescription;
 private int userID;
+private int deleted;
+
 public int getId() {
 	return id;
 }
@@ -28,6 +31,12 @@ public int getUserID() {
 }
 public void setUserID(int userID) {
 	this.userID = userID;
+}
+public int getDeleted() {
+	return deleted;
+}
+public void setDeleted(int deleted) {
+	this.deleted = deleted;
 }
 
 }

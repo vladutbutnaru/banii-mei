@@ -26,7 +26,7 @@ public class Locations {
 			while (rs.next()) {
 				location = new Location();
 				location.setID(rs.getInt("id"));
-				location.setLocationCity(rs.getString("LocationCity"));
+				location.setLocationCity(rs.getInt("LocationCity"));
 				location.setLocationDescription(rs.getString("LocationDescription"));
 				location.setLocationName(rs.getString("LocationName"));
 				
@@ -49,7 +49,7 @@ public class Locations {
 			while (rs.next()) {
 				location = new Location();
 				location.setID(rs.getInt("id"));
-				location.setLocationCity(rs.getString("LocationCity"));
+				location.setLocationCity(rs.getInt("LocationCity"));
 				location.setLocationDescription(rs.getString("LocationDescription"));
 				location.setLocationName(rs.getString("LocationName"));
 				
@@ -103,7 +103,7 @@ public class Locations {
 			while (rs.next()) {
 				location = new Location();
 				location.setID(rs.getInt("id"));
-				location.setLocationCity(rs.getString("LocationCity"));
+				location.setLocationCity(rs.getInt("LocationCity"));
 				location.setLocationDescription(rs.getString("LocationDescription"));
 				location.setLocationName(rs.getString("LocationName"));
 				

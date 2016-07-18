@@ -63,17 +63,37 @@
 100%
 {
 -webkit-transform
+
+
 :
+
  
+
 rotate
-(360deg);
+
+
+(360
+deg
+);
+
  
+
 transform
+
+
 :
+
  
+
 rotate
-(360deg);
+
+
+(360
+deg
+);
+
  
+
 }
 }
 @
@@ -85,17 +105,37 @@ rotate
 100%
 {
 -moz-transform
+
+
 :
+
  
+
 rotate
-(360deg);
+
+
+(360
+deg
+);
+
  
+
 transform
+
+
 :
+
  
+
 rotate
-(360deg);
+
+
+(360
+deg
+);
+
  
+
 }
 }
 @
@@ -107,17 +147,37 @@ rotate
 100%
 {
 -o-transform
+
+
 :
+
  
+
 rotate
-(360deg);
+
+
+(360
+deg
+);
+
  
+
 transform
+
+
 :
+
  
+
 rotate
-(360deg);
+
+
+(360
+deg
+);
+
  
+
 }
 }
 @
@@ -129,17 +189,37 @@ rotate
 100%
 {
 -ms-transform
+
+
 :
+
  
+
 rotate
-(360deg);
+
+
+(360
+deg
+);
+
  
+
 transform
+
+
 :
+
  
+
 rotate
-(360deg);
+
+
+(360
+deg
+);
+
  
+
 }
 }
 @
@@ -150,16 +230,36 @@ keyframes pace-spinner { 0% {
 100%
 {
 transform
+
+
 :
+
  
+
 rotate
-(360deg);
+
+
+(360
+deg
+);
+
  
+
 transform
+
+
 :
+
  
+
 rotate
-(360deg);
+
+
+(360
+deg
+);
+
  
+
 }
 }

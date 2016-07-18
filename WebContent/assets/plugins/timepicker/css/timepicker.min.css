@@ -122,10 +122,25 @@
 	padding: 2px
 }
 
-.bootstrap-timepicker-widget table td:not (.separator ){
-	min-width: 30px
-}
+.bootstrap-timepicker-widget
+ 
+table
+ 
+td
+:not
+ 
+(
+.separator
+ 
+){
+min-width
+:
+ 
+30
+px
 
+
+}
 .bootstrap-timepicker-widget table td span {
 	width: 100%
 }

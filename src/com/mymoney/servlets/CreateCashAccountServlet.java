@@ -45,7 +45,7 @@ public class CreateCashAccountServlet extends HttpServlet {
 	Account account = new Account();
 	account.setAccountName(request.getParameter("numeCont"));
 	account.setAccountDescription(request.getParameter("descriereCont"));
-	account.setCurrency("RON");
+	account.setCurrency(1);
 	
 	account.setAmount(Double.parseDouble(request.getParameter("soldCont")));
 	User user = new User();

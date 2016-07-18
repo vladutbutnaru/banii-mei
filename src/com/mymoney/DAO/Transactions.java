@@ -34,7 +34,7 @@ public class Transactions {
 				transaction.setID(rs.getInt("ID"));
 				transaction.setTransactionName(rs.getString("TransactionName"));
 				transaction.setTransactionDescription(rs.getString("TransactionDescription"));
-				transaction.setCurrency(rs.getString("Currency"));
+				transaction.setCurrency(rs.getInt("Currency"));
 				transaction.setAmount(rs.getDouble("Amount"));
 				transaction.setDeleted(rs.getInt("Deleted"));
 				transaction.setTransactionType(rs.getInt("TransactionType"));
@@ -134,7 +134,7 @@ return newID;
 				transaction.setID(rs.getInt("ID"));
 				transaction.setTransactionName(rs.getString("TransactionName"));
 				transaction.setTransactionDescription(rs.getString("TransactionDescription"));
-				transaction.setCurrency(rs.getString("Currency"));
+				transaction.setCurrency(rs.getInt("Currency"));
 				transaction.setAmount(rs.getDouble("Amount"));
 				transaction.setDeleted(rs.getInt("Deleted"));
 				transaction.setTransactionType(rs.getInt("TransactionType"));
@@ -198,7 +198,7 @@ public double getAmountSpentToday(User user){
 			transaction.setID(rs.getInt("ID"));
 			transaction.setTransactionName(rs.getString("TransactionName"));
 			transaction.setTransactionDescription(rs.getString("TransactionDescription"));
-			transaction.setCurrency(rs.getString("Currency"));
+			transaction.setCurrency(rs.getInt("Currency"));
 			transaction.setAmount(rs.getDouble("Amount"));
 			transaction.setDeleted(rs.getInt("Deleted"));
 			transaction.setTransactionType(rs.getInt("TransactionType"));
@@ -251,7 +251,7 @@ public double getAmountEarnedToday(User user){
 			transaction.setID(rs.getInt("ID"));
 			transaction.setTransactionName(rs.getString("TransactionName"));
 			transaction.setTransactionDescription(rs.getString("TransactionDescription"));
-			transaction.setCurrency(rs.getString("Currency"));
+			transaction.setCurrency(rs.getInt("Currency"));
 			transaction.setAmount(rs.getDouble("Amount"));
 			transaction.setDeleted(rs.getInt("Deleted"));
 			transaction.setTransactionType(rs.getInt("TransactionType"));
@@ -310,7 +310,7 @@ public String getLastTransactionDate(Account a){
 			transaction.setID(rs.getInt("ID"));
 			transaction.setTransactionName(rs.getString("TransactionName"));
 			transaction.setTransactionDescription(rs.getString("TransactionDescription"));
-			transaction.setCurrency(rs.getString("Currency"));
+			transaction.setCurrency(rs.getInt("Currency"));
 			transaction.setAmount(rs.getDouble("Amount"));
 			transaction.setDeleted(rs.getInt("Deleted"));
 			transaction.setTransactionType(rs.getInt("TransactionType"));
@@ -355,7 +355,7 @@ public double getAmountSpentOnDate(Date date,User user){
 			transaction.setTransactionName(rs.getString("TransactionName"));
 		
 			transaction.setTransactionDescription(rs.getString("TransactionDescription"));
-			transaction.setCurrency(rs.getString("Currency"));
+			transaction.setCurrency(rs.getInt("Currency"));
 			transaction.setAmount(rs.getDouble("Amount"));
 			transaction.setDeleted(rs.getInt("Deleted"));
 			transaction.setTransactionType(rs.getInt("TransactionType"));
@@ -411,7 +411,7 @@ public double getAmountEarnedOnDate(Date date,User user){
 			transaction.setTransactionName(rs.getString("TransactionName"));
 			
 			transaction.setTransactionDescription(rs.getString("TransactionDescription"));
-			transaction.setCurrency(rs.getString("Currency"));
+			transaction.setCurrency(rs.getInt("Currency"));
 			transaction.setAmount(rs.getDouble("Amount"));
 			transaction.setDeleted(rs.getInt("Deleted"));
 			transaction.setTransactionType(rs.getInt("TransactionType"));

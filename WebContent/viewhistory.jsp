@@ -123,8 +123,9 @@
 									</a></li>
 									<li class=" status-away"><a href="javascript:;">
 											<div class="user-img">
-												<img src="data/profile/<%=currentUser.getProfileImagePath() %>" alt="user-image"
-													class="img-circle img-inline">
+												<img
+													src="data/profile/<%=currentUser.getProfileImagePath() %>"
+													alt="user-image" class="img-circle img-inline">
 											</div>
 											<div>
 												<span class="name"> <strong>Brooks Latshaw</strong> <span
@@ -339,7 +340,8 @@
 			<div class='pull-right'>
 				<ul class="info-menu right-links list-inline list-unstyled">
 					<li class="profile"><a href="#" data-toggle="dropdown"
-						class="toggle"> <img src="data/profile/<%=currentUser.getProfileImagePath() %>"
+						class="toggle"> <img
+							src="data/profile/<%=currentUser.getProfileImagePath() %>"
 							alt="user-image" class="img-circle img-inline"> <span><%="Salut, " + currentUser.getFirstName() + " " + currentUser.getLastName()%>
 								<i class="fa fa-angle-down"></i></span>
 					</a>
@@ -379,8 +381,9 @@
 				<div class="profile-info row">
 
 					<div class="profile-image col-md-4 col-sm-4 col-xs-4">
-				
-						<a href="ui-profile.html"> <img src="data/profile/<%=currentUser.getProfileImagePath() %>"
+
+						<a href="ui-profile.html"> <img
+							src="data/profile/<%=currentUser.getProfileImagePath() %>"
 							class="img-responsive img-circle">
 						</a>
 					</div>
@@ -401,36 +404,35 @@
 				</div>
 				<!-- USER INFO - END -->
 
-<%Accounts accountDAO = new Accounts();
+				<%Accounts accountDAO = new Accounts();
 	int numberOfAccounts = accountDAO.getNumberOfAccountsForUser(currentUser);
 
 %>
 
-							<ul class='wraplist'>
+				<ul class='wraplist'>
 
 
-					<li><a href="home.jsp"> <i
-							class="fa fa-dashboard"></i> <span class="title">Interfata
-								de control</span>
+					<li><a href="home.jsp"> <i class="fa fa-dashboard"></i> <span
+							class="title">Interfata de control</span>
 					</a></li>
-					<li><a href="accounts.jsp"> <i class="fa fa-th"></i>
-							<span class="title">Conturile mele</span><span
+					<li><a href="accounts.jsp"> <i class="fa fa-th"></i> <span
+							class="title">Conturile mele</span><span
 							class="label label-orange nosubmenu"><%=numberOfAccounts %></span>
 					</a></li>
 					<li class="open"><a href="javascript:;"> <i
-							class="fa fa-suitcase"></i> <span class="title">Plati & Castiguri</span> <span
-							class="arrow "></span>
+							class="fa fa-suitcase"></i> <span class="title">Plati &
+								Castiguri</span> <span class="arrow "></span>
 					</a>
 						<ul class="sub-menu">
 							<li><a class="" href="newpayment.jsp">Plata noua</a></li>
 							<li><a class="" href="newincome.jsp">Castig nou</a></li>
-						<li><a class="" href="viewhistory.jsp">Istoricul tranzactiilor</a></li>
-							<li><a class="" href="">Plati recurente</a>
-							</li>
+							<li><a class="" href="viewhistory.jsp">Istoricul
+									tranzactiilor</a></li>
+							<li><a class="" href="">Plati recurente</a></li>
 							<li><a class="" href="">Sabloane</a></li>
 							<li><a class="" href="">Rapoarte</a></li>
-							<li><a class="" href="">Intelligent
-									Reports <span class="label label-orange">Personal+</span>
+							<li><a class="" href="">Intelligent Reports <span
+									class="label label-orange">Personal+</span>
 							</a></li>
 
 							<li><a class="" href="">Beneficiari</a></li>
@@ -442,12 +444,9 @@
 								Financing</span> <span class="arrow "></span>
 					</a>
 						<ul class="sub-menu">
-							<li><a class="" href="">Verifica pret</a>
-							</li>
-							<li><a class="" href="">Adauga un
-									pret</a></li>
-							<li><a class="" href="">Cele mai
-									cumparate produse</a></li>
+							<li><a class="" href="">Verifica pret</a></li>
+							<li><a class="" href="">Adauga un pret</a></li>
+							<li><a class="" href="">Cele mai cumparate produse</a></li>
 
 						</ul></li>
 					<li class=""><a href="javascript:;"> <i
@@ -462,30 +461,30 @@
 							<span class="title">Masina mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i class="fa fa-users"></i>
-							<span class="title">Familia mea</span> <span
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-users"></i> <span class="title">Familia mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i class="fa fa-play-circle"></i>
-							<span class="title">Hobby-urile mele</span> <span
-							class="label label-orange">Personal+</span>
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-play-circle"></i> <span class="title">Hobby-urile
+								mele</span> <span class="label label-orange">Personal+</span>
 					</a></li>
-						<li class=""><a href="javascript:;"> <i class="fa fa-ambulance"></i>
-							<span class="title">Sanatatea mea</span> <span
-							class="label label-orange">Personal+</span>
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-ambulance"></i> <span class="title">Sanatatea
+								mea</span> <span class="label label-orange">Personal+</span>
 					</a></li>
-						<li class=""><a href="javascript:;"> <i class="fa fa-home"></i>
+					<li class=""><a href="javascript:;"> <i class="fa fa-home"></i>
 							<span class="title">Casa mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i class="fa fa-graduation-cap"></i>
-							<span class="title">Educatia mea</span> <span
-							class="label label-orange">Personal+</span>
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-graduation-cap"></i> <span class="title">Educatia
+								mea</span> <span class="label label-orange">Personal+</span>
 					</a></li>
-					
-					<li class=""><a href="javascript:;"> <i class="fa fa-plane"></i>
-							<span class="title">Planificator vacanta</span> <span
-							class="label label-orange">Personal+</span>
+
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-plane"></i> <span class="title">Planificator
+								vacanta</span> <span class="label label-orange">Personal+</span>
 					</a></li>
 
 
@@ -496,8 +495,8 @@
 
 
 
-				<div class="project-info">
-<%
+			<div class="project-info">
+				<%
 Transactions transactionDAO = new Transactions();
 double newPayments = transactionDAO.getAmountSpentToday(currentUser);
 double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
@@ -542,24 +541,25 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 					</div>
 				</div>
 				<div class="clearfix"></div>
-	   <div class="col-lg-12">
-                        <section class="box ">
-                            <header class="panel_header">
-                                <h2 class="title pull-left">Istoricul tranzactiilor tale</h2>
-                                
-                            </header>
-                            <div class="content-body">    <div class="row">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="col-lg-12">
+					<section class="box ">
+						<header class="panel_header">
+							<h2 class="title pull-left">Istoricul tranzactiilor tale</h2>
+
+						</header>
+						<div class="content-body">
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
 
 
 
 
 
-                                        <!-- start -->
-     <ul class="timeline">
+									<!-- start -->
+									<ul class="timeline">
 
-                                                 
-                                         <%
+
+										<%
                                             
                                             EarningSources earningSourceDAO = new EarningSources();
                                             Locations locationsDAO = new Locations();
@@ -580,73 +580,89 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
                                             	listOfProducts = productDAO.getProductsForProductIDs(transaction.getProductID());
                                             	account = accountDAO.getAccountForTransaction(transaction);
                                             %>
-                              
-                                           <%if(transaction.getTransactionType() == 1){ 
+
+										<%if(transaction.getTransactionType() == 1){ 
                                          location = locationsDAO.getLocationForTransaction(transaction);
                                            %>
-                                              <li>
-                                                <div class="timeline-badge danger animated flipInY"><i class="glyphicon glyphicon-minus"></i></div>
-                                                <%} 
+										<li>
+											<div class="timeline-badge danger animated flipInY">
+												<i class="glyphicon glyphicon-minus"></i>
+											</div> <%} 
                                            else  
                                            {
                                            earningSource = earningSourceDAO.getEarningSourceForTransaction(transaction);
                                            %>
-                                             <li class="timeline-inverted ">
-                                                   <div class="timeline-badge success animated flipInY"><i class="glyphicon glyphicon-plus"></i></div>
-                                                   <%} %>
-                                                <div class="timeline-panel animated flipInY">
-                                                    <div class="timeline-heading">
-                                                        <h4 class="timeline-title"><%= transaction.getTransactionName() %></h4>
-                                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <%=transaction.getTransactionTime() %> via BaniiMei Web</small></p>
-                                                    </div>
-                                                    <div class="timeline-body">
-                                                        <p><%=transaction.getTransactionDescription() %></p>
-                                                        <p><b>Cont: </b><%=account.getAccountName() %></p>
-                                                          <p><b>Valoare: </b><%=transaction.getAmount() %></p>
-                                                          <%if(transaction.getTransactionType()==1){ %>
-                                                           <p><b>Locatie: </b><%=location.getLocationName() %></p>
-                                                          
-                                                         
-                                                          <%} %>
-                                                        
-                                                   <hr>
-                                                           <%if(transaction.getTransactionType() == 1){ %>
-                                                         
-                                                        <div class="btn-group">
-                                                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                           
-                                                                <i class="glyphicon glyphicon-list-alt"> Produse</i> <span class="caret"></span>
-                                                              
-                                                            </button>
-                                                            <ul class="dropdown-menu" role="menu">
-                                                                <% for(Product p : listOfProducts){ %>
-                                                                <li><a href="#"><%=p.getProductName() %></a></li>
-                                                                <%} %>
-                                                                <li class="divider"><% %></li>
-                                                                <li><a href="#">Vezi tranzactie</a></li>
-                                                            </ul>
-                                                        </div>
-                                                          <%} 
+										
+										<li class="timeline-inverted ">
+											<div class="timeline-badge success animated flipInY">
+												<i class="glyphicon glyphicon-plus"></i>
+											</div> <%} %>
+											<div class="timeline-panel animated flipInY">
+												<div class="timeline-heading">
+													<h4 class="timeline-title"><%= transaction.getTransactionName() %></h4>
+													<p>
+														<small class="text-muted"><i
+															class="glyphicon glyphicon-time"></i> <%=transaction.getTransactionTime() %>
+															via BaniiMei Web</small>
+													</p>
+												</div>
+												<div class="timeline-body">
+													<p><%=transaction.getTransactionDescription() %></p>
+													<p>
+														<b>Cont: </b><%=account.getAccountName() %></p>
+													<p>
+														<b>Valoare: </b><%=transaction.getAmount() %></p>
+													<%if(transaction.getTransactionType()==1){ %>
+													<p>
+														<b>Locatie: </b><%=location.getLocationName() %></p>
+
+
+													<%} %>
+
+													<hr>
+													<%if(transaction.getTransactionType() == 1){ %>
+
+													<div class="btn-group">
+														<button type="button"
+															class="btn btn-primary btn-sm dropdown-toggle"
+															data-toggle="dropdown">
+
+															<i class="glyphicon glyphicon-list-alt"> Produse</i> <span
+																class="caret"></span>
+
+														</button>
+														<ul class="dropdown-menu" role="menu">
+															<% for(Product p : listOfProducts){ %>
+															<li><a href="#"><%=p.getProductName() %></a></li>
+															<%} %>
+															<li class="divider">
+																<% %>
+															</li>
+															<li><a href="#">Vezi tranzactie</a></li>
+														</ul>
+													</div>
+													<%} 
                                                           else
                                                           {
                                                           %>
-                                                          
-                                                          Sursa: <%=earningSource.getEarningName() %>
-                                                          
-                                                          
-                                                          
-                                                          <%} %>
-                                                          
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <%} %>
-                                            
-                                          
-                                          
-                                           
-                                          
-                                        </ul>
+
+													Sursa:
+													<%=earningSource.getEarningName() %>
+
+
+
+													<%} %>
+
+												</div>
+											</div>
+										</li>
+										<%} %>
+
+
+
+
+
+									</ul>
 
 
 
@@ -655,12 +671,13 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 
 
 
-                                        <!-- end -->
+									<!-- end -->
 
-                                    </div>
-                                </div>
-                            </div>
-                        </section></div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
 
 
 

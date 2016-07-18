@@ -11,7 +11,7 @@ private int transactionType;
 private int accountID;
 private String productID;
 private int isRecurrent;
-private String currency;
+private int currency;
 private Date transactionTime;
 private int deleted;
 private int locationID;
@@ -63,10 +63,10 @@ public int getIsRecurrent() {
 public void setIsRecurrent(int isRecurrent) {
 	this.isRecurrent = isRecurrent;
 }
-public String getCurrency() {
+public int getCurrency() {
 	return currency;
 }
-public void setCurrency(String currency) {
+public void setCurrency(int currency) {
 	this.currency = currency;
 }
 public Date getTransactionTime() {

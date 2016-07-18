@@ -117,8 +117,9 @@
 									</a></li>
 									<li class=" status-away"><a href="javascript:;">
 											<div class="user-img">
-												<img src="data/profile/<%=currentUser.getProfileImagePath() %>" alt="user-image"
-													class="img-circle img-inline">
+												<img
+													src="data/profile/<%=currentUser.getProfileImagePath() %>"
+													alt="user-image" class="img-circle img-inline">
 											</div>
 											<div>
 												<span class="name"> <strong>Brooks Latshaw</strong> <span
@@ -333,7 +334,8 @@
 			<div class='pull-right'>
 				<ul class="info-menu right-links list-inline list-unstyled">
 					<li class="profile"><a href="#" data-toggle="dropdown"
-						class="toggle"> <img src="data/profile/<%=currentUser.getProfileImagePath() %>"
+						class="toggle"> <img
+							src="data/profile/<%=currentUser.getProfileImagePath() %>"
 							alt="user-image" class="img-circle img-inline"> <span><%="Salut, " + currentUser.getFirstName() + " " + currentUser.getLastName()%>
 								<i class="fa fa-angle-down"></i></span>
 					</a>
@@ -373,8 +375,9 @@
 				<div class="profile-info row">
 
 					<div class="profile-image col-md-4 col-sm-4 col-xs-4">
-				
-						<a href="ui-profile.html"> <img src="data/profile/<%=currentUser.getProfileImagePath() %>"
+
+						<a href="ui-profile.html"> <img
+							src="data/profile/<%=currentUser.getProfileImagePath() %>"
 							class="img-responsive img-circle">
 						</a>
 					</div>
@@ -395,36 +398,35 @@
 				</div>
 				<!-- USER INFO - END -->
 
-<%Accounts accountDAO = new Accounts();
+				<%Accounts accountDAO = new Accounts();
 	int numberOfAccounts = accountDAO.getNumberOfAccountsForUser(currentUser);
 
 %>
 
-					<ul class='wraplist'>
+				<ul class='wraplist'>
 
 
-					<li><a href="home.jsp"> <i
-							class="fa fa-dashboard"></i> <span class="title">Interfata
-								de control</span>
+					<li><a href="home.jsp"> <i class="fa fa-dashboard"></i> <span
+							class="title">Interfata de control</span>
 					</a></li>
-					<li class="open"><a href="accounts.jsp"> <i class="fa fa-th"></i>
-							<span class="title">Conturile mele</span><span
+					<li class="open"><a href="accounts.jsp"> <i
+							class="fa fa-th"></i> <span class="title">Conturile mele</span><span
 							class="label label-orange nosubmenu"><%=numberOfAccounts %></span>
 					</a></li>
 					<li class=""><a href="javascript:;"> <i
-							class="fa fa-suitcase"></i> <span class="title">Plati & Castiguri</span> <span
-							class="arrow "></span>
+							class="fa fa-suitcase"></i> <span class="title">Plati &
+								Castiguri</span> <span class="arrow "></span>
 					</a>
 						<ul class="sub-menu">
 							<li><a class="" href="newpayment.jsp">Plata noua</a></li>
 							<li><a class="" href="newincome.jsp">Castig nou</a></li>
-						<li><a class="" href="viewhistory.jsp">Istoricul tranzactiilor</a></li>
-							<li><a class="" href="">Plati recurente</a>
-							</li>
+							<li><a class="" href="viewhistory.jsp">Istoricul
+									tranzactiilor</a></li>
+							<li><a class="" href="">Plati recurente</a></li>
 							<li><a class="" href="">Sabloane</a></li>
 							<li><a class="" href="">Rapoarte</a></li>
-							<li><a class="" href="">Intelligent
-									Reports <span class="label label-orange">Personal+</span>
+							<li><a class="" href="">Intelligent Reports <span
+									class="label label-orange">Personal+</span>
 							</a></li>
 
 							<li><a class="" href="">Beneficiari</a></li>
@@ -436,12 +438,9 @@
 								Financing</span> <span class="arrow "></span>
 					</a>
 						<ul class="sub-menu">
-							<li><a class="" href="">Verifica pret</a>
-							</li>
-							<li><a class="" href="">Adauga un
-									pret</a></li>
-							<li><a class="" href="">Cele mai
-									cumparate produse</a></li>
+							<li><a class="" href="">Verifica pret</a></li>
+							<li><a class="" href="">Adauga un pret</a></li>
+							<li><a class="" href="">Cele mai cumparate produse</a></li>
 
 						</ul></li>
 					<li class=""><a href="javascript:;"> <i
@@ -456,30 +455,30 @@
 							<span class="title">Masina mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i class="fa fa-users"></i>
-							<span class="title">Familia mea</span> <span
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-users"></i> <span class="title">Familia mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i class="fa fa-play-circle"></i>
-							<span class="title">Hobby-urile mele</span> <span
-							class="label label-orange">Personal+</span>
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-play-circle"></i> <span class="title">Hobby-urile
+								mele</span> <span class="label label-orange">Personal+</span>
 					</a></li>
-						<li class=""><a href="javascript:;"> <i class="fa fa-ambulance"></i>
-							<span class="title">Sanatatea mea</span> <span
-							class="label label-orange">Personal+</span>
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-ambulance"></i> <span class="title">Sanatatea
+								mea</span> <span class="label label-orange">Personal+</span>
 					</a></li>
-						<li class=""><a href="javascript:;"> <i class="fa fa-home"></i>
+					<li class=""><a href="javascript:;"> <i class="fa fa-home"></i>
 							<span class="title">Casa mea</span> <span
 							class="label label-orange">Personal+</span>
 					</a></li>
-					<li class=""><a href="javascript:;"> <i class="fa fa-graduation-cap"></i>
-							<span class="title">Educatia mea</span> <span
-							class="label label-orange">Personal+</span>
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-graduation-cap"></i> <span class="title">Educatia
+								mea</span> <span class="label label-orange">Personal+</span>
 					</a></li>
-					
-					<li class=""><a href="javascript:;"> <i class="fa fa-plane"></i>
-							<span class="title">Planificator vacanta</span> <span
-							class="label label-orange">Personal+</span>
+
+					<li class=""><a href="javascript:;"> <i
+							class="fa fa-plane"></i> <span class="title">Planificator
+								vacanta</span> <span class="label label-orange">Personal+</span>
 					</a></li>
 
 
@@ -490,8 +489,8 @@
 
 
 
-				<div class="project-info">
-<%
+			<div class="project-info">
+				<%
 Transactions transactionDAO = new Transactions();
 double newPayments = transactionDAO.getAmountSpentToday(currentUser);
 double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
@@ -613,7 +612,8 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 									<div class="well">
 										<h3>
 											Nu ai adaugat niciun cont <span class="semi-bold">de
-												economii</span>, <a data-toggle="modal" href="#modalSavings"><i>adauga acum!</i></a>
+												economii</span>, <a data-toggle="modal" href="#modalSavings"><i>adauga
+													acum!</i></a>
 										</h3>
 										Conturile de economii te ajuta sa tii evidenta economiilor
 										tale, sa le administrezi intr-un mod facil si sa creezi un
@@ -700,7 +700,8 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 									<div class="well">
 										<h3>
 											Nu ai adaugat niciun cont <span class="semi-bold">numerar</span>,
-											<a data-toggle="modal" href="#modalCash"><i>adauga acum!</i></a>
+											<a data-toggle="modal" href="#modalCash"><i>adauga
+													acum!</i></a>
 										</h3>
 										Conturile de tip numerar te ajuta sa tii evidenta
 										cheltuielilor de zi cu zi. Majoritatea utilizatorilor au
@@ -788,7 +789,8 @@ double newEarnings = transactionDAO.getAmountEarnedToday(currentUser);
 									<div class="well">
 										<h3>
 											Nu ai adaugat niciun cont <span class="semi-bold">curent</span>,
-											<a data-toggle="modal" href="#modalRegular"><i>adauga acum!</i></a>
+											<a data-toggle="modal" href="#modalRegular"><i>adauga
+													acum!</i></a>
 										</h3>
 										Conturile curente te ajuta sa tii evidenta castigurilor. Este
 										cel mai popular dintre conturile create in aplicatie, <b>95%</b>

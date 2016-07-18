@@ -163,8 +163,21 @@ img {
 /*
  * Correct overflow not hidden in IE 9/10/11.
  */
-svg:not (:root ) {
-	overflow: hidden;
+svg
+:not
+ 
+(
+:root
+ 
+)
+{
+overflow
+:
+ 
+hidden
+;
+
+
 }
 /* Block elements
  ========================================================================== */
@@ -330,8 +343,23 @@ progress {
 /*
  * Prevent displaying `audio` without controls in Chrome, Safari and Opera
  */
-audio:not ([controls] ) {
-	display: none;
+audio
+:not
+ 
+(
+[
+controls
+]
+ 
+)
+{
+display
+:
+ 
+none
+;
+
+
 }
 /*
  * Address `[hidden]` styling not present in IE 8/9.
@@ -436,25 +464,41 @@ iframe {
  * Larger gutter for large screens
  */
 /* Large screen and bigger */
-@media ( min-width : 1220px) {
-	/* Horizontal gutter */
-	.uk-grid:not (.uk-grid-preserve ) {
-		margin-left: -35px;
-	}
-	.uk-grid:not (.uk-grid-preserve ) >* {
-		padding-left: 35px;
-	}
-	/* Vertical gutter */
-	.uk-grid:not (.uk-grid-preserve ) +.uk-grid {
-		margin-top: 35px;
-	}
-	.uk-grid:not (.uk-grid-preserve ) >.uk-grid-margin {
-		margin-top: 35px;
-	}
-	/* Vertical gutter for panels */
-	.uk-grid:not (.uk-grid-preserve ) >*>.uk-panel+.uk-panel {
-		margin-top: 35px;
-	}
+@media ( min-width : 1220px) { /* Horizontal gutter */
+	.uk-grid
+	:not
+	 
+	(
+	.uk-grid-preserve
+	 
+	)
+	{
+	margin-left
+	:
+	 
+	-35
+	px
+	;
+	
+	
+}
+
+.uk-grid:not (.uk-grid-preserve ) >* {
+	padding-left: 35px;
+}
+/* Vertical gutter */
+.uk-grid:not (.uk-grid-preserve ) +.uk-grid {
+	margin-top: 35px;
+}
+
+.uk-grid:not (.uk-grid-preserve ) >.uk-grid-margin {
+	margin-top: 35px;
+}
+/* Vertical gutter for panels */
+.uk-grid:not (.uk-grid-preserve ) >*>.uk-panel+.uk-panel {
+	margin-top: 35px;
+}
+
 }
 /*
  * Small gutter
@@ -485,11 +529,31 @@ iframe {
  * Horizontal divider
  * Does not work with `uk-push-*`, `uk-pull-*` and not if the columns float into the next row
  */
-.uk-grid-divider:not (:empty ) {
-	margin-left: -25px;
-	margin-right: -25px;
-}
+.uk-grid-divider
+:not
+ 
+(
+:empty
+ 
+)
+{
+margin-left
+:
+ 
+-25
+px
+;
 
+	
+margin-right
+:
+ 
+-25
+px
+;
+
+
+}
 .uk-grid-divider>* {
 	padding-left: 25px;
 	padding-right: 25px;
@@ -508,8 +572,8 @@ iframe {
 }
 /* Tablet and bigger */
 @media ( min-width : 768px) {
-	.uk-grid-divider>[class*='uk-width-medium-']:not (.uk-width-medium-1-1 ):nth-child(n+2)
-		{
+	.uk-grid-divider>[class*='uk-width-medium-']:not (.uk-width-medium-1-1 
+		):nth-child(n+2) {
 		border-left: 1px solid #dddddd;
 	}
 }
@@ -521,22 +585,51 @@ iframe {
 	}
 }
 /* Large screen and bigger */
-@media ( min-width : 1220px) {
-	/*
+@media ( min-width : 1220px) { /*
      * Large gutter
      */
-	.uk-grid-divider:not (.uk-grid-preserve ):not (:empty ) {
-		margin-left: -35px;
-		margin-right: -35px;
-	}
-	.uk-grid-divider:not (.uk-grid-preserve ) >* {
-		padding-left: 35px;
-		padding-right: 35px;
-	}
-	.uk-grid-divider:not (.uk-grid-preserve ):empty {
-		margin-top: 35px;
-		margin-bottom: 35px;
-	}
+	.uk-grid-divider
+	:not
+	 
+	(
+	.uk-grid-preserve
+	 
+	)
+	:not
+	 
+	(
+	:empty
+	 
+	)
+	{
+	margin-left
+	:
+	 
+	-35
+	px
+	;
+	
+		
+	margin-right
+	:
+	 
+	-35
+	px
+	;
+	
+	
+}
+
+.uk-grid-divider:not (.uk-grid-preserve ) >* {
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+.uk-grid-divider:not (.uk-grid-preserve ):empty {
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
 }
 /*
  * Vertical divider
@@ -1439,8 +1532,22 @@ a.uk-panel-box-secondary:hover {
 	font-size: 12px;
 }
 
-.uk-nav-header:not (:first-child ) {
-	margin-top: 15px;
+.uk-nav-header
+:not
+ 
+(
+:first-child
+ 
+)
+{
+margin-top
+:
+ 
+15
+px
+;
+
+
 }
 /* Sub-object: `uk-nav-divider`
  ========================================================================== */
@@ -1832,16 +1939,44 @@ html:not (.uk-touch ) .uk-nav-offcanvas ul a:hover {
 /*
  * Better sibling spacing
  */
-.uk-navbar-content+.uk-navbar-content:not (.uk-navbar-center ) {
-	padding-left: 0;
+.uk-navbar-content
++
+.uk-navbar-content
+:not
+ 
+(
+.uk-navbar-center
+ 
+)
+{
+padding-left
+:
+ 
+0;
 }
 /*
  * Link colors
  */
-.uk-navbar-content>a:not ([class] ) {
-	color: #0077dd;
-}
+.uk-navbar-content
+>
+a
+:not
+ 
+(
+[
+class
+]
+ 
+)
+{
+color
+:
+ 
+#0077dd
+;
 
+
+}
 .uk-navbar-content>a:not ([class] ):hover {
 	color: #005599;
 }
@@ -2378,7 +2513,7 @@ html:not (.uk-touch ) .uk-nav-offcanvas ul a:hover {
 }
 
 .uk-tab-bottom>li:not (.uk-active ) >a:hover, .uk-tab-bottom>li:not (.uk-active
-	) >a:focus, .uk-tab-bottom>li.uk-open:not (.uk-active ) >a {
+	 ) >a:focus, .uk-tab-bottom>li.uk-open:not (.uk-active ) >a {
 	margin-bottom: 0;
 	margin-top: 1px;
 	padding-bottom: 8px;
@@ -2467,7 +2602,7 @@ html:not (.uk-touch ) .uk-nav-offcanvas ul a:hover {
 		border-right-width: 0;
 	}
 	.uk-tab-left>li:not (.uk-active ) >a:hover, .uk-tab-left>li:not (.uk-active
-		) >a:focus {
+		 ) >a:focus {
 		margin-bottom: 0;
 		margin-right: 1px;
 		padding-bottom: 8px;
@@ -2490,7 +2625,7 @@ html:not (.uk-touch ) .uk-nav-offcanvas ul a:hover {
 		border-left-width: 0;
 	}
 	.uk-tab-right>li:not (.uk-active ) >a:hover, .uk-tab-right>li:not (.uk-active
-		) >a:focus {
+		 ) >a:focus {
 		margin-bottom: 0;
 		margin-left: 1px;
 		padding-bottom: 8px;
@@ -2749,9 +2884,43 @@ html:not (.uk-touch ) .uk-nav-offcanvas ul a:hover {
 /*
  * Improves consistency of cursor style for clickable elements
  */
-.uk-form input[type="checkbox"]:not (:disabled ), .uk-form input[type="radio"]:not
-	(:disabled ) {
-	cursor: pointer;
+.uk-form
+ 
+input
+[
+type
+=
+"checkbox"
+]
+:not
+ 
+(
+:disabled
+ 
+),
+.uk-form
+ 
+input
+[
+type
+=
+"radio"
+]
+:not
+
+	
+(
+:disabled
+ 
+)
+{
+cursor
+:
+ 
+pointer
+;
+
+
 }
 /*
  * Remove default style in iOS.
@@ -2854,7 +3023,7 @@ html:not (.uk-touch ) .uk-nav-offcanvas ul a:hover {
 }
 
 .uk-form select:focus, .uk-form textarea:focus, .uk-form input:not ([type]
-	):focus, .uk-form input[type="text"]:focus, .uk-form input[type="password"]:focus,
+	 ):focus, .uk-form input[type="text"]:focus, .uk-form input[type="password"]:focus,
 	.uk-form input[type="datetime"]:focus, .uk-form input[type="datetime-local"]:focus,
 	.uk-form input[type="date"]:focus, .uk-form input[type="month"]:focus,
 	.uk-form input[type="time"]:focus, .uk-form input[type="week"]:focus,
@@ -2868,7 +3037,7 @@ html:not (.uk-touch ) .uk-nav-offcanvas ul a:hover {
 }
 
 .uk-form select:disabled, .uk-form textarea:disabled, .uk-form input:not
-	([type] ):disabled, .uk-form input[type="text"]:disabled, .uk-form input[type="password"]:disabled,
+	 ([type] ):disabled, .uk-form input[type="text"]:disabled, .uk-form input[type="password"]:disabled,
 	.uk-form input[type="datetime"]:disabled, .uk-form input[type="datetime-local"]:disabled,
 	.uk-form input[type="date"]:disabled, .uk-form input[type="month"]:disabled,
 	.uk-form input[type="time"]:disabled, .uk-form input[type="week"]:disabled,
@@ -3210,8 +3379,21 @@ select.uk-form-width-mini {
 	text-shadow: 0 1px 0 #ffffff;
 }
 
-.uk-button:not (:disabled ) {
-	cursor: pointer;
+.uk-button
+:not
+ 
+(
+:disabled
+ 
+)
+{
+cursor
+:
+ 
+pointer
+;
+
+
 }
 /*
  * Hover
@@ -5864,8 +6046,22 @@ a.uk-thumbnail:hover, a.uk-thumbnail:focus {
  * Remove whitespace between child elements when using `inline-block`
  * Needed for Firefox
  */
-.uk-overlay-area:not (:empty ) {
-	font-size: 0.001px;
+.uk-overlay-area
+:not
+ 
+(
+:empty
+ 
+)
+{
+font-size
+:
+ 
+0
+.001px
+;
+
+
 }
 /*
  * 1. Needed for vertical alignment
@@ -5907,7 +6103,7 @@ a.uk-thumbnail:hover, a.uk-thumbnail:focus {
  * Links in overlay area
  */
 .uk-overlay-area-content a:not ([class] ), .uk-overlay-area-content a:not
-	([class] ):hover {
+	 ([class] ):hover {
 	color: inherit;
 }
 /* DEPRECATED
@@ -6051,11 +6247,17 @@ a.uk-thumbnail:hover, a.uk-thumbnail:focus {
 100%
 {
 background-position
+
+
 :
+
  
+
 30
 px
+
  
+
 0;
 }
 }
@@ -6067,11 +6269,17 @@ keyframes uk-progress-bar-stripes { 0% {
 100%
 {
 background-position
+
+
 :
+
  
+
 30
 px
+
  
+
 0;
 }
 }
@@ -6220,7 +6428,7 @@ px
  */
 .uk-animation-hover:not (:hover ), .uk-animation-hover:not (:hover ) [class*='uk-animation-'],
 	.uk-touch .uk-animation-hover:not (.uk-hover ), .uk-touch .uk-animation-hover:not
-	(.uk-hover ) [class*='uk-animation-'] {
+	 (.uk-hover ) [class*='uk-animation-'] {
 	-webkit-animation-name: none;
 	animation-name: none;
 }
@@ -6235,8 +6443,12 @@ px
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 }
 }
@@ -6248,8 +6460,12 @@ keyframes uk-fade { 0% {
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 }
 }
@@ -6267,16 +6483,24 @@ opacity
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 -webkit-transform
-:
- 
-translateY
-(0);
 
-  
+
+:
+
+ 
+
+translateY
+
+
+(0);
 }
 }
 @
@@ -6288,16 +6512,24 @@ keyframes uk-fade-top { 0% {
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 transform
-:
- 
-translateY
-(0);
 
-  
+
+:
+
+ 
+
+translateY
+
+
+(0);
 }
 }
 /*
@@ -6312,16 +6544,24 @@ translateY
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 -webkit-transform
-:
- 
-translateY
-(0);
 
-  
+
+:
+
+ 
+
+translateY
+
+
+(0);
 }
 }
 @
@@ -6333,16 +6573,24 @@ keyframes uk-fade-bottom { 0% {
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 transform
-:
- 
-translateY
-(0);
 
-  
+
+:
+
+ 
+
+translateY
+
+
+(0);
 }
 }
 /*
@@ -6357,16 +6605,24 @@ translateY
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 -webkit-transform
-:
- 
-translateX
-(0);
 
-  
+
+:
+
+ 
+
+translateX
+
+
+(0);
 }
 }
 @
@@ -6378,16 +6634,24 @@ keyframes uk-fade-left { 0% {
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 transform
-:
- 
-translateX
-(0);
 
-  
+
+:
+
+ 
+
+translateX
+
+
+(0);
 }
 }
 /*
@@ -6402,16 +6666,24 @@ translateX
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 -webkit-transform
-:
- 
-translateX
-(0);
 
-  
+
+:
+
+ 
+
+translateX
+
+
+(0);
 }
 }
 @
@@ -6423,16 +6695,24 @@ keyframes uk-fade-right { 0% {
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 transform
-:
- 
-translateX
-(0);
 
-  
+
+:
+
+ 
+
+translateX
+
+
+(0);
 }
 }
 /* Keyframes: Fade with scale
@@ -6449,16 +6729,24 @@ translateX
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 -webkit-transform
-:
- 
-scale
-(1);
 
-  
+
+:
+
+ 
+
+scale
+
+
+(1);
 }
 }
 @
@@ -6470,16 +6758,24 @@ keyframes uk-fade-scale-02 { 0% {
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 transform
-:
- 
-scale
-(1);
 
-  
+
+:
+
+ 
+
+scale
+
+
+(1);
 }
 }
 /*
@@ -6495,16 +6791,24 @@ scale
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 -webkit-transform
-:
- 
-scale
-(1);
 
-  
+
+:
+
+ 
+
+scale
+
+
+(1);
 }
 }
 @
@@ -6516,16 +6820,24 @@ keyframes uk-fade-scale-15 { 0% {
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 transform
-:
- 
-scale
-(1);
 
-  
+
+:
+
+ 
+
+scale
+
+
+(1);
 }
 }
 /*
@@ -6540,16 +6852,24 @@ scale
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 -webkit-transform
-:
- 
-scale
-(1);
 
-  
+
+:
+
+ 
+
+scale
+
+
+(1);
 }
 }
 @
@@ -6561,16 +6881,24 @@ keyframes uk-fade-scale-18 { 0% {
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 transform
-:
- 
-scale
-(1);
 
-  
+
+:
+
+ 
+
+scale
+
+
+(1);
 }
 }
 /* Keyframes: Slide
@@ -6587,12 +6915,16 @@ scale
 100%
 {
 -webkit-transform
-:
- 
-translateX
-(0);
 
-  
+
+:
+
+ 
+
+translateX
+
+
+(0);
 }
 }
 @
@@ -6603,12 +6935,16 @@ keyframes uk-slide-left { 0% {
 100%
 {
 transform
-:
- 
-translateX
-(0);
 
-  
+
+:
+
+ 
+
+translateX
+
+
+(0);
 }
 }
 /*
@@ -6622,12 +6958,16 @@ translateX
 100%
 {
 -webkit-transform
-:
- 
-translateX
-(0);
 
-  
+
+:
+
+ 
+
+translateX
+
+
+(0);
 }
 }
 @
@@ -6638,12 +6978,16 @@ keyframes uk-slide-right { 0% {
 100%
 {
 transform
-:
- 
-translateX
-(0);
 
-  
+
+:
+
+ 
+
+translateX
+
+
+(0);
 }
 }
 /*
@@ -6657,12 +7001,16 @@ translateX
 100%
 {
 -webkit-transform
-:
- 
-translateX
-(0);
 
-  
+
+:
+
+ 
+
+translateX
+
+
+(0);
 }
 }
 @
@@ -6673,12 +7021,16 @@ keyframes uk-slide-left-33 { 0% {
 100%
 {
 transform
-:
- 
-translateX
-(0);
 
-  
+
+:
+
+ 
+
+translateX
+
+
+(0);
 }
 }
 /*
@@ -6692,12 +7044,16 @@ translateX
 100%
 {
 -webkit-transform
-:
- 
-translateX
-(0);
 
-  
+
+:
+
+ 
+
+translateX
+
+
+(0);
 }
 }
 @
@@ -6708,12 +7064,16 @@ keyframes uk-slide-right-33 { 0% {
 100%
 {
 transform
-:
- 
-translateX
-(0);
 
-  
+
+:
+
+ 
+
+translateX
+
+
+(0);
 }
 }
 /* Keyframes: Scale
@@ -6726,12 +7086,16 @@ translateX
 100%
 {
 -webkit-transform
-:
- 
-scale
-(1);
 
-  
+
+:
+
+ 
+
+scale
+
+
+(1);
 }
 }
 @
@@ -6742,12 +7106,16 @@ keyframes uk-scale-12 { 0% {
 100%
 {
 transform
-:
- 
-scale
-(1);
 
-  
+
+:
+
+ 
+
+scale
+
+
+(1);
 }
 }
 /* Keyframes: Rotate
@@ -6761,12 +7129,22 @@ scale
 100%
 {
 -webkit-transform
+
+
 :
+
  
+
 rotate
-(359deg);
+
+
+(359
+deg
+);
+
 
   
+
 }
 }
 @
@@ -6777,12 +7155,22 @@ keyframes uk-rotate { 0% {
 100%
 {
 transform
+
+
 :
+
  
+
 rotate
-(359deg);
+
+
+(359
+deg
+);
+
 
   
+
 }
 }
 /* Keyframes: Shake
@@ -6795,92 +7183,182 @@ rotate
 10%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateX
-(-9px);
+
+
+(-9
+px
+);
+
 
   
+
 }
 20%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateX
-(8px);
+
+
+(8
+px
+);
+
 
   
+
 }
 30%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateX
-(-7px);
+
+
+(-7
+px
+);
+
 
   
+
 }
 40%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateX
-(6px);
+
+
+(6
+px
+);
+
 
   
+
 }
 50%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateX
-(-5px);
+
+
+(-5
+px
+);
+
 
   
+
 }
 60%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateX
-(4px);
+
+
+(4
+px
+);
+
 
   
+
 }
 70%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateX
-(-3px);
+
+
+(-3
+px
+);
+
 
   
+
 }
 80%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateX
-(2px);
+
+
+(2
+px
+);
+
 
   
+
 }
 90%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateX
-(-1px);
+
+
+(-1
+px
+);
+
 
   
+
 }
 }
 @
@@ -6891,92 +7369,182 @@ keyframes uk-shake { 0%, 100% {
 10%
 {
 transform
+
+
 :
+
  
+
 translateX
-(-9px);
+
+
+(-9
+px
+);
+
 
   
+
 }
 20%
 {
 transform
+
+
 :
+
  
+
 translateX
-(8px);
+
+
+(8
+px
+);
+
 
   
+
 }
 30%
 {
 transform
+
+
 :
+
  
+
 translateX
-(-7px);
+
+
+(-7
+px
+);
+
 
   
+
 }
 40%
 {
 transform
+
+
 :
+
  
+
 translateX
-(6px);
+
+
+(6
+px
+);
+
 
   
+
 }
 50%
 {
 transform
+
+
 :
+
  
+
 translateX
-(-5px);
+
+
+(-5
+px
+);
+
 
   
+
 }
 60%
 {
 transform
+
+
 :
+
  
+
 translateX
-(4px);
+
+
+(4
+px
+);
+
 
   
+
 }
 70%
 {
 transform
+
+
 :
+
  
+
 translateX
-(-3px);
+
+
+(-3
+px
+);
+
 
   
+
 }
 80%
 {
 transform
+
+
 :
+
  
+
 translateX
-(2px);
+
+
+(2
+px
+);
+
 
   
+
 }
 90%
 {
 transform
+
+
 :
+
  
+
 translateX
-(-1px);
+
+
+(-1
+px
+);
+
 
   
+
 }
 }
 /* Keyframes: Fade with slide fixed
@@ -6994,16 +7562,24 @@ translateX
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 -webkit-transform
-:
- 
-translateY
-(0);
 
-  
+
+:
+
+ 
+
+translateY
+
+
+(0);
 }
 }
 @
@@ -7015,16 +7591,24 @@ keyframes uk-slide-top-fixed { 0% {
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 transform
-:
- 
-translateY
-(0);
 
-  
+
+:
+
+ 
+
+translateY
+
+
+(0);
 }
 }
 /*
@@ -7039,16 +7623,24 @@ translateY
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 -webkit-transform
-:
- 
-translateY
-(0);
 
-  
+
+:
+
+ 
+
+translateY
+
+
+(0);
 }
 }
 @
@@ -7060,16 +7652,24 @@ keyframes uk-slide-bottom-fixed { 0% {
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 transform
-:
- 
-translateY
-(0);
 
-  
+
+:
+
+ 
+
+translateY
+
+
+(0);
 }
 }
 /* ========================================================================
@@ -7184,18 +7784,75 @@ translateY
 	/*
      * Width multiplier for dropdown columns
      */
-	.uk-dropdown-width-2:not (.uk-dropdown-stack ) {
-		width: 400px;
-	}
-	.uk-dropdown-width-3:not (.uk-dropdown-stack ) {
-		width: 600px;
-	}
-	.uk-dropdown-width-4:not (.uk-dropdown-stack ) {
-		width: 800px;
-	}
-	.uk-dropdown-width-5:not (.uk-dropdown-stack ) {
-		width: 1000px;
-	}
+	.uk-dropdown-width-2
+	:not
+	 
+	(
+	.uk-dropdown-stack
+	 
+	)
+	{
+	width
+	:
+	 
+	400
+	px
+	;
+	
+	
+}
+
+.uk-dropdown-width-3
+:not
+ 
+(
+.uk-dropdown-stack
+ 
+)
+{
+width
+:
+ 
+600
+px
+;
+
+	
+}
+.uk-dropdown-width-4
+:not
+ 
+(
+.uk-dropdown-stack
+ 
+)
+{
+width
+:
+ 
+800
+px
+;
+
+	
+}
+.uk-dropdown-width-5
+:not
+ 
+(
+.uk-dropdown-stack
+ 
+)
+{
+width
+:
+ 
+1000
+px
+;
+
+	
+}
 }
 /* Phone landscape and smaller */
 @media ( max-width : 767px) {
@@ -7379,8 +8036,27 @@ translateY
 /*
  * Remove margin from adjacent element
  */
-.uk-modal-dialog>.uk-close:first-child+*:not ([class*='uk-modal-'] ) {
-	margin-top: 0;
+.uk-modal-dialog
+>
+.uk-close
+:first-child
++
+*
+:not
+ 
+(
+[
+class
+*=
+'uk-modal-'
+]
+ 
+)
+{
+margin-top
+:
+ 
+0;
 }
 /* Modifier: `uk-modal-dialog-lightbox`
  ========================================================================== */
@@ -7576,10 +8252,28 @@ translateY
 	color: #cccccc;
 }
 
-.uk-offcanvas .uk-panel a:not ([class] ) {
-	color: #cccccc;
-}
+.uk-offcanvas
+ 
+.uk-panel
+ 
+a
+:not
+ 
+(
+[
+class
+]
+ 
+)
+{
+color
+:
+ 
+#cccccc
+;
 
+
+}
 .uk-offcanvas .uk-panel a:not ([class] ):hover {
 	color: #ffffff;
 }
@@ -7614,8 +8308,23 @@ translateY
 /*
  * Items
  */
-.uk-switcher>*:not (.uk-active ) {
-	display: none;
+.uk-switcher
+>
+*
+:not
+ 
+(
+.uk-active
+ 
+)
+{
+display
+:
+ 
+none
+;
+
+
 }
 /* ========================================================================
    Component: Tooltip
