@@ -26,8 +26,8 @@ $(document).ready(function(){
 
         // def options
         var aDefOpts = {
-            start: new Date().setTime(new Date(2015, 09, 01).getTime()), // now
-            finish: new Date().setTime(new Date(2016, 01, 01).getTime()), // now + 60 sec
+            start: new Date().setTime(new Date(2016, 06, 15).getTime()), // now
+            finish: new Date().setTime(new Date(2016, 12, 01).getTime()), // now + 60 sec
             interval: 100,
             type : ''
         };

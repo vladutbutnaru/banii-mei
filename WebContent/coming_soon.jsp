@@ -127,7 +127,7 @@ Histats.track_hits();} catch(err){};
 		<div class="clear"></div>
 	</div>
 	<div id="footer">
-		<div class="container">© 2015 Banii mei - Reinventam Economiile.
+  <div class="container"> ï¿½ 2016 Banii mei - Reinventam Economiile. Impreuna </div>
 			Impreuna</div>
 	</div>
 </body>
